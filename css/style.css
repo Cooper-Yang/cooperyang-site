@@ -376,8 +376,7 @@ img, video {
 }
 
 .project-card:hover {
-  border-color: var(--green-dark);
-  box-shadow: 0 0 30px var(--green-glow), inset 0 0 30px var(--green-glow);
+  border-color: var(--green-muted);
 }
 
 .project-card img {
@@ -1237,6 +1236,107 @@ audio {
   color: var(--green);
   animation: blink 1s infinite;
   font-weight: 400;
+}
+
+/* ============================================
+   Spotlight Card Effect
+   ============================================ */
+.project-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(0, 255, 65, 0.06);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-color),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card {
+  position: relative;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   Electric Border Effect
+   ============================================ */
+@keyframes electric-flicker {
+  0%, 100% { opacity: 1; }
+  5% { opacity: 0.4; }
+  10% { opacity: 1; }
+  42% { opacity: 1; }
+  43% { opacity: 0.6; }
+  44% { opacity: 1; }
+  80% { opacity: 1; }
+  82% { opacity: 0.3; }
+  83% { opacity: 1; }
+}
+
+@keyframes electric-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(0, 255, 65, 0.3),
+      0 0 12px rgba(0, 255, 65, 0.15),
+      0 0 30px rgba(0, 255, 65, 0.06),
+      inset 0 0 12px rgba(0, 255, 65, 0.04);
+  }
+  50% {
+    box-shadow:
+      0 0 6px rgba(0, 255, 65, 0.5),
+      0 0 20px rgba(0, 255, 65, 0.25),
+      0 0 45px rgba(0, 255, 65, 0.1),
+      inset 0 0 20px rgba(0, 255, 65, 0.06);
+  }
+}
+
+.project-card:hover {
+  border-color: var(--green-muted);
+  animation: electric-glow-pulse 2s ease-in-out infinite;
+}
+
+.project-card:hover .card-title {
+  animation: electric-flicker 3s infinite;
+}
+
+/* ============================================
+   Decrypted Text
+   ============================================ */
+.decrypt-char {
+  display: inline-block;
+  min-width: 0.5em;
+}
+
+.decrypt-char.scrambled {
+  color: var(--green-dark);
+  opacity: 0.7;
+}
+
+.decrypt-char.revealed {
+  color: inherit;
+  opacity: 1;
+}
+
+/* ============================================
+   Click Spark Canvas
+   ============================================ */
+#click-spark-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
 }
 
 /* ============================================

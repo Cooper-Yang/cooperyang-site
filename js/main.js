@@ -138,6 +138,213 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
+  // ---- Decrypted Text Effect ----
+  var DECRYPT_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?~';
+
+  function decryptText(element, options) {
+    var text = element.getAttribute('data-text') || element.textContent;
+    element.setAttribute('data-text', text);
+    var speed = (options && options.speed) || 30;
+    var revealDelay = (options && options.revealDelay) || 50;
+    var revealed = new Set();
+    var iteration = 0;
+
+    function randomChar() {
+      return DECRYPT_CHARS[Math.floor(Math.random() * DECRYPT_CHARS.length)];
+    }
+
+    function render() {
+      var html = '';
+      for (var i = 0; i < text.length; i++) {
+        if (text[i] === ' ') {
+          html += ' ';
+        } else if (revealed.has(i)) {
+          html += '<span class="decrypt-char revealed">' + text[i] + '</span>';
+        } else {
+          html += '<span class="decrypt-char scrambled">' + randomChar() + '</span>';
+        }
+      }
+      element.innerHTML = html;
+    }
+
+    // Start scrambled
+    render();
+
+    var intervalId = setInterval(function() {
+      // Reveal next character from left
+      for (var i = 0; i < text.length; i++) {
+        if (!revealed.has(i) && text[i] !== ' ') {
+          revealed.add(i);
+          break;
+        }
+      }
+      render();
+      iteration++;
+
+      if (revealed.size >= text.replace(/ /g, '').length) {
+        clearInterval(intervalId);
+        element.textContent = text;
+      }
+    }, revealDelay);
+
+    // Scramble unrevealed characters while revealing
+    var scrambleId = setInterval(function() {
+      if (revealed.size >= text.replace(/ /g, '').length) {
+        clearInterval(scrambleId);
+        return;
+      }
+      render();
+    }, speed);
+  }
+
+  // Apply to sidebar name on load
+  var sidebarName = document.querySelector('.sidebar .name a');
+  if (sidebarName) {
+    decryptText(sidebarName, { speed: 40, revealDelay: 60 });
+  }
+
+  // Apply to mobile header name on load
+  var mobileName = document.querySelector('.mobile-header .name a');
+  if (mobileName) {
+    decryptText(mobileName, { speed: 40, revealDelay: 60 });
+  }
+
+  // Apply decrypt on hover for card titles
+  document.querySelectorAll('.card-title').forEach(function(title) {
+    title.addEventListener('mouseenter', function() {
+      if (!title.getAttribute('data-decrypting')) {
+        title.setAttribute('data-decrypting', 'true');
+        var originalText = title.getAttribute('data-text') || title.textContent;
+        title.setAttribute('data-text', originalText);
+        var revealed = new Set();
+
+        function randomChar() {
+          return DECRYPT_CHARS[Math.floor(Math.random() * DECRYPT_CHARS.length)];
+        }
+
+        function render() {
+          var html = '';
+          for (var i = 0; i < originalText.length; i++) {
+            if (originalText[i] === ' ') {
+              html += ' ';
+            } else if (revealed.has(i)) {
+              html += originalText[i];
+            } else {
+              html += randomChar();
+            }
+          }
+          title.textContent = html;
+        }
+
+        render();
+
+        var revealId = setInterval(function() {
+          for (var i = 0; i < originalText.length; i++) {
+            if (!revealed.has(i) && originalText[i] !== ' ') {
+              revealed.add(i);
+              break;
+            }
+          }
+          render();
+          if (revealed.size >= originalText.replace(/ /g, '').length) {
+            clearInterval(revealId);
+            clearInterval(scrambleId);
+            title.textContent = originalText;
+            title.removeAttribute('data-decrypting');
+          }
+        }, 25);
+
+        var scrambleId = setInterval(function() {
+          if (revealed.size >= originalText.replace(/ /g, '').length) {
+            clearInterval(scrambleId);
+            return;
+          }
+          render();
+        }, 20);
+      }
+    });
+  });
+
+  // ---- Spotlight Card Effect ----
+  document.querySelectorAll('.project-card').forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', x + 'px');
+      card.style.setProperty('--mouse-y', y + 'px');
+    });
+  });
+
+  // ---- Click Spark Effect ----
+  var sparkCanvas = document.createElement('canvas');
+  sparkCanvas.id = 'click-spark-canvas';
+  document.body.appendChild(sparkCanvas);
+  var sparkCtx = sparkCanvas.getContext('2d');
+  var sparks = [];
+
+  function resizeSparkCanvas() {
+    sparkCanvas.width = window.innerWidth;
+    sparkCanvas.height = window.innerHeight;
+  }
+  resizeSparkCanvas();
+  window.addEventListener('resize', resizeSparkCanvas);
+
+  function easeOut(t) {
+    return t * (2 - t);
+  }
+
+  document.addEventListener('click', function(e) {
+    var sparkCount = 12;
+    var now = Date.now();
+    for (var i = 0; i < sparkCount; i++) {
+      var angle = (2 * Math.PI * i) / sparkCount + (Math.random() - 0.5) * 0.4;
+      sparks.push({
+        x: e.clientX,
+        y: e.clientY,
+        angle: angle,
+        startTime: now,
+        duration: 400 + Math.random() * 200,
+        radius: 25 + Math.random() * 30,
+        size: 8 + Math.random() * 6,
+        hue: Math.random() > 0.7 ? 160 : 140  // mostly green, some cyan
+      });
+    }
+  });
+
+  function animateSparks() {
+    sparkCtx.clearRect(0, 0, sparkCanvas.width, sparkCanvas.height);
+    var now = Date.now();
+    sparks = sparks.filter(function(s) {
+      return now - s.startTime < s.duration;
+    });
+
+    sparks.forEach(function(s) {
+      var elapsed = now - s.startTime;
+      var progress = elapsed / s.duration;
+      var eased = easeOut(progress);
+
+      var distance = eased * s.radius;
+      var x = s.x + Math.cos(s.angle) * distance;
+      var y = s.y + Math.sin(s.angle) * distance;
+      var lineLen = s.size * (1 - eased);
+      var endX = x + Math.cos(s.angle) * lineLen;
+      var endY = y + Math.sin(s.angle) * lineLen;
+      var alpha = 1 - eased;
+
+      sparkCtx.beginPath();
+      sparkCtx.moveTo(x, y);
+      sparkCtx.lineTo(endX, endY);
+      sparkCtx.strokeStyle = 'hsla(' + s.hue + ', 100%, 60%, ' + alpha + ')';
+      sparkCtx.lineWidth = 2;
+      sparkCtx.lineCap = 'round';
+      sparkCtx.stroke();
+    });
+
+    requestAnimationFrame(animateSparks);
+  }
+  animateSparks();
+
   // ---- Code Block Expand/Collapse ----
   document.querySelectorAll('.code-expand-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
