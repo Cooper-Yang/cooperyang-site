@@ -276,61 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ---- Shiny Text (Hero Titles) ----
-  document.querySelectorAll('.hero-card h1').forEach(function(h1) {
-    // Wrap text content in shiny span, preserving links
-    var link = h1.querySelector('a');
-    if (link) {
-      var inner = link.innerHTML;
-      link.innerHTML = '<span class="shiny-text">' + inner + '</span>';
-    } else {
-      // Handle the ::before pseudo-element by only wrapping text nodes
-      var text = h1.textContent;
-      // Preserve the ::before content by only wrapping direct text
-      var nodes = h1.childNodes;
-      for (var i = 0; i < nodes.length; i++) {
-        if (nodes[i].nodeType === 3 && nodes[i].textContent.trim()) {
-          var span = document.createElement('span');
-          span.className = 'shiny-text';
-          span.textContent = nodes[i].textContent;
-          h1.replaceChild(span, nodes[i]);
-        }
-      }
-    }
-  });
-
-  // ---- Split Text (Section Headers) ----
-  document.querySelectorAll('.section-block h2').forEach(function(h2) {
-    var text = h2.textContent;
-    var html = '';
-    for (var i = 0; i < text.length; i++) {
-      if (text[i] === ' ') {
-        html += '<span class="split-char space"> </span>';
-      } else {
-        html += '<span class="split-char">' + text[i] + '</span>';
-      }
-    }
-    h2.innerHTML = html;
-    h2.setAttribute('data-split', 'true');
-  });
-
-  var splitObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var chars = entry.target.querySelectorAll('.split-char');
-        chars.forEach(function(ch, idx) {
-          ch.style.transitionDelay = (idx * 30) + 'ms';
-        });
-        entry.target.classList.add('split-text-visible');
-        splitObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('[data-split="true"]').forEach(function(el) {
-    splitObserver.observe(el);
-  });
-
   // ---- CountUp (Contribution Numbers) ----
   function animateCountUp(el, target) {
     var current = 0;
