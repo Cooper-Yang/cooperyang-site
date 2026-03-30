@@ -1330,6 +1330,78 @@ audio {
 }
 
 /* ============================================
+   Shiny Text (Hero Titles)
+   ============================================ */
+@keyframes shine-sweep {
+  0% { background-position: 150% center; }
+  100% { background-position: -50% center; }
+}
+
+.hero-card h1 .shiny-text {
+  display: inline;
+  background: linear-gradient(
+    120deg,
+    var(--green) 0%,
+    var(--green) 35%,
+    #88ffaa 50%,
+    var(--green) 65%,
+    var(--green) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine-sweep 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Override text-shadow which conflicts with background-clip text */
+.hero-card h1 .shiny-text {
+  text-shadow: none;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 65, 0.2));
+}
+
+/* ============================================
+   Split Text (Section Headers)
+   ============================================ */
+.split-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px) scaleY(1.4) scaleX(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.split-char.space {
+  width: 0.3em;
+}
+
+.split-text-visible .split-char {
+  opacity: 1;
+  transform: translateY(0) scaleY(1) scaleX(1);
+}
+
+/* ============================================
+   CountUp (Contribution Numbers)
+   ============================================ */
+.contrib-list .num {
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================
+   Staggered List (Contribution Items)
+   ============================================ */
+.contrib-list li {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.contrib-list li.stagger-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
    Scroll Reveal
    ============================================ */
 .reveal-ready {

@@ -276,6 +276,125 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ---- Shiny Text (Hero Titles) ----
+  document.querySelectorAll('.hero-card h1').forEach(function(h1) {
+    // Wrap text content in shiny span, preserving links
+    var link = h1.querySelector('a');
+    if (link) {
+      var inner = link.innerHTML;
+      link.innerHTML = '<span class="shiny-text">' + inner + '</span>';
+    } else {
+      // Handle the ::before pseudo-element by only wrapping text nodes
+      var text = h1.textContent;
+      // Preserve the ::before content by only wrapping direct text
+      var nodes = h1.childNodes;
+      for (var i = 0; i < nodes.length; i++) {
+        if (nodes[i].nodeType === 3 && nodes[i].textContent.trim()) {
+          var span = document.createElement('span');
+          span.className = 'shiny-text';
+          span.textContent = nodes[i].textContent;
+          h1.replaceChild(span, nodes[i]);
+        }
+      }
+    }
+  });
+
+  // ---- Split Text (Section Headers) ----
+  document.querySelectorAll('.section-block h2').forEach(function(h2) {
+    var text = h2.textContent;
+    var html = '';
+    for (var i = 0; i < text.length; i++) {
+      if (text[i] === ' ') {
+        html += '<span class="split-char space"> </span>';
+      } else {
+        html += '<span class="split-char">' + text[i] + '</span>';
+      }
+    }
+    h2.innerHTML = html;
+    h2.setAttribute('data-split', 'true');
+  });
+
+  var splitObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var chars = entry.target.querySelectorAll('.split-char');
+        chars.forEach(function(ch, idx) {
+          ch.style.transitionDelay = (idx * 30) + 'ms';
+        });
+        entry.target.classList.add('split-text-visible');
+        splitObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[data-split="true"]').forEach(function(el) {
+    splitObserver.observe(el);
+  });
+
+  // ---- CountUp (Contribution Numbers) ----
+  function animateCountUp(el, target) {
+    var current = 0;
+    var duration = 600;
+    var start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      // Ease out
+      var eased = 1 - Math.pow(1 - progress, 3);
+      current = Math.round(eased * target);
+      el.textContent = current < 10 ? '0' + current : String(current);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    el.textContent = '00';
+    requestAnimationFrame(step);
+  }
+
+  var countObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        if (!isNaN(target)) {
+          animateCountUp(el, target);
+        }
+        countObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.contrib-list .num').forEach(function(num) {
+    var value = parseInt(num.textContent, 10);
+    if (!isNaN(value)) {
+      num.setAttribute('data-count', value);
+      num.textContent = '00';
+      countObserver.observe(num);
+    }
+  });
+
+  // ---- Staggered List (Contribution Items) ----
+  var staggerObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var list = entry.target;
+        var items = list.querySelectorAll('li');
+        items.forEach(function(li, idx) {
+          setTimeout(function() {
+            li.classList.add('stagger-visible');
+          }, idx * 120);
+        });
+        staggerObserver.unobserve(list);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.contrib-list').forEach(function(list) {
+    staggerObserver.observe(list);
+  });
+
   // ---- Code Block Expand/Collapse ----
   document.querySelectorAll('.code-expand-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
