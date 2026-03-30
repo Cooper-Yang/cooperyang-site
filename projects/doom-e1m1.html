@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Doom E1M1 Clone - Game design project by Cooper Yang. Recreation of Doom's first level in Unity.">
+  <title>Doom E1M1 Clone - Cooper Yang</title>
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="name"><a href="../index.html">Cooper Yang</a></div>
+      <div class="titles">Combat Designer<br>Game Designer</div>
+      <nav>
+        <a href="../about.html">About Me</a>
+        <a href="../index.html">Projects</a>
+        <a href="../archive.html" class="active">Archive</a>
+        <hr class="nav-divider" aria-hidden="true">
+        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+        <a href="mailto:cooperyang@usc.edu">Email</a>
+        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
+  </aside>
+
+  <header class="mobile-header">
+    <span class="name"><a href="../index.html">Cooper Yang</a></span>
+    <button class="hamburger" aria-label="Open menu">&#9776;</button>
+  </header>
+
+  <div class="mobile-nav-overlay">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <a href="../about.html">About Me</a>
+    <a href="../index.html">Projects</a>
+    <a href="../archive.html">Archive</a>
+    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+    <a href="mailto:cooperyang@usc.edu">Email</a>
+    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+
+  <main class="main">
+    <div class="project-content">
+
+      <div class="content-row full"><div class="col">
+        <img src="../assets/images/doom-gameplay.gif" alt="Doom E1M1 Clone gameplay" loading="lazy">
+      </div></div>
+      <div class="hero-card">
+        <h1>Doom E1M1 Clone</h1>
+        <div class="hero-meta"><span class="role">Game Designer, Programmer</span><span class="date">2019.10 - 2019.12</span></div>
+        <p class="hero-desc">- FPS, Unity</p>
+        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/theultimatedoomclone" target="_blank" rel="noopener">Itch Page</a></div>
+      </div>
+
+      <div class="section-block"><h2>About</h2></div>
+
+      <div class="content-row full">
+        <div class="col">
+          <p>The project involved recreating the initial level of the 1993 Doom game by id Software over a seven-week period. The team constructed original assets mirroring the initial textures, sounds, and codes while preserving the spirit and atmosphere of the original level, including its hidden secrets.</p>
+          <p>My responsibilities included creating the head bob and player movement systems, along with implementing the pixelation post-processing effect.</p>
+        </div>
+      </div>
+
+      <div class="section-block"><h2>Development</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/doom-headbob.png" alt="Head bobbing implementation" loading="lazy">
+        </div>
+        <div class="col">
+          <p><strong>Head Bobbing:</strong></p>
+          <p>Implemented a "head bobbing" feature to enhance immersion by simulating natural up-and-down motion in the player's viewpoint during movement.</p>
+          <p>The effect uses core variables: bobbingSpeed (pace), bobbingHeight (intensity), and midpoint (base position). The isHeadBobbing flag triggers a rhythmic bobbing effect synchronized with player movement, creating a sine wave pattern.</p>
+          <p>Our version uses two separate cameras; one showcasing the player's viewpoint and another focusing on the weapon. Both are powered by the same script but with different settings, offering a unified experience true to the keyboard-driven controls of the original title.</p>
+        </div>
+      </div>
+
+      <div class="content-row full">
+        <div class="col">
+          <div class="code-block collapsed">
+          <div class="code-block-header">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="filename">HeadBob.cs</span>
+          </div>
+          <div class="code-block-body">
+            <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">public</span> <span class="kw">class</span> HeadBob : <span class="typ">MonoBehaviour</span></td></tr>
+<tr><td class="line-num">2</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">3</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> bobbingSpeed = <span class="num">0.18f</span>;</td></tr>
+<tr><td class="line-num">4</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> bobbingHeight = <span class="num">0.2f</span>;</td></tr>
+<tr><td class="line-num">5</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> midpoint = <span class="num">1.8f</span>;</td></tr>
+<tr><td class="line-num">6</td><td class="line-code">    <span class="kw">public</span> <span class="kw">bool</span> isHeadBobbing = <span class="kw">true</span>;</td></tr>
+<tr><td class="line-num">7</td><td class="line-code">    <span class="kw">private</span> <span class="typ">float</span> timer = <span class="num">0.0f</span>;</td></tr>
+<tr><td class="line-num">8</td><td class="line-code"></td></tr>
+<tr><td class="line-num">9</td><td class="line-code">    <span class="kw">void</span> Update()</td></tr>
+<tr><td class="line-num">10</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">11</td><td class="line-code">        <span class="typ">float</span> waveslice = <span class="num">0.0f</span>;</td></tr>
+<tr><td class="line-num">12</td><td class="line-code">        <span class="typ">float</span> horizontal = <span class="typ">Input</span>.GetAxis(&quot;Horizontal&quot;);</td></tr>
+<tr><td class="line-num">13</td><td class="line-code">        <span class="typ">float</span> vertical = <span class="typ">Input</span>.GetAxis(&quot;Vertical&quot;);</td></tr>
+<tr><td class="line-num">14</td><td class="line-code">        <span class="typ">Vector3</span> cSharpConversion = transform.localPosition;</td></tr>
+<tr><td class="line-num">15</td><td class="line-code"></td></tr>
+<tr><td class="line-num">16</td><td class="line-code">        <span class="kw">if</span> (<span class="typ">Mathf</span>.Abs(horizontal) == <span class="num">0</span> &amp;&amp; <span class="typ">Mathf</span>.Abs(vertical) == <span class="num">0</span>)</td></tr>
+<tr><td class="line-num">17</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">18</td><td class="line-code">            timer = <span class="num">0.0f</span>;</td></tr>
+<tr><td class="line-num">19</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">20</td><td class="line-code">        <span class="kw">else</span></td></tr>
+<tr><td class="line-num">21</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">22</td><td class="line-code">            waveslice = <span class="typ">Mathf</span>.Sin(timer);</td></tr>
+<tr><td class="line-num">23</td><td class="line-code">            timer = timer + bobbingSpeed;</td></tr>
+<tr><td class="line-num">24</td><td class="line-code">            <span class="kw">if</span> (timer &gt; <span class="typ">Mathf</span>.PI * <span class="num">2</span>)</td></tr>
+<tr><td class="line-num">25</td><td class="line-code">            {</td></tr>
+<tr><td class="line-num">26</td><td class="line-code">                timer = timer - (<span class="typ">Mathf</span>.PI * <span class="num">2</span>);</td></tr>
+<tr><td class="line-num">27</td><td class="line-code">            }</td></tr>
+<tr><td class="line-num">28</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">29</td><td class="line-code"></td></tr>
+<tr><td class="line-num">30</td><td class="line-code">        <span class="kw">if</span> (waveslice != <span class="num">0</span>)</td></tr>
+<tr><td class="line-num">31</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">32</td><td class="line-code">            <span class="typ">float</span> translateChange = waveslice * bobbingHeight;</td></tr>
+<tr><td class="line-num">33</td><td class="line-code">            <span class="typ">float</span> totalAxes = <span class="typ">Mathf</span>.Abs(horizontal) + <span class="typ">Mathf</span>.Abs(vertical);</td></tr>
+<tr><td class="line-num">34</td><td class="line-code">            totalAxes = <span class="typ">Mathf</span>.Clamp(totalAxes, <span class="num">0.0f</span>, <span class="num">1.0f</span>);</td></tr>
+<tr><td class="line-num">35</td><td class="line-code">            translateChange = totalAxes * translateChange;</td></tr>
+<tr><td class="line-num">36</td><td class="line-code"></td></tr>
+<tr><td class="line-num">37</td><td class="line-code">            <span class="kw">if</span> (isHeadBobbing == <span class="kw">true</span>)</td></tr>
+<tr><td class="line-num">38</td><td class="line-code">                cSharpConversion.y = midpoint + translateChange;</td></tr>
+<tr><td class="line-num">39</td><td class="line-code">            <span class="kw">else</span> <span class="kw">if</span> (isHeadBobbing == <span class="kw">false</span>)</td></tr>
+<tr><td class="line-num">40</td><td class="line-code">                cSharpConversion.x = translateChange;</td></tr>
+<tr><td class="line-num">41</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">42</td><td class="line-code">        <span class="kw">else</span></td></tr>
+<tr><td class="line-num">43</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">44</td><td class="line-code">            <span class="kw">if</span> (isHeadBobbing == <span class="kw">true</span>)</td></tr>
+<tr><td class="line-num">45</td><td class="line-code">                cSharpConversion.y = midpoint;</td></tr>
+<tr><td class="line-num">46</td><td class="line-code">            <span class="kw">else</span> <span class="kw">if</span> (isHeadBobbing == <span class="kw">false</span>)</td></tr>
+<tr><td class="line-num">47</td><td class="line-code">                cSharpConversion.x = <span class="num">0</span>;</td></tr>
+<tr><td class="line-num">48</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">49</td><td class="line-code"></td></tr>
+<tr><td class="line-num">50</td><td class="line-code">        transform.localPosition = cSharpConversion;</td></tr>
+<tr><td class="line-num">51</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">52</td><td class="line-code">}</td></tr></table>
+          </div>
+          <button class="code-expand-btn">// expand full source</button>
+          <div class="code-block-footer">
+            <span>C#</span>
+            <span>52 lines</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/doom-postprocess.png" alt="Pixelization post-processing" loading="lazy">
+        </div>
+        <div class="col">
+          <p><strong>Post-Processing:</strong></p>
+          <p>The pixelization post-processing effect simulates the original game's graphic style. Since Doom's engine displayed 3D environments derived from 2D floor plans, it produced low-resolution visuals with graphic aliasing.</p>
+          <p>Using Unity and custom assets, we applied post-processing to the camera to replicate this appearance -- a cost-effective approach facilitating the desired graphic representation.</p>
+        </div>
+      </div>
+
+      <div class="next-project">
+        <a href="vect0r-ld.html">Next Project <span class="arrow">&rarr;</span></a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

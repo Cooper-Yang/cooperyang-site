@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Flashlight - Game design project by Cooper Yang. Portfolio case study with design documentation.">
+  <title>Flashlight - Cooper Yang</title>
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="name"><a href="../index.html">Cooper Yang</a></div>
+      <div class="titles">Combat Designer<br>Game Designer</div>
+      <nav>
+        <a href="../about.html">About Me</a>
+        <a href="../index.html" class="active">Projects</a>
+        <a href="../archive.html">Archive</a>
+        <hr class="nav-divider" aria-hidden="true">
+        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+        <a href="mailto:cooperyang@usc.edu">Email</a>
+        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
+  </aside>
+
+  <header class="mobile-header">
+    <span class="name"><a href="../index.html">Cooper Yang</a></span>
+    <button class="hamburger" aria-label="Open menu">&#9776;</button>
+  </header>
+
+  <div class="mobile-nav-overlay">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <a href="../about.html">About Me</a>
+    <a href="../index.html">Projects</a>
+    <a href="../archive.html">Archive</a>
+    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+    <a href="mailto:cooperyang@usc.edu">Email</a>
+    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+
+  <main class="main">
+    <div class="project-content">
+
+      <!-- Hero -->
+      <div class="content-row full"><div class="col">
+        <img src="../assets/images/flashlight-thumb.gif" alt="Flashlight gameplay" loading="lazy">
+      </div></div>
+      <div class="hero-card">
+        <h1>Flashlight</h1>
+        <div class="hero-meta"><span class="role">Game Designer, Level Designer</span><span class="date">2019.10 - 2019.12</span></div>
+        <p class="hero-desc"><em>- Top-Down Survival Horror Game, Unity</em><br>
+        - Flashlight Mechanic: The flashlight attracts monsters, requiring strategic use to navigate and manipulate their movements.<br>
+        - Showcase: Featured in NYU Game Center 2019 Halloween Showcase</p>
+        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/flashlight" target="_blank" rel="noopener">Itch Page</a></div>
+      </div>
+
+      <!-- Contributions -->
+      <div class="contrib-block">
+        <div class="contrib-header">contributions</div>
+        <ul class="contrib-list">
+          <li><span class="num">01</span><span>Puzzle and Level Design</span></li>
+          <li><span class="num">02</span><span>Light Mechanic with dynamic field-of-view system that visualizes sight, detects and handles targets in real time</span></li>
+          <li><span class="num">03</span><span>Atmospheric Audio Implementation</span></li>
+        </ul>
+      </div>
+
+      <!-- Level Design -->
+      <div class="section-block"><h2>Level Design</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/flashlight-screenshot1.png" alt="Level design" loading="lazy">
+        </div>
+        <div class="col">
+          <p>- Setting in abandoned house with tight, confined spaces</p>
+          <p>- Circular Level Design with natural, non-linear paths</p>
+          <p>- Wires as visual guides and puzzle clues</p>
+        </div>
+      </div>
+
+      <!-- FOV Implementation -->
+      <div class="section-block"><h2>FOV Implementation</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/flashlight-screenshot2.png" alt="FOV system" loading="lazy">
+        </div>
+        <div class="col">
+          <p>- Initialization of view angle and mesh creation</p>
+          <p>- Real-time sight area visualization</p>
+          <p>- Target identification within field of view</p>
+          <p>- Status updates when targets become visible</p>
+        </div>
+      </div>
+
+      <!-- Code Block -->
+      <div class="content-row full">
+        <div class="col">
+          <div class="code-block collapsed">
+          <div class="code-block-header">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="filename">FieldOfView.cs</span>
+          </div>
+          <div class="code-block-body">
+            <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">using</span> System.Collections;</td></tr>
+<tr><td class="line-num">2</td><td class="line-code"><span class="kw">using</span> System.Collections.Generic;</td></tr>
+<tr><td class="line-num">3</td><td class="line-code"><span class="kw">using</span> UnityEngine;</td></tr>
+<tr><td class="line-num">4</td><td class="line-code"></td></tr>
+<tr><td class="line-num">5</td><td class="line-code"><span class="kw">public</span> <span class="kw">class</span> FieldOfView : <span class="typ">MonoBehaviour</span></td></tr>
+<tr><td class="line-num">6</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">7</td><td class="line-code">    <span class="kw">public</span> <span class="kw">static</span> <span class="kw">bool</span> on = <span class="kw">false</span>;</td></tr>
+<tr><td class="line-num">8</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> viewRadius;</td></tr>
+<tr><td class="line-num">9</td><td class="line-code">    [<span class="typ">Range</span>(<span class="num">0</span>,<span class="num">360</span>)]</td></tr>
+<tr><td class="line-num">10</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> viewAngle;</td></tr>
+<tr><td class="line-num">11</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> viewAngleAmount;</td></tr>
+<tr><td class="line-num">12</td><td class="line-code">    <span class="kw">public</span> <span class="typ">LayerMask</span> targetMask;</td></tr>
+<tr><td class="line-num">13</td><td class="line-code">    <span class="kw">public</span> <span class="typ">LayerMask</span> obstacleMask;</td></tr>
+<tr><td class="line-num">14</td><td class="line-code">    [<span class="typ">HideInInspector</span>]</td></tr>
+<tr><td class="line-num">15</td><td class="line-code">    <span class="kw">public</span> <span class="typ">List</span>&lt;<span class="typ">Transform</span>&gt; visibleTargets = <span class="kw">new</span> <span class="typ">List</span>&lt;<span class="typ">Transform</span>&gt;();</td></tr>
+<tr><td class="line-num">16</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> meshResolution;</td></tr>
+<tr><td class="line-num">17</td><td class="line-code">    <span class="kw">public</span> <span class="typ">int</span> edgeResolveIterations;</td></tr>
+<tr><td class="line-num">18</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> edgeDstThreshold;</td></tr>
+<tr><td class="line-num">19</td><td class="line-code">    <span class="kw">public</span> <span class="typ">MeshFilter</span> viewMeshFilter;</td></tr>
+<tr><td class="line-num">20</td><td class="line-code">    <span class="kw">public</span> <span class="typ">Transform</span> monster;</td></tr>
+<tr><td class="line-num">21</td><td class="line-code"></td></tr>
+<tr><td class="line-num">22</td><td class="line-code">    <span class="typ">Mesh</span> viewMesh;</td></tr>
+<tr><td class="line-num">23</td><td class="line-code"></td></tr>
+<tr><td class="line-num">24</td><td class="line-code">    <span class="kw">private</span> <span class="kw">void</span> Start()</td></tr>
+<tr><td class="line-num">25</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">26</td><td class="line-code">        viewAngle = <span class="num">0</span>;</td></tr>
+<tr><td class="line-num">27</td><td class="line-code">        viewMesh = <span class="kw">new</span> <span class="typ">Mesh</span>();</td></tr>
+<tr><td class="line-num">28</td><td class="line-code">        viewMesh.name = &quot;View <span class="typ">Mesh</span>&quot;;</td></tr>
+<tr><td class="line-num">29</td><td class="line-code">        viewMeshFilter.mesh = viewMesh;</td></tr>
+<tr><td class="line-num">30</td><td class="line-code">        <span class="typ">StartCoroutine</span>(&quot;FindTargetsWithDelay&quot;, .<span class="num">2f</span>);</td></tr>
+<tr><td class="line-num">31</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">32</td><td class="line-code"></td></tr>
+<tr><td class="line-num">33</td><td class="line-code">    <span class="typ">IEnumerator</span> FindTargetsWithDelay(<span class="typ">float</span> delay)</td></tr>
+<tr><td class="line-num">34</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">35</td><td class="line-code">        <span class="kw">while</span> (<span class="kw">true</span>)</td></tr>
+<tr><td class="line-num">36</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">37</td><td class="line-code">            <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">new</span> <span class="typ">WaitForSeconds</span>(delay);</td></tr>
+<tr><td class="line-num">38</td><td class="line-code">            FindVisibleTargets();</td></tr>
+<tr><td class="line-num">39</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">40</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">41</td><td class="line-code"></td></tr>
+<tr><td class="line-num">42</td><td class="line-code">    <span class="kw">private</span> <span class="kw">void</span> Update()</td></tr>
+<tr><td class="line-num">43</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">44</td><td class="line-code">        <span class="kw">if</span> (<span class="typ">Input</span>.GetKeyDown(<span class="typ">KeyCode</span>.Mouse0))</td></tr>
+<tr><td class="line-num">45</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">46</td><td class="line-code">            <span class="kw">if</span> (on)</td></tr>
+<tr><td class="line-num">47</td><td class="line-code">            {</td></tr>
+<tr><td class="line-num">48</td><td class="line-code">                on = <span class="kw">false</span>;</td></tr>
+<tr><td class="line-num">49</td><td class="line-code">                viewAngle = <span class="num">0</span>;</td></tr>
+<tr><td class="line-num">50</td><td class="line-code">            }</td></tr>
+<tr><td class="line-num">51</td><td class="line-code">            <span class="kw">else</span> <span class="kw">if</span> (!on)</td></tr>
+<tr><td class="line-num">52</td><td class="line-code">            {</td></tr>
+<tr><td class="line-num">53</td><td class="line-code">                on = <span class="kw">true</span>;</td></tr>
+<tr><td class="line-num">54</td><td class="line-code">                viewAngle = viewAngleAmount;</td></tr>
+<tr><td class="line-num">55</td><td class="line-code">            }</td></tr>
+<tr><td class="line-num">56</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">57</td><td class="line-code">        SetStayToFalse();</td></tr>
+<tr><td class="line-num">58</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">59</td><td class="line-code"></td></tr>
+<tr><td class="line-num">60</td><td class="line-code">    <span class="kw">private</span> <span class="kw">void</span> LateUpdate()</td></tr>
+<tr><td class="line-num">61</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">62</td><td class="line-code">        DrawFieldOfView();</td></tr>
+<tr><td class="line-num">63</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">64</td><td class="line-code"></td></tr>
+<tr><td class="line-num">65</td><td class="line-code">    <span class="kw">void</span> SetStayToFalse()</td></tr>
+<tr><td class="line-num">66</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">67</td><td class="line-code">        <span class="kw">if</span> (visibleTargets.Count &gt; <span class="num">0</span>)</td></tr>
+<tr><td class="line-num">68</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">69</td><td class="line-code">            <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; visibleTargets.Count; i++)</td></tr>
+<tr><td class="line-num">70</td><td class="line-code">            {</td></tr>
+<tr><td class="line-num">71</td><td class="line-code">                visibleTargets[i].gameObject.GetComponent&lt;StoreEnemyTarget&gt;().enemyTarget.GetComponent&lt;EnemyTargetSetter&gt;().activated = <span class="kw">true</span>;</td></tr>
+<tr><td class="line-num">72</td><td class="line-code">            }</td></tr>
+<tr><td class="line-num">73</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">74</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">75</td><td class="line-code"></td></tr>
+<tr><td class="line-num">76</td><td class="line-code">    <span class="kw">void</span> FindVisibleTargets()</td></tr>
+<tr><td class="line-num">77</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">78</td><td class="line-code">        visibleTargets.Clear();</td></tr>
+<tr><td class="line-num">79</td><td class="line-code">        <span class="typ">Collider2D</span>[] targetsInViewRadius = <span class="typ">Physics2D</span>.OverlapCircleAll(transform.position, viewRadius, targetMask);</td></tr>
+<tr><td class="line-num">80</td><td class="line-code"></td></tr>
+<tr><td class="line-num">81</td><td class="line-code">        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; targetsInViewRadius.Length; i++)</td></tr>
+<tr><td class="line-num">82</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">83</td><td class="line-code">            <span class="typ">Transform</span> target = targetsInViewRadius[i].transform;</td></tr>
+<tr><td class="line-num">84</td><td class="line-code">            <span class="typ">Vector3</span> dirToTarget = (target.position - transform.position).normalized;</td></tr>
+<tr><td class="line-num">85</td><td class="line-code"></td></tr>
+<tr><td class="line-num">86</td><td class="line-code">            <span class="kw">if</span> (<span class="typ">Vector3</span>.Angle(transform.up, dirToTarget) &lt; viewAngle / <span class="num">2</span>)</td></tr>
+<tr><td class="line-num">87</td><td class="line-code">            {</td></tr>
+<tr><td class="line-num">88</td><td class="line-code">                <span class="typ">float</span> dstToTarget = <span class="typ">Vector3</span>.Distance(transform.position, target.position);</td></tr>
+<tr><td class="line-num">89</td><td class="line-code"></td></tr>
+<tr><td class="line-num">90</td><td class="line-code">                <span class="kw">if</span> (!<span class="typ">Physics2D</span>.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))</td></tr>
+<tr><td class="line-num">91</td><td class="line-code">                {</td></tr>
+<tr><td class="line-num">92</td><td class="line-code">                    visibleTargets.Add(target);</td></tr>
+<tr><td class="line-num">93</td><td class="line-code">                }</td></tr>
+<tr><td class="line-num">94</td><td class="line-code">            }</td></tr>
+<tr><td class="line-num">95</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">96</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">97</td><td class="line-code"></td></tr>
+<tr><td class="line-num">98</td><td class="line-code">    <span class="kw">void</span> DrawFieldOfView()</td></tr>
+<tr><td class="line-num">99</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">100</td><td class="line-code">        <span class="typ">int</span> stepCount = <span class="typ">Mathf</span>.RoundToInt(viewAngle * meshResolution);</td></tr>
+<tr><td class="line-num">101</td><td class="line-code">        <span class="typ">float</span> stepAngleSize = viewAngle / stepCount;</td></tr>
+<tr><td class="line-num">102</td><td class="line-code">        <span class="typ">List</span>&lt;<span class="typ">Vector3</span>&gt; viewPoints = <span class="kw">new</span> <span class="typ">List</span>&lt;<span class="typ">Vector3</span>&gt;();</td></tr>
+<tr><td class="line-num">103</td><td class="line-code">        ViewCastInfo oldViewCast = <span class="kw">new</span> ViewCastInfo();</td></tr>
+<tr><td class="line-num">104</td><td class="line-code"></td></tr>
+<tr><td class="line-num">105</td><td class="line-code">        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt;= stepCount; i++)</td></tr>
+<tr><td class="line-num">106</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">107</td><td class="line-code">            <span class="typ">float</span> angle = transform.eulerAngles.y - viewAngle / <span class="num">2</span> + stepAngleSize * i;</td></tr>
+<tr><td class="line-num">108</td><td class="line-code">            ViewCastInfo newViewCast = ViewCast(angle);</td></tr>
+<tr><td class="line-num">109</td><td class="line-code"></td></tr>
+<tr><td class="line-num">110</td><td class="line-code">            <span class="kw">if</span> (i &gt; <span class="num">0</span>)</td></tr>
+<tr><td class="line-num">111</td><td class="line-code">            {</td></tr>
+<tr><td class="line-num">112</td><td class="line-code">                <span class="kw">bool</span> edgeDstThresholdExceeded = <span class="typ">Mathf</span>.Abs(oldViewCast.dst - newViewCast.dst) &gt; edgeDstThreshold;</td></tr>
+<tr><td class="line-num">113</td><td class="line-code"></td></tr>
+<tr><td class="line-num">114</td><td class="line-code">                <span class="kw">if</span> (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit &amp;&amp; newViewCast.hit &amp;&amp; edgeDstThresholdExceeded))</td></tr>
+<tr><td class="line-num">115</td><td class="line-code">                {</td></tr>
+<tr><td class="line-num">116</td><td class="line-code">                    Edgeinfo edge = FindEdge(oldViewCast, newViewCast);</td></tr>
+<tr><td class="line-num">117</td><td class="line-code">                    <span class="kw">if</span> (edge.pointA != <span class="typ">Vector3</span>.zero) { viewPoints.Add(edge.pointA); }</td></tr>
+<tr><td class="line-num">118</td><td class="line-code">                    <span class="kw">if</span> (edge.pointB != <span class="typ">Vector3</span>.zero) { viewPoints.Add(edge.pointB); }</td></tr>
+<tr><td class="line-num">119</td><td class="line-code">                }</td></tr>
+<tr><td class="line-num">120</td><td class="line-code">            }</td></tr>
+<tr><td class="line-num">121</td><td class="line-code"></td></tr>
+<tr><td class="line-num">122</td><td class="line-code">            viewPoints.Add(newViewCast.point);</td></tr>
+<tr><td class="line-num">123</td><td class="line-code">            oldViewCast = newViewCast;</td></tr>
+<tr><td class="line-num">124</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">125</td><td class="line-code"></td></tr>
+<tr><td class="line-num">126</td><td class="line-code">        <span class="typ">int</span> vertexCount = viewPoints.Count + <span class="num">1</span>;</td></tr>
+<tr><td class="line-num">127</td><td class="line-code">        <span class="typ">Vector3</span>[] vertices = <span class="kw">new</span> <span class="typ">Vector3</span>[vertexCount];</td></tr>
+<tr><td class="line-num">128</td><td class="line-code">        <span class="typ">int</span>[] triangles = <span class="kw">new</span> <span class="typ">int</span>[(vertexCount - <span class="num">2</span>) * <span class="num">3</span>];</td></tr>
+<tr><td class="line-num">129</td><td class="line-code">        vertices[<span class="num">0</span>] = <span class="typ">Vector3</span>.zero;</td></tr>
+<tr><td class="line-num">130</td><td class="line-code"></td></tr>
+<tr><td class="line-num">131</td><td class="line-code">        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; vertexCount - <span class="num">1</span>; i++)</td></tr>
+<tr><td class="line-num">132</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">133</td><td class="line-code">            vertices[i + <span class="num">1</span>] = transform.InverseTransformPoint(viewPoints[i]);</td></tr>
+<tr><td class="line-num">134</td><td class="line-code">            <span class="kw">if</span> (i &lt; vertexCount - <span class="num">2</span>)</td></tr>
+<tr><td class="line-num">135</td><td class="line-code">            {</td></tr>
+<tr><td class="line-num">136</td><td class="line-code">                triangles[i * <span class="num">3</span>] = <span class="num">0</span>;</td></tr>
+<tr><td class="line-num">137</td><td class="line-code">                triangles[i * <span class="num">3</span> + <span class="num">1</span>] = i + <span class="num">1</span>;</td></tr>
+<tr><td class="line-num">138</td><td class="line-code">                triangles[i * <span class="num">3</span> + <span class="num">2</span>] = i + <span class="num">2</span>;</td></tr>
+<tr><td class="line-num">139</td><td class="line-code">            }</td></tr>
+<tr><td class="line-num">140</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">141</td><td class="line-code"></td></tr>
+<tr><td class="line-num">142</td><td class="line-code">        viewMesh.Clear();</td></tr>
+<tr><td class="line-num">143</td><td class="line-code">        viewMesh.vertices = vertices;</td></tr>
+<tr><td class="line-num">144</td><td class="line-code">        viewMesh.triangles = triangles;</td></tr>
+<tr><td class="line-num">145</td><td class="line-code">        viewMesh.RecalculateNormals();</td></tr>
+<tr><td class="line-num">146</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">147</td><td class="line-code"></td></tr>
+<tr><td class="line-num">148</td><td class="line-code">    <span class="kw">public</span> <span class="kw">struct</span> ViewCastInfo</td></tr>
+<tr><td class="line-num">149</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">150</td><td class="line-code">        <span class="kw">public</span> <span class="kw">bool</span> hit;</td></tr>
+<tr><td class="line-num">151</td><td class="line-code">        <span class="kw">public</span> <span class="typ">Vector3</span> point;</td></tr>
+<tr><td class="line-num">152</td><td class="line-code">        <span class="kw">public</span> <span class="typ">float</span> dst;</td></tr>
+<tr><td class="line-num">153</td><td class="line-code">        <span class="kw">public</span> <span class="typ">float</span> angle;</td></tr>
+<tr><td class="line-num">154</td><td class="line-code"></td></tr>
+<tr><td class="line-num">155</td><td class="line-code">        <span class="kw">public</span> ViewCastInfo(<span class="kw">bool</span> _hit, <span class="typ">Vector3</span> _point, <span class="typ">float</span> _dst, <span class="typ">float</span> _angle)</td></tr>
+<tr><td class="line-num">156</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">157</td><td class="line-code">            hit = _hit; point = _point; dst = _dst; angle = _angle;</td></tr>
+<tr><td class="line-num">158</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">159</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">160</td><td class="line-code"></td></tr>
+<tr><td class="line-num">161</td><td class="line-code">    <span class="kw">public</span> <span class="kw">struct</span> Edgeinfo</td></tr>
+<tr><td class="line-num">162</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">163</td><td class="line-code">        <span class="kw">public</span> <span class="typ">Vector3</span> pointA;</td></tr>
+<tr><td class="line-num">164</td><td class="line-code">        <span class="kw">public</span> <span class="typ">Vector3</span> pointB;</td></tr>
+<tr><td class="line-num">165</td><td class="line-code"></td></tr>
+<tr><td class="line-num">166</td><td class="line-code">        <span class="kw">public</span> Edgeinfo(<span class="typ">Vector3</span> _pointA, <span class="typ">Vector3</span> _pointB)</td></tr>
+<tr><td class="line-num">167</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">168</td><td class="line-code">            pointA = _pointA; pointB = _pointB;</td></tr>
+<tr><td class="line-num">169</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">170</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">171</td><td class="line-code">}</td></tr></table>
+          </div>
+          <button class="code-expand-btn">// expand full source</button>
+          <div class="code-block-footer">
+            <span>C#</span>
+            <span>171 lines</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Audio Design -->
+      <div class="section-block"><h2>Audio Design</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <p><strong>Ambiance:</strong></p>
+          <audio controls preload="metadata"><source src="../assets/audio/Background-Depression.mp3" type="audio/mpeg"></audio>
+          <p class="media-caption">Background Depression</p>
+
+          <p><strong>Player Interaction Cues:</strong></p>
+          <audio controls preload="metadata"><source src="../assets/audio/DoorCloses1.wav" type="audio/wav"></audio>
+          <p class="media-caption">Door Closes</p>
+          <audio controls preload="metadata"><source src="../assets/audio/LightTorchOpen.wav" type="audio/wav"></audio>
+          <p class="media-caption">Light Torch Open</p>
+          <audio controls preload="metadata"><source src="../assets/audio/Locked.wav" type="audio/wav"></audio>
+          <p class="media-caption">Locked</p>
+          <audio controls preload="metadata"><source src="../assets/audio/Player-Footstep-Wood-2.mp3" type="audio/mpeg"></audio>
+          <p class="media-caption">Player Footstep</p>
+        </div>
+        <div class="col">
+          <p><strong>Monster Sounds:</strong></p>
+          <audio controls preload="metadata"><source src="../assets/audio/Monster-Roar1.mp3" type="audio/mpeg"></audio>
+          <p class="media-caption">Monster Roar 1</p>
+          <audio controls preload="metadata"><source src="../assets/audio/Monster-Roar2mp3.mp3" type="audio/mpeg"></audio>
+          <p class="media-caption">Monster Roar 2</p>
+        </div>
+      </div>
+
+      <div class="next-project">
+        <a href="vamp.html">Next Project <span class="arrow">&rarr;</span></a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

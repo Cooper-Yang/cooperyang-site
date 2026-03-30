@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Epitaph 1997 - Game design project by Cooper Yang. Portfolio case study with design documentation.">
+  <title>Epitaph 1997 - Cooper Yang</title>
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="name"><a href="../index.html">Cooper Yang</a></div>
+      <div class="titles">Combat Designer<br>Game Designer</div>
+      <nav>
+        <a href="../about.html">About Me</a>
+        <a href="../index.html" class="active">Projects</a>
+        <a href="../archive.html">Archive</a>
+        <hr class="nav-divider" aria-hidden="true">
+        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+        <a href="mailto:cooperyang@usc.edu">Email</a>
+        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
+  </aside>
+
+  <header class="mobile-header">
+    <span class="name"><a href="../index.html">Cooper Yang</a></span>
+    <button class="hamburger" aria-label="Open menu">&#9776;</button>
+  </header>
+
+  <div class="mobile-nav-overlay">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <a href="../about.html">About Me</a>
+    <a href="../index.html">Projects</a>
+    <a href="../archive.html">Archive</a>
+    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+    <a href="mailto:cooperyang@usc.edu">Email</a>
+    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+
+  <main class="main">
+    <div class="project-content">
+
+      <!-- Hero -->
+      <div class="content-row full"><div class="col">
+        <div class="video-embed">
+          <video controls preload="metadata" style="width:100%;">
+            <source src="../assets/videos/epitaph-trailer.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div></div>
+      <div class="hero-card">
+        <h1>Epitaph 1997</h1>
+        <div class="hero-meta"><span class="role">Level Designer, Producer</span><span class="date">2021.9 - 2022.5</span></div>
+        <p class="hero-desc"><em>- Action RPG, Unity</em><br>
+        - Taoist: Inspired by Chinese Taoist Exorcism, blending Eastern Horror with Spell-Craft combat<br>
+        - Showcase: Highlighted in the NYU Game Center 2022 end-of-year showcase</p>
+        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/epitaph-1997" target="_blank" rel="noopener">Itch Page</a></div>
+      </div>
+
+      <!-- Contributions -->
+      <div class="contrib-block">
+        <div class="contrib-header">contributions</div>
+        <ul class="contrib-list">
+          <li><span class="num">01</span><span><strong>Project Management:</strong> Coordinated the game design team to ensure cohesive development</span></li>
+          <li><span class="num">02</span><span><strong>Combat System Design:</strong> Developed the spell-craft combat mechanics, balancing challenge and player agency</span></li>
+          <li><span class="num">03</span><span><strong>Level Design:</strong> Crafted environments optimized for a 2.5D camera perspective, ensuring intuitive navigation and guiding players through puzzles and dark areas without confusion</span></li>
+          <li><span class="num">04</span><span><strong>Narrative &amp; Gameplay Balancing:</strong> Separated investigation and combat, expanded tutorials, and integrating guiding voice lines to ease player learning and immersion</span></li>
+        </ul>
+      </div>
+
+      <!-- Spell-Craft Combat System -->
+      <div class="section-block"><h2>Spell-Craft Combat System</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-screenshot1.png" alt="Epitaph 1997 gameplay" loading="lazy">
+          <img src="../assets/images/epitaph-untitled.jpg" alt="Spell-craft concept" loading="lazy" style="margin-top:10px;">
+        </div>
+        <div class="col">
+          <p><strong>Concept:</strong> Inspired by Taoist rituals, specifically the Wuxing (Five Elements), transforming traditional practices into dynamic gameplay.</p>
+          <p><strong>Materials &amp; Spells:</strong></p>
+          <p>- <strong>Standard materials:</strong> Basic functionality, often requiring combinations</p>
+          <p>- <strong>Ghost-dropped materials:</strong> Powerful on their own, adding unique advantages</p>
+          <p><strong>Craft Spells:</strong> Players collect materials from levels or defeated enemies, and combine one or two to craft spells with distinct effects.</p>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-screenshot2.png" alt="Epitaph 1997 gameplay" loading="lazy">
+          <img src="../assets/images/epitaph-gameplay.gif" alt="Spell-craft gameplay" loading="lazy" style="margin-top:10px;">
+        </div>
+        <div class="col">
+          <p><strong>Examples:</strong></p>
+          <p>- Copper nail: Stuns enemies<br>
+          - Matchstick: Gathers materials<br>
+          - Copper nail + Matchstick: Creates damaging spell</p>
+          <p><strong>Core Gameplay Loop:</strong></p>
+          <p>- <strong>Collection:</strong> Gather materials from the environment and defeated enemies</p>
+          <p>- <strong>Experimentation:</strong> Combine materials to discover new spells</p>
+          <p>- <strong>Execution:</strong> Use crafted spells to defeat enemies and gather more resources</p>
+        </div>
+      </div>
+
+      <!-- Four Main Iterations -->
+      <div class="section-block"><h2>Four Main Iterations</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <div class="image-gallery">
+            <img src="../assets/images/epitaph-gameplay.gif" alt="First Build" loading="lazy">
+            <p class="media-caption">First Build</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="image-gallery">
+            <img src="../assets/images/epitaph-thumb.gif" alt="Final Build" loading="lazy">
+            <p class="media-caption">Final Build</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-row full">
+        <div class="col">
+          <p>- <strong>Enhanced Material Combinations:</strong> Improved accessibility and clarity, empowering players to make informed decisions when crafting spells</p>
+          <p>- <strong>Automatic Material Collection:</strong> Players now automatically pick up ghost-dropped materials, streamlining resource management</p>
+          <p>- <strong>Auto-Aim Feature:</strong> Introduced to improve combat precision and reduce frustration during engagements</p>
+          <p>- <strong>Balanced Movement Speeds:</strong> Reduced player speed to discourage frequent escapes while moderating enemy speed to give players time to strategize</p>
+        </div>
+      </div>
+
+      <!-- Level Design Evolution -->
+      <div class="section-block"><h2>Level Design Evolution</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-screenshot3.png" alt="Initial layout" loading="lazy">
+        </div>
+        <div class="col">
+          <p><strong>Initial Layout:</strong></p>
+          <p>Started with a linear layout, focusing on straightforward player progression for prototyping. This approach prioritized clarity but lacked depth in exploration and player agency.</p>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="col">
+          <div class="image-gallery cols-2">
+            <img src="../assets/images/epitaph-screenshot4.png" alt="Iterated layout" loading="lazy">
+            <img src="../assets/images/epitaph-screenshot5.png" alt="Iterated layout" loading="lazy">
+          </div>
+        </div>
+        <div class="col">
+          <p><strong>Iterated Layout:</strong></p>
+          <p>Transitioned into a basic circular layout, introducing loops and connections to improve navigation and replayability. Early attempts at encouraging exploration and dynamic player routes.</p>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-screenshot6.png" alt="Final layout" loading="lazy">
+        </div>
+        <div class="col">
+          <p><strong>Final Implementation:</strong></p>
+          <p>Further refined the circular layout to include logical connections and distinct zones for puzzles, combat, and exploration. Improved navigation flow and introduced multiple pathways for greater player freedom and strategic gameplay. Added environmental storytelling, puzzles, checkpoints and intuitive lighting to guide players seamlessly through the level.</p>
+        </div>
+      </div>
+
+      <!-- Balancing Combat & Narrative -->
+      <div class="section-block"><h2>Balancing Combat &amp; Narrative</h2></div>
+
+      <div class="content-row full">
+        <div class="col">
+          <p>Players found the combat system engaging but struggled with its complexity in single sessions, especially under the pressures of intense horror ambience.</p>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-gameplay2.gif" alt="Gameplay sequence" loading="lazy">
+        </div>
+        <div class="col">
+          <img src="../assets/images/epitaph-gameplay3.gif" alt="From Tutorial to Boss Fight" loading="lazy">
+          <p class="media-caption">From Tutorial to Boss Fight</p>
+        </div>
+      </div>
+
+      <div class="content-row full">
+        <div class="col">
+          <p><strong>Key Adjustments:</strong></p>
+          <p>- Gradual introduction of mechanics with repeated reinforcement.</p>
+          <p>- Expanded combat tutorials for better player understanding.</p>
+          <p>- Streamlined spell-craft system for quicker access during combat.</p>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-gameplay4.gif" alt="Gameplay iteration" loading="lazy">
+        </div>
+        <div class="col">
+          <img src="../assets/images/epitaph-gameplay5.gif" alt="Isolated narrative from combat" loading="lazy">
+          <p class="media-caption">Isolated Narrative Experience from Combat</p>
+        </div>
+      </div>
+
+      <div class="content-row full">
+        <div class="col">
+          <p>- Separated combat and investigation to reduce cognitive load.</p>
+          <p>- Retained key narrative moments, like investigating Lord Magistrate's crimes, ensuring the story drives player engagement without overwhelming them.</p>
+        </div>
+      </div>
+
+      <!-- Player Perspective -->
+      <div class="section-block"><h2>Player Perspective</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-build1.gif" alt="First Build perspective" loading="lazy">
+          <p class="media-caption">First Build</p>
+        </div>
+        <div class="col">
+          <img src="../assets/images/epitaph-build2.gif" alt="Final Build perspective" loading="lazy">
+          <p class="media-caption">Final Build</p>
+        </div>
+      </div>
+
+      <div class="content-row full">
+        <div class="col">
+          <p>In later builds, we adopted a more isometric camera perspective for players. This viewpoint offers a broader visual range on the screen, making environmental puzzles and enemy encounters easier to manage.</p>
+        </div>
+      </div>
+
+      <!-- Narrative System Iteration -->
+      <div class="section-block"><h2>Narrative System Iteration</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/epitaph-dialogue.gif" alt="Removed Dialogue Selection" loading="lazy">
+          <p class="media-caption">Removed Dialogue Selection</p>
+        </div>
+        <div class="col">
+          <img src="../assets/images/epitaph-police.gif" alt="Police Sense mechanic" loading="lazy">
+          <p class="media-caption">"Police Sense"</p>
+        </div>
+      </div>
+
+      <div class="content-row full">
+        <div class="col">
+          <p>- Removed the dialogue selection system to improve game pacing, as it didn't fit well in the vertical slice format.</p>
+          <p>- Introduced "Police Sense" mechanic as a more intuitive way of exploring the environment and discovering clues.</p>
+        </div>
+      </div>
+
+      <div class="next-project">
+        <a href="flashlight.html">Next Project <span class="arrow">&rarr;</span></a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

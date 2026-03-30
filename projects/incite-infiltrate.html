@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Incite <meta name="viewport" content="width=device-width, initial-scale=1.0">amp; Infiltrate - Game design project by Cooper Yang. Portfolio case study with design documentation.">
+  <title>Incite &amp; Infiltrate - Cooper Yang</title>
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="name"><a href="../index.html">Cooper Yang</a></div>
+      <div class="titles">Combat Designer<br>Game Designer</div>
+      <nav>
+        <a href="../about.html">About Me</a>
+        <a href="../index.html">Projects</a>
+        <a href="../archive.html" class="active">Archive</a>
+        <hr class="nav-divider" aria-hidden="true">
+        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+        <a href="mailto:cooperyang@usc.edu">Email</a>
+        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
+  </aside>
+
+  <header class="mobile-header">
+    <span class="name"><a href="../index.html">Cooper Yang</a></span>
+    <button class="hamburger" aria-label="Open menu">&#9776;</button>
+  </header>
+
+  <div class="mobile-nav-overlay">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <a href="../about.html">About Me</a>
+    <a href="../index.html">Projects</a>
+    <a href="../archive.html">Archive</a>
+    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+    <a href="mailto:cooperyang@usc.edu">Email</a>
+    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+
+  <main class="main">
+    <div class="project-content">
+
+      <div class="content-row full"><div class="col">
+        <img src="../assets/images/incite-thumb.gif" alt="Incite & Infiltrate" loading="lazy">
+      </div></div>
+      <div class="hero-card">
+        <h1>Incite &amp; Infiltrate</h1>
+        <div class="hero-meta"><span class="role">Game Designer</span><span class="date">2020.9 - 2020.12</span></div>
+        <p class="hero-desc">- Deck Building Game, Unity<br>
+        - Aliens scheme to colonize Earth. Players dispatch spies to seize control of politics, culture, science, and religion. Exposure mechanics increase detection risk.</p>
+        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/incite-infiltrate" target="_blank" rel="noopener">Itch Page</a></div>
+      </div>
+
+      <div class="section-block"><h2>Procedural Alien Card Generation</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/incite-procgen.png" alt="Procedural generation" loading="lazy">
+        </div>
+        <div class="col">
+          <p>Cards feature randomly generated attributes from a shared pool across culture, religion, politics, technology, and lifespan. Card images divided into: face contour, upper face (eyes), lower face (mouth) for variety through random combinations.</p>
+        </div>
+      </div>
+
+      <div class="section-block"><h2>Effect Card Design</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/incite-cards.png" alt="Effect cards" loading="lazy">
+        </div>
+        <div class="col">
+          <p>Handcrafted cards modify alien card attributes. Rarity distribution: 70% Level 1, 20% Level 2, 10% Level 3. Narratives tied to specific card attributes.</p>
+        </div>
+      </div>
+
+      <!-- ScriptableObject + Gist -->
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/incite-scriptable.png" alt="ScriptableObject" loading="lazy">
+        </div>
+        <div class="col">
+          <div class="code-block collapsed">
+          <div class="code-block-header">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="filename">AlienCardProcGen.cs</span>
+          </div>
+          <div class="code-block-body">
+            <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">using</span> System.Collections;</td></tr>
+<tr><td class="line-num">2</td><td class="line-code"><span class="kw">using</span> System.Collections.Generic;</td></tr>
+<tr><td class="line-num">3</td><td class="line-code"><span class="kw">using</span> UnityEngine;</td></tr>
+<tr><td class="line-num">4</td><td class="line-code"><span class="kw">using</span> UnityEngine.UI;</td></tr>
+<tr><td class="line-num">5</td><td class="line-code"></td></tr>
+<tr><td class="line-num">6</td><td class="line-code"><span class="kw">public</span> <span class="kw">class</span> AlienCardProcGen : <span class="typ">MonoBehaviour</span></td></tr>
+<tr><td class="line-num">7</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">8</td><td class="line-code"><span class="cmt">    // assign fields</span></td></tr>
+<tr><td class="line-num">9</td><td class="line-code">    <span class="kw">public</span> <span class="typ">Text</span> lifeSpan;</td></tr>
+<tr><td class="line-num">10</td><td class="line-code">    <span class="kw">public</span> <span class="typ">RectTransform</span> culIcon, relIcon, polIcon, techIcon;</td></tr>
+<tr><td class="line-num">11</td><td class="line-code">    <span class="kw">public</span> <span class="typ">Image</span> head, eyes, mouth;</td></tr>
+<tr><td class="line-num">12</td><td class="line-code">    <span class="kw">public</span> <span class="typ">Sprite</span>[] headSpr, eyesSpr, mouthSpr;</td></tr>
+<tr><td class="line-num">13</td><td class="line-code">    <span class="kw">public</span> <span class="typ">int</span> cul, rel, pol, tech, lifeSpanNumber;</td></tr>
+<tr><td class="line-num">14</td><td class="line-code">    <span class="kw">public</span> <span class="typ">int</span> genSpeed, discoverRate, propertyMax;</td></tr>
+<tr><td class="line-num">15</td><td class="line-code">    <span class="kw">public</span> <span class="typ">int</span> lifeMin, lifeMax, totalAbility;</td></tr>
+<tr><td class="line-num">16</td><td class="line-code">    <span class="kw">public</span> <span class="typ">List</span>&lt;<span class="typ">float</span>&gt; properties;</td></tr>
+<tr><td class="line-num">17</td><td class="line-code"></td></tr>
+<tr><td class="line-num">18</td><td class="line-code">    <span class="kw">void</span> Start()</td></tr>
+<tr><td class="line-num">19</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">20</td><td class="line-code"><span class="cmt">        // initialize list</span></td></tr>
+<tr><td class="line-num">21</td><td class="line-code">        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; <span class="num">5</span>; i++) { properties.Add(<span class="num">0</span>); }</td></tr>
+<tr><td class="line-num">22</td><td class="line-code">        genSpeed = <span class="num">3</span>;</td></tr>
+<tr><td class="line-num">23</td><td class="line-code">        discoverRate = <span class="num">2</span>;</td></tr>
+<tr><td class="line-num">24</td><td class="line-code"></td></tr>
+<tr><td class="line-num">25</td><td class="line-code"><span class="cmt">        // head Generate</span></td></tr>
+<tr><td class="line-num">26</td><td class="line-code">        head.sprite = headSpr[<span class="typ">Random</span>.<span class="typ">Range</span>(<span class="num">0</span>, headSpr.Length)];</td></tr>
+<tr><td class="line-num">27</td><td class="line-code">        eyes.sprite = eyesSpr[<span class="typ">Random</span>.<span class="typ">Range</span>(<span class="num">0</span>, eyesSpr.Length)];</td></tr>
+<tr><td class="line-num">28</td><td class="line-code">        mouth.sprite = mouthSpr[<span class="typ">Random</span>.<span class="typ">Range</span>(<span class="num">0</span>, mouthSpr.Length)];</td></tr>
+<tr><td class="line-num">29</td><td class="line-code"></td></tr>
+<tr><td class="line-num">30</td><td class="line-code">        SetValues();</td></tr>
+<tr><td class="line-num">31</td><td class="line-code">        lifeSpan.text = &quot;Health &quot; + lifeSpanNumber;</td></tr>
+<tr><td class="line-num">32</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">33</td><td class="line-code"></td></tr>
+<tr><td class="line-num">34</td><td class="line-code">    <span class="kw">private</span> <span class="kw">void</span> SetValues()</td></tr>
+<tr><td class="line-num">35</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">36</td><td class="line-code"><span class="cmt">        // roll numbers</span></td></tr>
+<tr><td class="line-num">37</td><td class="line-code">        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; properties.Count; i++)</td></tr>
+<tr><td class="line-num">38</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">39</td><td class="line-code">            properties[i] = <span class="typ">Random</span>.<span class="typ">Range</span>(<span class="num">0</span>, totalAbility);</td></tr>
+<tr><td class="line-num">40</td><td class="line-code">            totalAbility -= (<span class="typ">int</span>)properties[i];</td></tr>
+<tr><td class="line-num">41</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">42</td><td class="line-code"><span class="cmt">        // shuffle numbers</span></td></tr>
+<tr><td class="line-num">43</td><td class="line-code">        <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; properties.Count; i++)</td></tr>
+<tr><td class="line-num">44</td><td class="line-code">        {</td></tr>
+<tr><td class="line-num">45</td><td class="line-code">            <span class="typ">float</span> temp = properties[i];</td></tr>
+<tr><td class="line-num">46</td><td class="line-code">            <span class="typ">int</span> randomIndex = <span class="typ">Random</span>.<span class="typ">Range</span>(i, properties.Count);</td></tr>
+<tr><td class="line-num">47</td><td class="line-code">            properties[i] = properties[randomIndex];</td></tr>
+<tr><td class="line-num">48</td><td class="line-code">            properties[randomIndex] = temp;</td></tr>
+<tr><td class="line-num">49</td><td class="line-code">        }</td></tr>
+<tr><td class="line-num">50</td><td class="line-code"><span class="cmt">        // set numbers</span></td></tr>
+<tr><td class="line-num">51</td><td class="line-code">        cul = (<span class="typ">int</span>)(properties[<span class="num">0</span>] / <span class="num">100</span> * propertyMax);</td></tr>
+<tr><td class="line-num">52</td><td class="line-code">        rel = (<span class="typ">int</span>)(properties[<span class="num">1</span>] / <span class="num">100</span> * propertyMax);</td></tr>
+<tr><td class="line-num">53</td><td class="line-code">        pol = (<span class="typ">int</span>)(properties[<span class="num">2</span>] / <span class="num">100</span> * propertyMax);</td></tr>
+<tr><td class="line-num">54</td><td class="line-code">        tech = (<span class="typ">int</span>)(properties[<span class="num">3</span>] / <span class="num">100</span> * propertyMax);</td></tr>
+<tr><td class="line-num">55</td><td class="line-code">        lifeSpanNumber = lifeMin + (<span class="typ">int</span>)(properties[<span class="num">4</span>] / <span class="num">100</span> * lifeMax);</td></tr>
+<tr><td class="line-num">56</td><td class="line-code"><span class="cmt">        // set bar</span></td></tr>
+<tr><td class="line-num">57</td><td class="line-code">        culIcon.sizeDelta = <span class="kw">new</span> <span class="typ">Vector2</span>((<span class="num">100</span> - <span class="num">8</span>) * properties[<span class="num">0</span>] / <span class="num">100</span>, <span class="num">19</span>);</td></tr>
+<tr><td class="line-num">58</td><td class="line-code">        relIcon.sizeDelta = <span class="kw">new</span> <span class="typ">Vector2</span>((<span class="num">100</span> - <span class="num">8</span>) * properties[<span class="num">1</span>] / <span class="num">100</span>, <span class="num">19</span>);</td></tr>
+<tr><td class="line-num">59</td><td class="line-code">        polIcon.sizeDelta = <span class="kw">new</span> <span class="typ">Vector2</span>((<span class="num">100</span> - <span class="num">8</span>) * properties[<span class="num">2</span>] / <span class="num">100</span>, <span class="num">19</span>);</td></tr>
+<tr><td class="line-num">60</td><td class="line-code">        techIcon.sizeDelta = <span class="kw">new</span> <span class="typ">Vector2</span>((<span class="num">100</span> - <span class="num">8</span>) * properties[<span class="num">3</span>] / <span class="num">100</span>, <span class="num">19</span>);</td></tr>
+<tr><td class="line-num">61</td><td class="line-code">    }</td></tr>
+<tr><td class="line-num">62</td><td class="line-code">}</td></tr></table>
+          </div>
+          <button class="code-expand-btn">// expand full source</button>
+          <div class="code-block-footer">
+            <span>C#</span>
+            <span>62 lines</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Narrative Design -->
+      <div class="section-block"><h2>Narrative Design</h2></div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/incite-narrative.jpg" alt="HUD narrative system" loading="lazy">
+        </div>
+        <div class="col">
+          <p>Dynamic news system with scrolling HUD news and pop-up breaking news triggered at predetermined value benchmarks. Tone characterized by satirical dark humor exploring absurdity of human nature facing unknown forces.</p>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="col">
+          <img src="../assets/images/incite-news1.png" alt="News system" loading="lazy">
+        </div>
+        <div class="col">
+          <img src="../assets/images/incite-news2.png" alt="Breaking news" loading="lazy">
+        </div>
+      </div>
+
+      <div class="next-project">
+        <a href="pico8-prototypes.html">Next Project <span class="arrow">&rarr;</span></a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
