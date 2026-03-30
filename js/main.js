@@ -200,13 +200,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Apply to sidebar name on load
   var sidebarName = document.querySelector('.sidebar .name a');
   if (sidebarName) {
-    decryptText(sidebarName, { speed: 40, revealDelay: 60 });
+    decryptText(sidebarName, { speed: 50, revealDelay: 120 });
   }
 
   // Apply to mobile header name on load
   var mobileName = document.querySelector('.mobile-header .name a');
   if (mobileName) {
-    decryptText(mobileName, { speed: 40, revealDelay: 60 });
+    decryptText(mobileName, { speed: 50, revealDelay: 120 });
   }
 
   // Apply decrypt on hover for card titles
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title.textContent = originalText;
             title.removeAttribute('data-decrypting');
           }
-        }, 25);
+        }, 40);
 
         var scrambleId = setInterval(function() {
           if (revealed.size >= originalText.replace(/ /g, '').length) {
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
           }
           render();
-        }, 20);
+        }, 30);
       }
     });
   });
@@ -295,19 +295,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.addEventListener('click', function(e) {
-    var sparkCount = 12;
+    var sparkCount = 16;
     var now = Date.now();
     for (var i = 0; i < sparkCount; i++) {
-      var angle = (2 * Math.PI * i) / sparkCount + (Math.random() - 0.5) * 0.4;
+      var angle = (2 * Math.PI * i) / sparkCount + (Math.random() - 0.5) * 0.5;
       sparks.push({
         x: e.clientX,
         y: e.clientY,
         angle: angle,
         startTime: now,
-        duration: 400 + Math.random() * 200,
-        radius: 25 + Math.random() * 30,
-        size: 8 + Math.random() * 6,
-        hue: Math.random() > 0.7 ? 160 : 140  // mostly green, some cyan
+        duration: 500 + Math.random() * 300,
+        radius: 40 + Math.random() * 50,
+        size: 12 + Math.random() * 10,
+        hue: Math.random() > 0.7 ? 160 : 140
       });
     }
   });
@@ -335,8 +335,8 @@ document.addEventListener('DOMContentLoaded', function() {
       sparkCtx.beginPath();
       sparkCtx.moveTo(x, y);
       sparkCtx.lineTo(endX, endY);
-      sparkCtx.strokeStyle = 'hsla(' + s.hue + ', 100%, 60%, ' + alpha + ')';
-      sparkCtx.lineWidth = 2;
+      sparkCtx.strokeStyle = 'hsla(' + s.hue + ', 100%, 65%, ' + alpha + ')';
+      sparkCtx.lineWidth = 2.5;
       sparkCtx.lineCap = 'round';
       sparkCtx.stroke();
     });
