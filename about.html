@@ -1,64 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Cooper Yang - Game designer at NExT Studio, NYU Game Center BFA, USC MS candidate.">
-  <title>About Me - Cooper Yang</title>
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About Cooper Yang — combat & game designer. Previously NExT Studio (Tencent), NYU Game Center BFA, now USC MS candidate."
+    />
+    <title>About — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" /><link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="about.html" class="active">About Me</a>
-        <a href="index.html">Projects</a>
-        <a href="archive.html">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html" class="is-active">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <!-- Mobile Header -->
-  <header class="mobile-header">
-    <span class="name"><a href="index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
+    <main class="page">
+      <section class="container">
+        <p class="type-meta" data-reveal>
+          About <span class="meta-accent">—</span> 01
+        </p>
 
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="about.html">About Me</a>
-    <a href="index.html">Projects</a>
-    <a href="archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
+        <div class="hero-name" style="margin-top: 1.5rem">
+          <div class="row">
+            <h1 class="type-hero" data-split-lines>Hello,</h1>
+          </div>
+          <div class="row" style="justify-content: flex-end">
+            <h1
+              class="type-hero"
+              style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              data-split-lines
+            >
+              I&apos;m Cooper.
+            </h1>
+          </div>
+        </div>
+      </section>
 
-  <main class="main">
-    <h1 class="sr-only">About Cooper Yang</h1>
-    <div class="about-content">
-      <img src="assets/images/me.jpg" alt="Cooper Yang" class="portrait">
-      <p>I'm Cooper, a game designer passionate about creating experiences that foster empathy, connection, and joy. At NExT Studio, I contributed to SYNCED: Off-Planet, designing levels and bosses.</p>
-      <p>I hold a BFA in Game Design from NYU Game Center and am currently pursuing an MS in Game Design at USC, focus on blending narrative and gameplay. My skills include level design, combat design, enemy AI, and rapid prototyping, with proficiency in Unity, Unreal Engine, C#, and Unreal Blueprints.</p>
-      <p>If you'd like to chat about game design or potential collaborations, feel free to reach out!</p>
-    </div>
-  </main>
+      <!-- Portrait + Bio -->
+      <section class="container" style="margin-top: 6rem">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: start;
+          "
+        >
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 3rem;
+              align-items: start;
+              grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+            "
+          >
+            <div data-reveal-image>
+              <img
+                src="/assets/images/me.jpg"
+                alt="Cooper Yang portrait"
+                style="width: 100%; aspect-ratio: 3/4; object-fit: cover"
+                loading="lazy"
+              />
+              <p class="caption-serif" style="margin-top: 0.75rem">
+                Cooper, 2025 <span class="meta-accent">—</span> Los Angeles
+              </p>
+            </div>
 
-  <script src="js/main.js"></script>
-</body>
+            <div data-reveal data-reveal-delay="0.2">
+              <p class="type-body" style="font-size: 1.2rem; line-height: 1.6">
+                I&apos;m <span class="serif">Cooper</span>, a game designer chasing experiences
+                that foster <span class="serif">empathy</span>, connection, and
+                <span class="serif">joy</span>. At NExT Studio I contributed to
+                <em>SYNCED: Off Planet</em>, designing levels and
+                <span class="serif">bosses</span> across Season 1 and Season 2.
+              </p>
+              <p class="type-body" style="margin-top: 1.5rem; font-size: 1rem">
+                I hold a BFA in Game Design from <span class="serif">NYU Game Center</span> and
+                I&apos;m currently pursuing an MS in Game Design at
+                <span class="serif">USC</span>, focused on blending narrative and gameplay. My
+                skills span level design, combat design, enemy AI, and rapid prototyping — with
+                proficiency in Unity, Unreal Engine, C#, and Unreal Blueprints.
+              </p>
+              <p class="type-body" style="margin-top: 1.5rem">
+                If you&apos;d like to chat about game design or potential collaborations, please
+                <a
+                  href="mailto:cooperyang@usc.edu"
+                  style="border-bottom: 1px solid currentColor"
+                  data-cursor="Write"
+                  ><em class="serif">reach out</em></a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Facts grid -->
+      <section class="container" style="margin-top: 6rem">
+        <p class="type-meta" data-reveal>
+          Facts <span class="meta-accent">·</span> Fast
+        </p>
+        <div class="index-head" style="margin-top: 1rem"><span></span><span></span></div>
+
+        <div class="index-row" style="cursor: default">
+          <span class="num">01</span>
+          <span class="title" style="font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 400">
+            Currently at
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >USC Games</span
+            >
+            — MS in Game Design.
+          </span>
+          <span class="role">Los Angeles, CA</span>
+          <span class="year">2024 <span class="meta-accent">—</span> 26</span>
+        </div>
+
+        <div class="index-row" style="cursor: default">
+          <span class="num">02</span>
+          <span class="title" style="font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 400">
+            Shipped PvE at
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >NExT Studios</span
+            >
+            (Tencent) — SYNCED: Off Planet.
+          </span>
+          <span class="role">Shanghai, CN</span>
+          <span class="year">2022 <span class="meta-accent">—</span> 24</span>
+        </div>
+
+        <div class="index-row" style="cursor: default">
+          <span class="num">03</span>
+          <span class="title" style="font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 400">
+            BFA in
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >Game Design</span
+            >
+            — NYU Game Center.
+          </span>
+          <span class="role">Tisch School of the Arts</span>
+          <span class="year">2018 <span class="meta-accent">—</span> 22</span>
+        </div>
+
+        <div class="index-row" style="cursor: default">
+          <span class="num">04</span>
+          <span class="title" style="font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 400">
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >Unreal</span
+            >
+            · <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >Unity</span
+            > · Blueprints · C# · Arduino · Pico-8.
+          </span>
+          <span class="role">Tools</span>
+          <span class="year">—</span>
+        </div>
+      </section>
+
+      <!-- Marquee -->
+      <section style="margin-top: 8rem">
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span>Currently Reading</span><span class="dot">◆</span>
+            <span>Game Feel — Steve Swink</span><span class="dot">◆</span>
+            <span>Listening</span><span class="dot">◆</span>
+            <span>Burial — Untrue</span><span class="dot">◆</span>
+            <span>Playing</span><span class="dot">◆</span>
+            <span>Sekiro, Ultrakill, Risk of Rain 2</span><span class="dot">◆</span>
+            <span>Currently Reading</span><span class="dot">◆</span>
+            <span>Game Feel — Steve Swink</span><span class="dot">◆</span>
+            <span>Listening</span><span class="dot">◆</span>
+            <span>Burial — Untrue</span><span class="dot">◆</span>
+            <span>Playing</span><span class="dot">◆</span>
+            <span>Sekiro, Ultrakill, Risk of Rain 2</span><span class="dot">◆</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next -->
+      <section class="container" style="margin-top: 8rem">
+        <a
+          href="/"
+          data-cursor="Enter"
+          style="
+            display: block;
+            padding-block: 3rem;
+            border-top: 1px solid var(--color-ink);
+            border-bottom: 1px solid var(--color-ink);
+          "
+        >
+          <p class="type-meta" style="opacity: 0.6">See the work</p>
+          <p
+            class="type-display"
+            style="
+              margin-top: 1rem;
+              font-family: var(--font-serif);
+              font-style: italic;
+              font-weight: 500;
+            "
+          >
+            Selected Work →
+          </p>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Index</h4>
+          <ul>
+            <li><a href="/">Work</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/archive.html">Archive</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:cooperyang@usc.edu">cooperyang@usc.edu</a></li>
+            <li>
+              <a href="/assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <ul>
+            <li>
+              <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Locale</h4>
+          <ul>
+            <li>Los Angeles, CA</li>
+            <li>Shanghai, CN</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wordmark" aria-hidden="true">
+        Cooper
+        <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+          >Yang</span
+        >
+      </div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 3rem;
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          opacity: 0.6;
+        "
+      >
+        <span>© 2026 Cooper Yang. All Rights Reserved.</span>
+        <span>v 2.0</span>
+      </div>
+    </footer>
+  </body>
 </html>

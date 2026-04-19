@@ -1,134 +1,258 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portal 2: Light Bridge - Level Design - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>Portal 2: Light Bridge - Level Design - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portal 2 — Light Bridge Level Design case study by Cooper Yang. Four-puzzle Steam Workshop map exploring a single mechanic."
+    />
+    <title>Portal 2 — Light Bridge LD — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <div class="hero-card">
-        <h1>Portal 2: Light Bridge - Level Design</h1>
-        <div class="hero-meta"><span class="role">Level Designer</span></div>
-        <div class="page-tags">
-          <span class="tag">Steam Workshop</span>
-          <span class="tag">Puzzle</span>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Level Design · 13 / 13</span>
+          <span>2019</span>
         </div>
-        <div class="hero-actions"><a class="page-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=1893595886" target="_blank" rel="noopener">Steam Workshop</a></div>
-      </div>
+        <h1 class="project-head__title">Portal 2 — <em>Light Bridge LD</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Level Designer</dd>
+          </div>
+          <div>
+            <dt>Platform</dt>
+            <dd>Portal 2 · <em>Steam Workshop</em></dd>
+          </div>
+          <div>
+            <dt>Tags</dt>
+            <dd>Puzzle / Physics</dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://steamcommunity.com/sharedfiles/filedetails/?id=1893595886"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Steam Workshop ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-      <div class="section-block"><h2>Key Design Goals</h2></div>
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            A four-chamber map that treats the <em>Light Bridge</em> as a single mechanic
+            with a full vocabulary. Each puzzle adds one verb — portal interaction, object
+            carry, player redirection — escalating in the order players would expect, then
+            breaking the expectation.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span><strong>Single-mechanic study</strong> — four chambers that explore the
+                Light Bridge from basic to apex use.</span>
+            </li>
+            <li>
+              <span><strong>Progressive difficulty</strong> — concepts introduced in logical
+                order, with one new verb per chamber.</span>
+            </li>
+            <li>
+              <span><strong>Iterative playtesting</strong> — tested and rebuilt until each
+                puzzle had exactly one intended solution path.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <p>- <strong>Explore Lightbridge Mechanics:</strong> The entire level centers around this single mechanic, allowing players to progressively discover and master its various applications.</p>
-      <p>- <strong>Progressive Challenge Design:</strong> Puzzles introduce concepts in logical sequence with gradually increasing complexity, encouraging both object manipulation and creative player interaction with physics.</p>
-
-      <div class="section-block"><h2>Design Process</h2></div>
-
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="step-label">Step 01 — Concept</div>
-          <div class="step-content">
-            <div><img src="../assets/images/portal2-concept.jpg" alt="Concept sketch" loading="lazy"></div>
-            <div>
-              <p>Established Lightbridge versatility as the central design pillar.</p>
-              <p>Four distinct puzzles building from basic portal interaction to advanced player movement manipulation.</p>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Key <em>Goals</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/portal2-concept.jpg"
+                alt="Concept sketch"
+                loading="lazy"
+              />
+              <p class="cap">Concept — four puzzles, one mechanic</p>
+            </div>
+            <div class="spread__text">
+              <h3>One mechanic, fully scoped</h3>
+              <p>
+                The design thesis — <em>explore the mechanic</em>. The entire level orbits
+                a single idea so players discover and master its applications before the
+                level is over.
+              </p>
+              <ol class="project-contribs">
+                <li>
+                  <span><strong>Explore the mechanic</strong> — the full level orbits a
+                    single idea so players discover and master its applications.</span>
+                </li>
+                <li>
+                  <span><strong>Progressive challenge</strong> — concepts introduced in
+                    logical sequence; difficulty rises alongside creative physics play.</span>
+                </li>
+              </ol>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-step">
-          <div class="step-label">Step 02 — Puzzle 1</div>
-          <div class="step-content">
-            <div>
-              <img src="../assets/images/portal2-puzzle1.gif" alt="Puzzle 1" loading="lazy">
-              <p class="media-caption">Puzzle 1: Basic Lightbridge &amp; Portal Interaction</p>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Design <em>Process</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/portal2-puzzle1.gif"
+                alt="Puzzle 1"
+                loading="lazy"
+              />
+              <p class="cap">Puzzle 01 — Lightbridge &amp; portal interaction</p>
             </div>
-            <div><p>Basic Lightbridge &amp; Portal Interaction</p></div>
+            <div class="spread__text">
+              <h3>01 · Intro</h3>
+              <p>
+                Basic Lightbridge &amp; portal interaction. Teaches the player the
+                <em>surface</em> nature of the bridge — solid from one side, a highway from
+                the other.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/portal2-puzzle2.gif"
+                alt="Puzzles 2-3"
+                loading="lazy"
+              />
+              <p class="cap">Puzzles 02–03 — object manipulation</p>
+            </div>
+            <div class="spread__text">
+              <h3>02 · Build</h3>
+              <p>
+                Object manipulation under bridge constraints. The bridge becomes a
+                <em>platform</em> — cubes balance on it, roll off it, and block it.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/portal2-puzzle3.gif"
+                alt="Puzzle 4"
+                loading="lazy"
+              />
+              <p class="cap">Puzzle 04 — player movement manipulation</p>
+            </div>
+            <div class="spread__text">
+              <h3>03 · Apex</h3>
+              <p>
+                Player movement manipulation — the bridge as a <em>traversal tool</em>
+                rather than a wall. The final chamber inverts expectation and asks the
+                player to ride their own geometry.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/portal2-testing.gif"
+                alt="Iterative testing"
+                loading="lazy"
+              />
+              <p class="cap">Iterative playtesting</p>
+            </div>
+            <div class="spread__text">
+              <h3>04 · Playtest</h3>
+              <p>
+                Each chamber went through rebuilds until one intended solution remained.
+                Unintended shortcuts were either closed off or promoted to the canonical
+                path.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-step">
-          <div class="step-label">Step 03 — Puzzles 2-3</div>
-          <div class="step-content">
-            <div>
-              <img src="../assets/images/portal2-puzzle2.gif" alt="Puzzles 2-3" loading="lazy">
-              <p class="media-caption">Puzzles 2-3: Object Manipulation</p>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2><em>Playthrough</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/v8sL5TZM1CE"
+                  allowfullscreen
+                  loading="lazy"
+                  title="Portal 2 — Light Bridge playthrough"
+                ></iframe>
+              </div>
+              <p class="cap">Full four-chamber playthrough</p>
             </div>
-            <div><p>Object Manipulation</p></div>
+            <div class="spread__text">
+              <h3>End-to-end run</h3>
+              <p>
+                A complete run through all four chambers — from the intro bridge and portal
+                puzzle to the player-redirection apex.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-step active">
-          <div class="step-label">Step 04 — Puzzle 4</div>
-          <div class="step-content">
-            <div>
-              <img src="../assets/images/portal2-puzzle3.gif" alt="Puzzle 4" loading="lazy">
-              <p class="media-caption">Puzzle 4: Player Movement Manipulation</p>
-            </div>
-            <div><p>Player Movement Manipulation</p></div>
-          </div>
-        </div>
-      </div>
-
-      <img src="../assets/images/portal2-testing.gif" alt="Playtesting" loading="lazy">
-      <p class="media-caption">Iterative Testing</p>
-
-      <div class="section-block"><h2>Playthrough</h2></div>
-
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/v8sL5TZM1CE" allowfullscreen loading="lazy"></iframe>
-      </div>
-
-      <div class="next-project">
-        <a href="../archive.html">Back to Archive <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Back — to Archive</span>
+        <a href="/archive.html" data-cursor="Back">Archive →</a>
+      </section>
+    </main>
+  </body>
 </html>

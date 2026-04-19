@@ -1,120 +1,330 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Experimental Pico-8 Prototypes - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>Experimental Pico-8 Prototypes - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Experimental Pico-8 Prototypes — Twelve small games in four months by Cooper Yang."
+    />
+    <title>Pico-8 Prototypes — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <div class="content-row full"><div class="col">
-        <img src="../assets/images/pico8-header.gif" alt="Pico-8 prototypes overview" loading="lazy">
-      </div></div>
-      <div class="hero-card">
-        <h1>Experimental Pico 8 Prototypes</h1>
-        <div class="hero-meta"><span class="role">Game Designer</span><span class="date">2020.1 - 2020.5</span></div>
-        <p class="hero-desc">Pico 8 - 12 Prototypes in 4 months</p>
-        <div class="hero-actions"></div>
-      </div>
-
-      <div class="content-row full">
-        <div class="col">
-          <p>PICO-8 is a virtual machine and game engine that emulates the 8-bit systems of the 1980s. I was introduced to PICO-8 in the "Pixel Prototype" class, taught by Gabe Cuzzillo, the creator of Ape Out.</p>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Archive · 08 / 13</span>
+          <span>Jan 2020 — May 2020</span>
         </div>
-      </div>
+        <h1 class="project-head__title">Pico-8 <em>Prototypes</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Game Designer · <em>Programmer</em></dd>
+          </div>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>PICO-8 · <em>Short-form prototypes</em></dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>Pixel Prototype class · <em>Taught by Gabe Cuzzillo</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://cooperyang.itch.io/"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Itch Profile ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-      <div class="mini-grid">
-        <div class="mini-card">
-          <img src="../assets/images/pico8-cellcellcell1.gif" alt="Cell Cell Cell" loading="lazy">
-          <div class="mini-card-body">
-            <h3>Cell Cell Cell</h3>
-            <p>Inspired by cellular automata, serving as a metaphor for conflict between humanity and nature, illustrating how solutions create new problems.</p>
-            <img src="../assets/images/pico8-cellcellcell2.gif" alt="Cell Cell Cell" loading="lazy">
-            <a class="page-link" href="https://cooperyang.itch.io/cell-cell-cell" target="_blank" rel="noopener">Play</a>
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <img
+            src="/assets/images/pico8-header.gif"
+            alt="Pico-8 prototypes overview"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            PICO-8 is a <em>virtual machine</em> and game engine that emulates the 8-bit
+            systems of the 1980s. I was introduced to it in the Pixel Prototype class, taught
+            by <em>Gabe Cuzzillo</em>, creator of Ape Out.
+          </p>
+          <p>
+            Twelve prototypes in four months — an <em>exercise</em> in compressing ideas
+            into the smallest possible shape before they get precious.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                ><strong>Cell Cell Cell</strong> — cellular automata as a metaphor for
+                humanity and nature.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>VK Test</strong> — Voight-Kampff interrogation, Blade Runner
+                lineage.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Elysium</strong> — a cellular-automata-driven landscape
+                generator.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Steam Train Simulator</strong> — throttle, brakes, water,
+                coal.</span
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Cell <em>Cell Cell</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/pico8-cellcellcell1.gif"
+                alt="Cell Cell Cell"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/pico8-cellcellcell2.gif"
+                alt="Cell Cell Cell"
+                loading="lazy"
+              />
+              <p class="cap">
+                <a
+                  href="https://cooperyang.itch.io/cell-cell-cell"
+                  target="_blank"
+                  rel="noopener"
+                  data-cursor="Visit"
+                  >Play on itch.io ↗</a
+                >
+              </p>
+            </div>
+            <div class="spread__text">
+              <h3>Conway as metaphor</h3>
+              <p>
+                Cellular automata as a <em>metaphor</em> for humanity and nature — the
+                simulation runs on its own rules, and the player's only real lever is where
+                to <strong>seed</strong> the first cell. The result reads more like
+                gardening than playing.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="mini-card">
-          <img src="../assets/images/pico8-vktest1.gif" alt="VK Test" loading="lazy">
-          <div class="mini-card-body">
-            <h3>VK Test</h3>
-            <p>Inspired by the Voight-Kampff Test from "Blade Runner". Players assume Deckard's role determining if Rachel is a replicant through metaphorical questions affecting replicant fate.</p>
-            <img src="../assets/images/pico8-vktest2.gif" alt="VK Test" loading="lazy">
-            <a class="page-link" href="https://cooperyang.itch.io/vk-test" target="_blank" rel="noopener">Play</a>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>VK <em>Test</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/pico8-vktest1.gif"
+                alt="VK Test"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/pico8-vktest2.gif"
+                alt="VK Test"
+                loading="lazy"
+              />
+              <p class="cap">
+                <a
+                  href="https://cooperyang.itch.io/vk-test"
+                  target="_blank"
+                  rel="noopener"
+                  data-cursor="Visit"
+                  >Play on itch.io ↗</a
+                >
+              </p>
+            </div>
+            <div class="spread__text">
+              <h3>Blade Runner lineage</h3>
+              <p>
+                A <em>Voight-Kampff</em> interrogation — Blade Runner lineage. The player
+                reads micro-reactions and decides whether the subject across the table is
+                human. The answer is never <strong>clean</strong>, and that's the whole
+                point.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="mini-card">
-          <img src="../assets/images/pico8-elysium1.gif" alt="Elysium" loading="lazy">
-          <div class="mini-card-body">
-            <h3>Elysium</h3>
-            <p>Cellular automata-inspired landscape generator allowing players to add, vary, or randomize pixels to craft unique landscapes.</p>
-            <img src="../assets/images/pico8-elysium2.gif" alt="Elysium" loading="lazy">
-            <a class="page-link" href="https://cooperyang.itch.io/elysium" target="_blank" rel="noopener">Play</a>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2><em>Elysium</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/pico8-elysium1.gif"
+                alt="Elysium"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/pico8-elysium2.gif"
+                alt="Elysium"
+                loading="lazy"
+              />
+              <p class="cap">
+                <a
+                  href="https://cooperyang.itch.io/elysium"
+                  target="_blank"
+                  rel="noopener"
+                  data-cursor="Visit"
+                  >Play on itch.io ↗</a
+                >
+              </p>
+            </div>
+            <div class="spread__text">
+              <h3>Landscape generator</h3>
+              <p>
+                A <strong>cellular-automata-driven</strong> landscape generator. Same
+                substrate as Cell Cell Cell, different <em>fiction</em> — rules that look
+                like erosion, tides, and weather, producing terrain that feels
+                <em>found</em> rather than authored.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="mini-card">
-          <img src="../assets/images/pico8-steamtrain1.gif" alt="Steam Train Simulator" loading="lazy">
-          <div class="mini-card-body">
-            <h3>Steam Train Simulator</h3>
-            <p>Players operate a solitary steam train, managing throttle, brakes, water filling, and coal loading to halt the train at the station.</p>
-            <img src="../assets/images/pico8-steamtrain2.gif" alt="Steam Train Simulator" loading="lazy">
-            <a class="page-link" href="https://cooperyang.itch.io/steam-train-simulator" target="_blank" rel="noopener">Play</a>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 04</span>
+          <h2>Steam <em>Train</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/pico8-steamtrain1.gif"
+                alt="Steam Train Simulator"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/pico8-steamtrain2.gif"
+                alt="Steam Train Simulator"
+                loading="lazy"
+              />
+              <p class="cap">
+                <a
+                  href="https://cooperyang.itch.io/steam-train-simulator"
+                  target="_blank"
+                  rel="noopener"
+                  data-cursor="Visit"
+                  >Play on itch.io ↗</a
+                >
+              </p>
+            </div>
+            <div class="spread__text">
+              <h3>Throttle · brakes · water · coal</h3>
+              <p>
+                Four interlocking systems — <em>throttle, brakes, water, coal</em> — and a
+                player who has to keep all of them alive while the landscape rolls past. An
+                exercise in how <strong>very few verbs</strong> can build a satisfying
+                rhythm.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="next-project">
-        <a href="doom-e1m1.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 05</span>
+          <h2>Design <em>Notes</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/pico8-header.gif"
+                alt="Pico-8 prototypes"
+                loading="lazy"
+              />
+              <p class="cap">Twelve prototypes · four months</p>
+            </div>
+            <div class="spread__text">
+              <h3>Constraint as method</h3>
+              <p>
+                PICO-8's <em>cartridge limits</em> — 128×128 pixels, a 16-colour palette, a
+                single tokenized source file — force every idea into its
+                <strong>essential</strong> shape. Most of these prototypes were written in a
+                single sitting; the restraint is the point.
+              </p>
+              <p>
+                The exercise taught me to <em>ship</em> before polish — a habit I've
+                carried into every larger project since.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 09 / 13</span>
+        <a href="/projects/doom-e1m1.html" data-cursor="Next">Doom E1M1 Clone →</a>
+      </section>
+    </main>
+  </body>
 </html>

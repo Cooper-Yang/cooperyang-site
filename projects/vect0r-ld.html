@@ -1,158 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VECT0R - Level Design - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>VECT0R - Level Design - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="VECT0R — Level Design case study by Cooper Yang. Arena layout, iteration, and lighting for a 2v2 Unity shooter."
+    />
+    <title>VECT0R — Level Design — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <div class="hero-card">
-        <h1>VECT0R - Level Design</h1>
-        <div class="hero-meta"><span class="role">Level Designer</span></div>
-        <div class="page-tags">
-          <span class="tag">Arena Shooter</span>
-          <span class="tag">FPS</span>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Level Design · 10 / 13</span>
+          <span>2022</span>
         </div>
-        <div class="hero-actions"><a class="page-link" href="vect0r.html">Main VECT0R Page</a></div>
-      </div>
+        <h1 class="project-head__title">VECT0R — <em>LD</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Level Designer</dd>
+          </div>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>Unity · <em>Arena Shooter</em></dd>
+          </div>
+          <div>
+            <dt>Tags</dt>
+            <dd>Arena / FPS</dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a href="/projects/vect0r.html" data-cursor="Visit">Main case study ↗</a>
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-      <div class="section-block"><h2>Level Design Guidelines</h2></div>
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            An arena built for <em>source-engine movement</em> — bunny-hops, surfs, and
+            air-strafes as first-class traversal. The layout rewards verticality and punishes
+            idle centers, tuned across five blockout passes to keep fights brief, legible, and
+            spatially <em>symmetrical</em>.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span><strong>Arena layout</strong> — five blockout iterations to tune scale,
+                sightlines, and center pressure.</span>
+            </li>
+            <li>
+              <span><strong>Movement-first traversal</strong> — verticality, ramps, and no
+                sharp corners to preserve speed.</span>
+            </li>
+            <li>
+              <span><strong>Lighting language</strong> — color-coded zones for spawn, lower
+                level, and the central arena.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <p>- <strong>Ample Vertical Spaces:</strong> Players should have multiple ways to move vertically</p>
-      <p>- <strong>No Sharp Corners:</strong> Avoidance of sharp corners accommodating high speeds</p>
-      <p>- <strong>Symmetrical Maps:</strong> Ensures balanced, competitive play</p>
-      <p>- <strong>Falling Off Edges:</strong> Players can be knocked or jump off map edges</p>
-
-      <div class="section-block"><h2>Design Iterations</h2></div>
-
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="step-label">Step 01 — 1st Blockout</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/vect0r-ld-attempt1-top.png" alt="1st blockout top" loading="lazy">
-                <img src="../assets/images/vect0r-ld-attempt1-3d.png" alt="1st blockout 3D" loading="lazy">
-              </div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Initial <em>Guidelines</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-ld-sketch.jpg"
+                alt="Early layout sketch"
+                loading="lazy"
+              />
+              <p class="cap">Early arena sketch</p>
             </div>
-            <div><p>Map exceeded optimal size, delaying enemy encounters.</p></div>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-label">Step 02 — 2nd Blockout</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/vect0r-ld-attempt2-top.png" alt="2nd blockout top" loading="lazy">
-                <img src="../assets/images/vect0r-ld-attempt2-3d.png" alt="2nd blockout 3D" loading="lazy">
-              </div>
+            <div class="spread__text">
+              <h3>Four rules for the arena</h3>
+              <p>
+                Before the first blockout, I locked a short list of constraints that the level
+                had to serve — movement came first, and every geometry decision had to
+                <em>read</em> against these rules.
+              </p>
+              <ol class="project-contribs">
+                <li><span><strong>Ample vertical spaces</strong> — multiple ways to move up.</span></li>
+                <li><span><strong>No sharp corners</strong> — accommodates high movement speeds.</span></li>
+                <li><span><strong>Symmetrical maps</strong> — balanced, competitive play.</span></li>
+                <li><span><strong>Edges that punish</strong> — knockback and jumps can send players off.</span></li>
+              </ol>
             </div>
-            <div><p>Reduced scale but insufficient obstacles; players gravitated toward center.</p></div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-step">
-          <div class="step-label">Step 03 — 3rd Blockout</div>
-          <div class="step-content">
-            <div><img src="../assets/images/vect0r-ld-sketch.jpg" alt="Sketch" loading="lazy"></div>
-            <div><p>Introduced blockout metrics to refine scale.</p></div>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-label">Step 04 — Alpha</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/vect0r-ld-alpha-3d.png" alt="Alpha 3D" loading="lazy">
-                <img src="../assets/images/vect0r-ld-alpha-3d-2.png" alt="Alpha alternate" loading="lazy">
-              </div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Design <em>Iterations</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-ld-attempt1-top.png"
+                alt="1st blockout top"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-ld-attempt1-3d.png"
+                alt="1st blockout 3D"
+                loading="lazy"
+              />
+              <p class="cap">Blockout 01 — top view and 3D</p>
             </div>
-            <div><p>Refined layout with improved spatial flow.</p></div>
-          </div>
-        </div>
-
-        <div class="timeline-step active">
-          <div class="step-label">Step 05 — Beta / Final</div>
-          <div class="step-content">
-            <div>
-              <img src="../assets/images/vect0r-ld-beta-3d.png" alt="Beta main" loading="lazy">
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/vect0r-ld-beta-3d-2.png" alt="Beta alternate" loading="lazy">
-                <img src="../assets/images/vect0r-ld-beta-3d-3.png" alt="Beta detail" loading="lazy">
-              </div>
+            <div class="spread__text">
+              <h3>01 · First blockout</h3>
+              <p>
+                Exceeded the <em>optimal</em> size for a 2v2 — corridors were too long, and
+                first contact took too much dead time. Sightlines were dominant over movement.
+              </p>
             </div>
-            <div><p>Brutalist architecture aesthetic with refined layout.</p></div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-ld-attempt2-top.png"
+                alt="2nd blockout top"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-ld-attempt2-3d.png"
+                alt="2nd blockout 3D"
+                loading="lazy"
+              />
+              <p class="cap">Blockout 02 — reduced scale</p>
+            </div>
+            <div class="spread__text">
+              <h3>02 · Second blockout</h3>
+              <p>
+                Scale came down, but the geometry pulled players toward the center by default —
+                flanks went unused. Needed a reason to leave the middle.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-ld-alpha-3d.png"
+                alt="Alpha 3D"
+                loading="lazy"
+              />
+              <p class="cap">Blockout 03 — metrics-driven alpha</p>
+            </div>
+            <div class="spread__text">
+              <h3>03 · Metrics &amp; alpha</h3>
+              <p>
+                Introduced blockout metrics — standard cover heights, ramp angles, and corridor
+                widths — so every pass could be compared against the same baseline. Spatial
+                flow tightened up fast.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-ld-beta-3d.png"
+                alt="Beta 3D"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-ld-beta-3d-2.png"
+                alt="Beta alternate angle"
+                loading="lazy"
+              />
+              <p class="cap">Beta — brutalist concrete pass</p>
+            </div>
+            <div class="spread__text">
+              <h3>04 · Beta &amp; final</h3>
+              <p>
+                Adopted a <em>brutalist</em> concrete style. Heavy masses frame movement
+                lines and make the map read at a glance — the player always knows where
+                <em>up</em> is, and which wall to wall-ride.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Lighting Rules -->
-      <div class="section-block"><h2>Lighting Rules</h2></div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>Lighting <em>Rules</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-beta-blue.png"
+                alt="Blue spawn"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-beta-orange.png"
+                alt="Orange spawn"
+                loading="lazy"
+              />
+              <p class="cap">Blue and orange team spawns</p>
+            </div>
+            <div class="spread__text">
+              <h3>Spawns — read instantly</h3>
+              <p>
+                Each team spawn is lit in its signature color. No text, no HUD — a player
+                dropped in mid-match can locate themselves by <em>wavelength alone</em>.
+              </p>
+            </div>
+          </div>
 
-      <div class="content-row full">
-        <div class="col">
-          <div class="image-gallery cols-2">
-            <img src="../assets/images/vect0r-beta-blue.png" alt="Blue - Spawn Point" loading="lazy">
-            <img src="../assets/images/vect0r-beta-orange.png" alt="Orange - Spawn Point" loading="lazy">
-            <img src="../assets/images/vect0r-beta-red.png" alt="Red - Lower Level" loading="lazy">
-            <img src="../assets/images/vect0r-beta-white.png" alt="White - Main Areas" loading="lazy">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-beta-red.png"
+                alt="Red lower"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-beta-white.png"
+                alt="White main"
+                loading="lazy"
+              />
+              <p class="cap">Red lower level · White main areas</p>
+            </div>
+            <div class="spread__text">
+              <h3>Zones by temperature</h3>
+              <p>
+                Red marks the lower level — a riskier flank. White covers the main arena,
+                where fights resolve. The switch in temperature tells the player where they
+                are without ever leaving the first-person view.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="next-project">
-        <a href="epitaph-1997-ld.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 11 / 13</span>
+        <a href="/projects/epitaph-1997-ld.html" data-cursor="Next">Epitaph 1997 — LD →</a>
+      </section>
+    </main>
+  </body>
 </html>

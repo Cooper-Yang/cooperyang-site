@@ -1,124 +1,224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Epitaph 1997 - Level Design - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>Epitaph 1997 - Level Design - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Epitaph 1997 — Level Design case study by Cooper Yang. Circular layout, puzzle pacing, and Taoist atmosphere."
+    />
+    <title>Epitaph 1997 — Level Design — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <div class="hero-card">
-        <h1>Epitaph 1997 - Level Design</h1>
-        <div class="hero-meta"><span class="role">Level Designer</span></div>
-        <div class="page-tags">
-          <span class="tag">Eastern Horror</span>
-          <span class="tag">Action RPG</span>
-          <span class="tag">Puzzle</span>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Level Design · 11 / 13</span>
+          <span>2023</span>
         </div>
-        <div class="hero-actions"><a class="page-link" href="epitaph-1997.html">Main Epitaph 1997 Page</a></div>
-      </div>
+        <h1 class="project-head__title">Epitaph 1997 — <em>LD</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Level Designer</dd>
+          </div>
+          <div>
+            <dt>Genre</dt>
+            <dd><em>Eastern Horror</em> · Action RPG · Puzzle</dd>
+          </div>
+          <div>
+            <dt>Tags</dt>
+            <dd>Exorcism / Taoist</dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a href="/projects/epitaph-1997.html" data-cursor="Visit">Main case study ↗</a>
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-      <div class="section-block"><h2>Design Goals</h2></div>
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            A <em>circular</em> dungeon tuned for spell-craft combat and quiet discovery.
+            Layout evolved from linear to looping so players could fold back through clue
+            zones, find ritual doorways, and surface the <em>Taoist</em> horror through the
+            environment itself.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span><strong>Circular dungeon</strong> — loops that let players fold back
+                through earlier clue zones.</span>
+            </li>
+            <li>
+              <span><strong>Zoned pacing</strong> — dedicated puzzle, combat, and
+                exploration beats with clean checkpoints.</span>
+            </li>
+            <li>
+              <span><strong>Atmospheric lighting</strong> — intuitive cues that carry the
+                Taoist exorcism tone without UI.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <p>- <strong>Puzzle and Exploration:</strong> Encourage logical thinking with intuitive navigation and clue discovery</p>
-      <p>- <strong>Combat Support:</strong> Complement spell-craft mechanics with strategic layouts</p>
-      <p>- <strong>Atmospheric Tension &amp; Narrative Immersion:</strong> Heighten horror and suspense, reflect Taoist exorcism themes through environmental storytelling</p>
-
-      <div class="section-block"><h2>Design Process</h2></div>
-
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="step-label">Step 01 — Initial Layout</div>
-          <div class="step-content">
-            <div><img src="../assets/images/epitaph-screenshot3.png" alt="Initial layout" loading="lazy"></div>
-            <div>
-              <p>Started with a linear layout for straightforward player progression. Prioritized clarity over exploration depth.</p>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Design <em>Goals</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/epitaph-screenshot3.png"
+                alt="Initial layout"
+                loading="lazy"
+              />
+              <p class="cap">Step 01 — initial layout</p>
+            </div>
+            <div class="spread__text">
+              <h3>Three things to earn</h3>
+              <p>
+                Every corridor had to pay one of three rents — puzzle, combat, or atmosphere.
+                If a room didn't serve one of those, it was cut or absorbed into the loop.
+              </p>
+              <ol class="project-contribs">
+                <li>
+                  <span><strong>Puzzle &amp; exploration</strong> — logical navigation and
+                    earned clue discovery.</span>
+                </li>
+                <li>
+                  <span><strong>Combat support</strong> — layouts that complement spell-craft
+                    mechanics.</span>
+                </li>
+                <li>
+                  <span><strong>Atmospheric tension</strong> — environmental storytelling for
+                    Taoist exorcism themes.</span>
+                </li>
+              </ol>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-step">
-          <div class="step-label">Step 02 — Iterated Layout</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/epitaph-screenshot4.png" alt="Iterated layout" loading="lazy">
-                <img src="../assets/images/epitaph-screenshot5.png" alt="Layout connections" loading="lazy">
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Design <em>Process</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/epitaph-screenshot4.png"
+                alt="Iterated layout"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/epitaph-screenshot5.png"
+                alt="Layout connections"
+                loading="lazy"
+              />
+              <p class="cap">Step 02 — iterated shape and connections</p>
+            </div>
+            <div class="spread__text">
+              <h3>Linear → circular</h3>
+              <p>
+                The first pass was <em>linear</em>. Players read it once, never came back.
+                The second pass broke the spine into a loop with short connections — now
+                earlier rooms had a reason to be revisited, and clues could land on the
+                <em>second</em> pass instead of the first.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/epitaph-screenshot6.png"
+                alt="Final implementation"
+                loading="lazy"
+              />
+              <p class="cap">Step 03 — final implementation</p>
+            </div>
+            <div class="spread__text">
+              <h3>Zones, checkpoints, light</h3>
+              <p>
+                The final pass assigned each arc of the loop to a single purpose — puzzle,
+                combat, exploration — and placed <em>checkpoints</em> between them.
+                Intuitive lighting guides the player through without a minimap.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2><em>Playthrough</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/ngIlkz6EvuU"
+                  allowfullscreen
+                  loading="lazy"
+                  title="Epitaph 1997 — playthrough"
+                ></iframe>
               </div>
+              <p class="cap">Full playthrough of the dungeon</p>
             </div>
-            <div>
-              <p>Transitioned to basic circular layout. Introduced loops and connections. Improved navigation and sense of space.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-step active">
-          <div class="step-label">Step 03 — Final Implementation</div>
-          <div class="step-content">
-            <div><img src="../assets/images/epitaph-screenshot6.png" alt="Final layout" loading="lazy"></div>
-            <div>
-              <p>Refined circular layout with logical connections. Created distinct zones for puzzles, combat, exploration. Added multiple pathways for player freedom. Incorporated environmental storytelling, puzzles, checkpoints, intuitive lighting.</p>
+            <div class="spread__text">
+              <h3>End-to-end run</h3>
+              <p>
+                A recorded walkthrough of the circular layout in play — puzzle zones,
+                combat rooms, and the loops that tie them together.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="section-block"><h2>Playthrough</h2></div>
-
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/ngIlkz6EvuU" allowfullscreen loading="lazy"></iframe>
-      </div>
-
-      <div class="next-project">
-        <a href="zhuang-zhou-ld.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 12 / 13</span>
+        <a href="/projects/zhuang-zhou-ld.html" data-cursor="Next">Zhuang Zhou — Butterfly LD →</a>
+      </section>
+    </main>
+  </body>
 </html>

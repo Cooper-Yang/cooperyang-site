@@ -1,180 +1,322 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Judge - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>Judge - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Judge — Narrative puzzle case study by Cooper Yang. Dystopian investigation built in Unity."
+    />
+    <title>Judge — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <!-- Hero -->
-      <div class="content-row full"><div class="col">
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/8iU-NtYy4sQ" allowfullscreen loading="lazy"></iframe>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Archive · 06 / 13</span>
+          <span>Feb 2021 — May 2021</span>
         </div>
-      </div></div>
-      <div class="hero-card">
-        <h1>Judge</h1>
-        <div class="hero-meta"><span class="role">Game Designer, Narrative Designer</span><span class="date">2021.2 - 2021.5</span></div>
-        <p class="hero-desc"><em>- Puzzle, Unity</em><br>
-        - An interactive puzzle-solving novel set in a fictional dystopian 1980s country, "The New Republic of Chiu."<br>
-        - Players assume the role of Yao Bang, government investigator for the "Committee of Justice."</p>
-        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/judge" target="_blank" rel="noopener">Itch Page</a></div>
-      </div>
+        <h1 class="project-head__title"><em>Judge</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Game Designer · <em>Narrative Designer</em></dd>
+          </div>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>Unity · <em>Narrative Puzzle</em></dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>Student Project · <em>Solo design</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://cooperyang.itch.io/judge"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Itch Page ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-      <!-- Full-width gameplay GIF -->
-      <div class="content-row full">
-        <div class="col">
-          <img src="../assets/images/judge-gameplay1.gif" alt="Judge gameplay" loading="lazy">
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <iframe
+            src="https://www.youtube.com/embed/8iU-NtYy4sQ"
+            allowfullscreen
+            loading="lazy"
+            title="Judge trailer"
+          ></iframe>
         </div>
-      </div>
+      </section>
 
-      <!-- Key Features -->
-      <div class="section-block"><h2>Key Features</h2></div>
-
-      <div class="content-row full">
-        <div class="col">
-          <p>- Refined version of previous project</p>
-          <p>- Narrative Enhancement</p>
-          <p>- In-Game Computer System Redesign</p>
-          <p>- Real-Time Progression Implementation</p>
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            Judge is an interactive <em>puzzle-solving</em> novel set in the fictional dystopian
+            nation of <em>The New Republic of Chiu</em>. Players step into the shoes of Yao
+            Bang, a government investigator serving the Committee of Justice.
+          </p>
+          <p>
+            Narrative themes lean on dystopian and totalitarian thought — inspired by Orwell's
+            <em>1984</em> and Arendt's <em>Eichmann in Jerusalem</em> — translated into
+            mechanics the player performs rather than reads.
+          </p>
         </div>
-      </div>
-
-      <!-- Narrative Themes -->
-      <div class="content-row full">
-        <div class="col">
-          <p><strong>Narrative Themes:</strong> Dystopian and totalitarian concepts inspired by Orwell's <em>1984</em> and Arendt's <em>Eichmann in Jerusalem</em>.</p>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                >Refined <strong>iteration</strong> on a previous investigation
+                prototype.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Narrative enhancement</strong> — deeper branching and dossier
+                writing.</span
+              >
+            </li>
+            <li>
+              <span
+                >In-game <strong>computer system</strong> redesign — GUI plus console
+                hacking.</span
+              >
+            </li>
+            <li>
+              <span
+                >Real-time <strong>progression</strong> — evidence evolves as the shift
+                continues.</span
+              >
+            </li>
+          </ol>
         </div>
-      </div>
+      </section>
 
-      <!-- Gameplay Loop -->
-      <div class="section-block"><h2>Gameplay Loop</h2></div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2><em>Gameplay</em> Loop</h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/judge-gameplay1.gif"
+                alt="Judge gameplay"
+                loading="lazy"
+              />
+              <p class="cap">Investigation loop — overview</p>
+            </div>
+            <div class="spread__text">
+              <h3>The shift</h3>
+              <p>
+                Every case is a <em>shift</em> at the Committee desk. Files arrive, the clock
+                runs, and the player must read, cross-reference, and commit to a verdict before
+                the day ends. Mechanics — not text — carry the <strong>moral weight</strong>.
+              </p>
+            </div>
+          </div>
 
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/judge-gameplay2.gif" alt="Hack email" loading="lazy">
-          <p class="media-caption">Hack Suspect's Email</p>
-        </div>
-        <div class="col">
-          <img src="../assets/images/judge-gameplay3.gif" alt="Cross-reference" loading="lazy">
-          <p class="media-caption">Cross-Reference Evidence</p>
-        </div>
-      </div>
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/judge-gameplay2.gif"
+                alt="Hack suspect's email"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/judge-gameplay3.gif"
+                alt="Cross-reference evidence"
+                loading="lazy"
+              />
+              <p class="cap">Hack email (left) · Cross-reference evidence (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Read · connect</h3>
+              <p>
+                Players <em>hack</em> a suspect's email to extract threads, then
+                <strong>cross-reference</strong> those threads against dossiers already on the
+                desk. The mechanics are simple; the judgments are not.
+              </p>
+            </div>
+          </div>
 
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/judge-gameplay4.gif" alt="Submit evidence" loading="lazy">
-          <p class="media-caption">Submit Evidence</p>
-        </div>
-        <div class="col"></div>
-      </div>
-
-      <!-- Desk Interactions -->
-      <div class="section-block"><h2>Desk Interactions</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/judge-screenshot1.png" alt="GUI - Computer Interface" loading="lazy">
-          <p class="media-caption">GUI</p>
-        </div>
-        <div class="col">
-          <p><strong>Computer Interface:</strong> Combines a simplified GUI for navigation and a console for email "hacking," added after players struggled with the initial text-based system.</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/judge-screenshot2.png" alt="Office Manual" loading="lazy">
-          <p class="media-caption">Office Manual</p>
-        </div>
-        <div class="col">
-          <p><strong>Office Manual:</strong> Provides guidance for players needing assistance.</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/judge-desk.png" alt="Board - Evidence workspace" loading="lazy">
-          <p class="media-caption">Board</p>
-        </div>
-        <div class="col">
-          <p><strong>Board:</strong> Players can print documents, drag, and analyze them before submission, reinforcing investigative gameplay.</p>
-        </div>
-      </div>
-
-      <!-- Tutorial Design -->
-      <div class="section-block"><h2>Tutorial Design</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <div class="image-gallery">
-            <img src="../assets/images/judge-gui5.png" alt="Tutorial progression" loading="lazy">
-            <img src="../assets/images/judge-gui4.png" alt="Email interface tutorial" loading="lazy">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/judge-gameplay4.gif"
+                alt="Submit evidence"
+                loading="lazy"
+              />
+              <p class="cap">Submit evidence — verdict window</p>
+            </div>
+            <div class="spread__text">
+              <h3>Commit the verdict</h3>
+              <p>
+                Submission is final. The player stamps the dossier knowing the file they
+                picked becomes the <em>state's</em> version of the truth — complicity built
+                into the interface.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <img src="../assets/images/judge-gui3.png" alt="Evidence submission workflow" loading="lazy">
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2><em>Desk</em> Interactions</h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/judge-screenshot1.png"
+                alt="GUI - Computer Interface"
+                loading="lazy"
+              />
+              <p class="cap">Computer interface — GUI</p>
+            </div>
+            <div class="spread__text">
+              <h3>01 · Computer interface</h3>
+              <p>
+                A simplified <strong>GUI</strong> handles navigation while a
+                <em>console</em> handles email "hacking" — added after playtests showed the
+                original text-only interface was too opaque.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/judge-screenshot2.png"
+                alt="Office Manual"
+                loading="lazy"
+              />
+              <p class="cap">Office manual — diegetic help</p>
+            </div>
+            <div class="spread__text">
+              <h3>02 · Office manual</h3>
+              <p>
+                A <em>diegetic</em> manual lives on the desk — a discreet onramp for players
+                who need help without breaking the investigator <strong>fiction</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/judge-desk.png"
+                alt="Board — Evidence workspace"
+                loading="lazy"
+              />
+              <p class="cap">Board — evidence workspace</p>
+            </div>
+            <div class="spread__text">
+              <h3>03 · The board</h3>
+              <p>
+                Players print, drag, and <strong>annotate</strong> documents before
+                submission. The physicality reinforces the <em>investigative</em> loop — it
+                turns reading into acting.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="content-row full">
-        <div class="col">
-          <p><strong>Objective:</strong> Ensure players understand the core gameplay loop and mechanics in a seamless and diegetic manner.</p>
-          <p><strong>Player Challenges:</strong> Playtests revealed difficulty understanding the investigation workflow. The step-by-step annotated tutorial guides players through examining files, navigating the board, and submitting evidence.</p>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2><em>Tutorial</em> Design</h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/judge-gui5.png"
+                alt="Tutorial progression"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/judge-gui4.png"
+                alt="Email interface tutorial"
+                loading="lazy"
+              />
+              <p class="cap">Tutorial progression (left) · Email interface (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Day one on the job</h3>
+              <p>
+                The teaching should feel like <em>day one</em> on the job, not a tooltip.
+                Players understand the <strong>core loop</strong> and mechanics in a seamless,
+                diegetic manner — a step-by-step walk through examining files, working the
+                board, and submitting evidence.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/judge-gui3.png"
+                alt="Evidence submission workflow"
+                loading="lazy"
+              />
+              <p class="cap">Evidence submission — annotated walkthrough</p>
+            </div>
+            <div class="spread__text">
+              <h3>Annotated walkthrough</h3>
+              <p>
+                Playtests revealed difficulty grasping the <em>investigation</em> workflow. A
+                guided first shift runs the player through each mechanic in the order they'd
+                discover it naturally — no menus, no overlays, just <strong>work</strong>.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="next-project">
-        <a href="incite-infiltrate.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 07 / 13</span>
+        <a href="/projects/incite-infiltrate.html" data-cursor="Next">Incite &amp; Infiltrate →</a>
+      </section>
+    </main>
+  </body>
 </html>

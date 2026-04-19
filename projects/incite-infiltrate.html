@@ -1,101 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Incite <meta name="viewport" content="width=device-width, initial-scale=1.0">amp; Infiltrate - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>Incite &amp; Infiltrate - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Incite & Infiltrate — Deck-building strategy case study by Cooper Yang. Aliens, spies, and satirical news."
+    />
+    <title>Incite &amp; Infiltrate — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <div class="content-row full"><div class="col">
-        <img src="../assets/images/incite-thumb.gif" alt="Incite & Infiltrate" loading="lazy">
-      </div></div>
-      <div class="hero-card">
-        <h1>Incite &amp; Infiltrate</h1>
-        <div class="hero-meta"><span class="role">Game Designer</span><span class="date">2020.9 - 2020.12</span></div>
-        <p class="hero-desc">- Deck Building Game, Unity<br>
-        - Aliens scheme to colonize Earth. Players dispatch spies to seize control of politics, culture, science, and religion. Exposure mechanics increase detection risk.</p>
-        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/incite-infiltrate" target="_blank" rel="noopener">Itch Page</a></div>
-      </div>
-
-      <div class="section-block"><h2>Procedural Alien Card Generation</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/incite-procgen.png" alt="Procedural generation" loading="lazy">
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Archive · 07 / 13</span>
+          <span>Sep 2020 — Dec 2020</span>
         </div>
-        <div class="col">
-          <p>Cards feature randomly generated attributes from a shared pool across culture, religion, politics, technology, and lifespan. Card images divided into: face contour, upper face (eyes), lower face (mouth) for variety through random combinations.</p>
-        </div>
-      </div>
-
-      <div class="section-block"><h2>Effect Card Design</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/incite-cards.png" alt="Effect cards" loading="lazy">
-        </div>
-        <div class="col">
-          <p>Handcrafted cards modify alien card attributes. Rarity distribution: 70% Level 1, 20% Level 2, 10% Level 3. Narratives tied to specific card attributes.</p>
-        </div>
-      </div>
-
-      <!-- ScriptableObject + Gist -->
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/incite-scriptable.png" alt="ScriptableObject" loading="lazy">
-        </div>
-        <div class="col">
-          <div class="code-block collapsed">
-          <div class="code-block-header">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span class="filename">AlienCardProcGen.cs</span>
+        <h1 class="project-head__title">Incite &amp; <em>Infiltrate</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Game Designer · <em>Systems Designer</em></dd>
           </div>
-          <div class="code-block-body">
-            <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">using</span> System.Collections;</td></tr>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>Unity · <em>Deck Builder</em></dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>Student Project · <em>Team project</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://cooperyang.itch.io/incite-infiltrate"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Itch Page ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <img
+            src="/assets/images/incite-thumb.gif"
+            alt="Incite & Infiltrate"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            Aliens scheme to <em>colonize Earth</em>. Players dispatch spies to seize control
+            of politics, culture, science, and religion — while mounting
+            <strong>exposure</strong> raises the risk of detection.
+          </p>
+          <p>
+            A deck-building strategy game soaked in <em>satirical dark humor</em> — a study
+            in how bureaucracies process the <strong>impossible</strong>.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                ><strong>Procedural alien cards</strong> — attribute pool plus modular face
+                art for a population that never quite repeats.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Effect card design</strong> — handcrafted rarity ladder tied
+                directly to the attributes it mutates.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Dynamic news system</strong> — ticker and breaking-news pop-ups
+                driven by live game values.</span
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Procedural <em>Alien Cards</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/incite-procgen.png"
+                alt="Procedural generation"
+                loading="lazy"
+              />
+              <p class="cap">Procedural generation — attribute pool</p>
+            </div>
+            <div class="spread__text">
+              <h3>Modular faces, rolled stats</h3>
+              <p>
+                Each alien card samples attributes from a shared pool across
+                <em>culture</em>, religion, politics, technology, and lifespan. Card art is
+                split into face contour, upper face (eyes), and lower face (mouth) — combined
+                randomly for a <strong>population that never quite repeats</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Effect <em>Card Design</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/incite-cards.png"
+                alt="Effect cards"
+                loading="lazy"
+              />
+              <p class="cap">Effect cards — rarity ladder</p>
+            </div>
+            <div class="spread__text">
+              <h3>Rarity locked to fiction</h3>
+              <p>
+                Handcrafted cards modify <strong>alien attributes</strong>. Rarity
+                distribution leans common — 70% <em>Level 1</em>, 20% Level 2, 10% Level 3.
+                Each card's narrative ties directly to the attribute it mutates, so the
+                fiction and the math stay <em>locked together</em>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>Data-driven <em>authoring</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/incite-scriptable.png"
+                alt="ScriptableObject"
+                loading="lazy"
+              />
+              <p class="cap">ScriptableObject · card schema</p>
+            </div>
+            <div class="spread__text">
+              <h3>ScriptableObject schema</h3>
+              <p>
+                Cards and aliens are <strong>ScriptableObjects</strong>, so new content can be
+                dropped in as data rather than code. Designers edit attributes, rarities, and
+                copy directly in the Unity inspector — no recompiles, no engineering round-trip.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <div class="code-block collapsed">
+                <div class="code-block-header">
+                  <div class="dots"><span></span><span></span><span></span></div>
+                  <span class="filename">AlienCardProcGen.cs</span>
+                </div>
+                <div class="code-block-body">
+                  <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">using</span> System.Collections;</td></tr>
 <tr><td class="line-num">2</td><td class="line-code"><span class="kw">using</span> System.Collections.Generic;</td></tr>
 <tr><td class="line-num">3</td><td class="line-code"><span class="kw">using</span> UnityEngine;</td></tr>
 <tr><td class="line-num">4</td><td class="line-code"><span class="kw">using</span> UnityEngine.UI;</td></tr>
@@ -157,44 +270,85 @@
 <tr><td class="line-num">60</td><td class="line-code">        techIcon.sizeDelta = <span class="kw">new</span> <span class="typ">Vector2</span>((<span class="num">100</span> - <span class="num">8</span>) * properties[<span class="num">3</span>] / <span class="num">100</span>, <span class="num">19</span>);</td></tr>
 <tr><td class="line-num">61</td><td class="line-code">    }</td></tr>
 <tr><td class="line-num">62</td><td class="line-code">}</td></tr></table>
+                </div>
+                <button class="code-expand-btn">// expand full source</button>
+                <div class="code-block-footer">
+                  <span>C#</span>
+                  <span>62 lines</span>
+                </div>
+              </div>
+            </div>
+            <div class="spread__text">
+              <h3>AlienCardProcGen.cs</h3>
+              <p>
+                The generator rolls five attributes out of a shared budget, shuffles them so
+                no two cards weight the same axis identically, and maps each value to a
+                <em>stat bar</em> rendered straight into the card UI. Faces sample from
+                independent sprite arrays — <strong>the combinatorics stay cheap</strong>,
+                the variety stays high.
+              </p>
+            </div>
           </div>
-          <button class="code-expand-btn">// expand full source</button>
-          <div class="code-block-footer">
-            <span>C#</span>
-            <span>62 lines</span>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 04</span>
+          <h2>Narrative <em>Design</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/incite-narrative.jpg"
+                alt="HUD narrative system"
+                loading="lazy"
+              />
+              <p class="cap">HUD narrative system</p>
+            </div>
+            <div class="spread__text">
+              <h3>News as systemic voice</h3>
+              <p>
+                A dynamic <strong>news system</strong> scrolls headlines across the HUD and
+                triggers <em>pop-up</em> breaking news at predetermined value benchmarks.
+                Tone sits somewhere between satirical and dead-serious — the absurdity of a
+                species <em>bureaucratizing its own extinction</em>.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/incite-news1.png"
+                alt="News ticker"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/incite-news2.png"
+                alt="Breaking news"
+                loading="lazy"
+              />
+              <p class="cap">News ticker (left) · Breaking news pop-up (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Ticker · pop-up</h3>
+              <p>
+                Two registers for the same voice — a <em>low-volume ticker</em> that runs
+                continuously, and a <strong>breaking-news interrupt</strong> that fires only
+                when game-state benchmarks are crossed. The player learns to read both as
+                feedback.
+              </p>
+            </div>
           </div>
         </div>
-        </div>
-      </div>
+      </section>
 
-      <!-- Narrative Design -->
-      <div class="section-block"><h2>Narrative Design</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/incite-narrative.jpg" alt="HUD narrative system" loading="lazy">
-        </div>
-        <div class="col">
-          <p>Dynamic news system with scrolling HUD news and pop-up breaking news triggered at predetermined value benchmarks. Tone characterized by satirical dark humor exploring absurdity of human nature facing unknown forces.</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/incite-news1.png" alt="News system" loading="lazy">
-        </div>
-        <div class="col">
-          <img src="../assets/images/incite-news2.png" alt="Breaking news" loading="lazy">
-        </div>
-      </div>
-
-      <div class="next-project">
-        <a href="pico8-prototypes.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 08 / 13</span>
+        <a href="/projects/pico8-prototypes.html" data-cursor="Next">Pico-8 Prototypes →</a>
+      </section>
+    </main>
+  </body>
 </html>

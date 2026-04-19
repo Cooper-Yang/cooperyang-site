@@ -1,97 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Doom E1M1 Clone - Game design project by Cooper Yang. Recreation of Doom's first level in Unity.">
-  <title>Doom E1M1 Clone - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Doom E1M1 Clone — Recreation of Doom's first level in Unity by Cooper Yang. FPS case study."
+    />
+    <title>Doom E1M1 Clone — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <div class="content-row full"><div class="col">
-        <img src="../assets/images/doom-gameplay.gif" alt="Doom E1M1 Clone gameplay" loading="lazy">
-      </div></div>
-      <div class="hero-card">
-        <h1>Doom E1M1 Clone</h1>
-        <div class="hero-meta"><span class="role">Game Designer, Programmer</span><span class="date">2019.10 - 2019.12</span></div>
-        <p class="hero-desc">- FPS, Unity</p>
-        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/theultimatedoomclone" target="_blank" rel="noopener">Itch Page</a></div>
-      </div>
-
-      <div class="section-block"><h2>About</h2></div>
-
-      <div class="content-row full">
-        <div class="col">
-          <p>The project involved recreating the initial level of the 1993 Doom game by id Software over a seven-week period. The team constructed original assets mirroring the initial textures, sounds, and codes while preserving the spirit and atmosphere of the original level, including its hidden secrets.</p>
-          <p>My responsibilities included creating the head bob and player movement systems, along with implementing the pixelation post-processing effect.</p>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Archive · 09 / 13</span>
+          <span>Oct 2019 — Dec 2019</span>
         </div>
-      </div>
-
-      <div class="section-block"><h2>Development</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/doom-headbob.png" alt="Head bobbing implementation" loading="lazy">
-        </div>
-        <div class="col">
-          <p><strong>Head Bobbing:</strong></p>
-          <p>Implemented a "head bobbing" feature to enhance immersion by simulating natural up-and-down motion in the player's viewpoint during movement.</p>
-          <p>The effect uses core variables: bobbingSpeed (pace), bobbingHeight (intensity), and midpoint (base position). The isHeadBobbing flag triggers a rhythmic bobbing effect synchronized with player movement, creating a sine wave pattern.</p>
-          <p>Our version uses two separate cameras; one showcasing the player's viewpoint and another focusing on the weapon. Both are powered by the same script but with different settings, offering a unified experience true to the keyboard-driven controls of the original title.</p>
-        </div>
-      </div>
-
-      <div class="content-row full">
-        <div class="col">
-          <div class="code-block collapsed">
-          <div class="code-block-header">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span class="filename">HeadBob.cs</span>
+        <h1 class="project-head__title">Doom E1M1 <em>Clone</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Game Designer · <em>Programmer</em></dd>
           </div>
-          <div class="code-block-body">
-            <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">public</span> <span class="kw">class</span> HeadBob : <span class="typ">MonoBehaviour</span></td></tr>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>Unity · <em>First-Person Shooter</em></dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>Student Project · <em>7-week sprint</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://cooperyang.itch.io/theultimatedoomclone"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Itch Page ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <img
+            src="/assets/images/doom-gameplay.gif"
+            alt="Doom E1M1 Clone gameplay"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            A seven-week recreation of the <em>first level</em> of id Software's 1993
+            <em>Doom</em>. Our team built original assets mirroring the initial textures,
+            sounds, and code while preserving the <strong>spirit</strong> and atmosphere of
+            the original level — down to its hidden secrets.
+          </p>
+          <p>
+            My responsibilities covered the <em>head-bob</em> and player movement systems,
+            plus the <em>pixelization</em> post-processing effect.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                ><strong>Head-bob</strong> system — sine-wave camera motion tied to player
+                input, tuned per-camera.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Player movement</strong> — keyboard-only feel faithful to the 1993
+                original.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Pixelization</strong> shader — a camera post-process that mimics
+                Doom's low-res period look.</span
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Head <em>Bobbing</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/doom-headbob.png"
+                alt="Head bobbing implementation"
+                loading="lazy"
+              />
+              <p class="cap">Head-bob implementation</p>
+            </div>
+            <div class="spread__text">
+              <h3>Sine wave, tied to input</h3>
+              <p>
+                A "head-bob" feature enhances <strong>immersion</strong> by simulating
+                natural up-and-down motion in the viewpoint during movement. The effect
+                revolves around three core variables — <em>bobbingSpeed</em> (pace),
+                <em>bobbingHeight</em> (intensity), and <em>midpoint</em> (base position).
+                An <em>isHeadBobbing</em> flag triggers a rhythmic bobbing synchronized with
+                player input, drawing a sine wave.
+              </p>
+              <p>
+                Our version runs two <strong>cameras</strong> — one for the viewpoint, one
+                for the weapon — both driven by the same script with different settings,
+                keeping the <em>keyboard-only</em> feel of the original.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <div class="code-block collapsed">
+                <div class="code-block-header">
+                  <div class="dots"><span></span><span></span><span></span></div>
+                  <span class="filename">HeadBob.cs</span>
+                </div>
+                <div class="code-block-body">
+                  <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">public</span> <span class="kw">class</span> HeadBob : <span class="typ">MonoBehaviour</span></td></tr>
 <tr><td class="line-num">2</td><td class="line-code">{</td></tr>
 <tr><td class="line-num">3</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> bobbingSpeed = <span class="num">0.18f</span>;</td></tr>
 <tr><td class="line-num">4</td><td class="line-code">    <span class="kw">public</span> <span class="typ">float</span> bobbingHeight = <span class="num">0.2f</span>;</td></tr>
@@ -143,34 +213,65 @@
 <tr><td class="line-num">50</td><td class="line-code">        transform.localPosition = cSharpConversion;</td></tr>
 <tr><td class="line-num">51</td><td class="line-code">    }</td></tr>
 <tr><td class="line-num">52</td><td class="line-code">}</td></tr></table>
+                </div>
+                <button class="code-expand-btn">// expand full source</button>
+                <div class="code-block-footer">
+                  <span>C#</span>
+                  <span>52 lines</span>
+                </div>
+              </div>
+            </div>
+            <div class="spread__text">
+              <h3>HeadBob.cs</h3>
+              <p>
+                The update loop collects horizontal and vertical input, advances a
+                <em>timer</em> when the player is moving, and draws a sine wave whose
+                amplitude scales with total axis input. The vertical offset writes to
+                <em>localPosition.y</em> around <strong>midpoint</strong> — zero allocation,
+                no state beyond a single float.
+              </p>
+            </div>
           </div>
-          <button class="code-expand-btn">// expand full source</button>
-          <div class="code-block-footer">
-            <span>C#</span>
-            <span>52 lines</span>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Pixelization <em>Post-Process</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/doom-postprocess.png"
+                alt="Pixelization post-processing"
+                loading="lazy"
+              />
+              <p class="cap">Pixelization — camera shader</p>
+            </div>
+            <div class="spread__text">
+              <h3>Cheap period look</h3>
+              <p>
+                The pixelization post-processing simulates the <em>graphic style</em> of
+                the original. Doom's engine displayed 3D environments derived from
+                <strong>2D floor plans</strong>, producing low-resolution visuals with
+                graphic aliasing baked in.
+              </p>
+              <p>
+                Using Unity and custom assets, we applied a <em>camera shader</em> to
+                replicate that look — a <strong>cost-effective</strong> approach that
+                mirrors the period feel without reconstructing the renderer.
+              </p>
+            </div>
           </div>
         </div>
-        </div>
-      </div>
+      </section>
 
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/doom-postprocess.png" alt="Pixelization post-processing" loading="lazy">
-        </div>
-        <div class="col">
-          <p><strong>Post-Processing:</strong></p>
-          <p>The pixelization post-processing effect simulates the original game's graphic style. Since Doom's engine displayed 3D environments derived from 2D floor plans, it produced low-resolution visuals with graphic aliasing.</p>
-          <p>Using Unity and custom assets, we applied post-processing to the camera to replicate this appearance -- a cost-effective approach facilitating the desired graphic representation.</p>
-        </div>
-      </div>
-
-      <div class="next-project">
-        <a href="vect0r-ld.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 10 / 13</span>
+        <a href="/projects/vect0r-ld.html" data-cursor="Next">VECT0R Level Design →</a>
+      </section>
+    </main>
+  </body>
 </html>

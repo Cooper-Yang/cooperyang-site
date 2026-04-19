@@ -1,265 +1,529 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VECT0R - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>VECT0R - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="VECT0R — Game & Level Design case study by Cooper Yang. 2v2 arena shooter built in Unity."
+    />
+    <title>VECT0R — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html" class="active">Projects</a>
-        <a href="../archive.html">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <!-- Hero -->
-      <div class="content-row full"><div class="col">
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/2p_BgcVLPQc" allowfullscreen loading="lazy"></iframe>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Case Study · 02 / 05</span>
+          <span>Jan 2025 — Present</span>
         </div>
-      </div></div>
-      <div class="hero-card">
-        <h1>VECT0R</h1>
-        <div class="hero-meta"><span class="role">Game Designer, Level Designer</span><span class="date">2025.1 - Present</span></div>
-        <p class="hero-desc"><em>- FPS, Unity</em><br>
-        - 2v2 Arena Shooter: Emphasize high movement speed<br>
-        - Evolving Loadout System: Allows players to customize and upgrade their loadout throughout each round.</p>
-        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/vect0r" target="_blank" rel="noopener">Itch Page</a></div>
-      </div>
-
-      <!-- Contributions -->
-      <div class="contrib-block">
-        <div class="contrib-header">contributions</div>
-        <ul class="contrib-list">
-          <li><span class="num">01</span><span><strong>Card-Based Loadout System:</strong> Designed and developed a flexible loadout mechanic that allows players to customize weapons and gadgets throughout the match.</span></li>
-          <li><span class="num">02</span><span><strong>Weapon and Movement Gadgets:</strong> Designed and developed various weapons and gadgets, like grappling hook, dash, minigun, rocket launcher etc.</span></li>
-          <li><span class="num">03</span><span><strong>Level Layout, Environmental Art &amp; Lighting:</strong> Planned and designed the arena, ensuring a balanced layout, cohesive aesthetics, and engaging atmosphere.</span></li>
-          <li><span class="num">04</span><span><strong>Player Movement System:</strong> Implemented core movement mechanics to deliver responsive, high-speed gameplay.</span></li>
-        </ul>
-      </div>
-
-      <!-- Core Game Loop -->
-      <div class="section-block"><h2>Core Game Loop / Mechanics</h2></div>
-
-      <div class="content-row full">
-        <div class="col">
-          <div class="image-gallery cols-2">
-            <img src="../assets/images/vect0r-gameloop.png" alt="Game loop diagram" loading="lazy">
-            <img src="../assets/images/vect0r-mechanics.png" alt="Mechanics chart" loading="lazy">
+        <h1 class="project-head__title"><em>VECT0R</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Game Designer · Level Designer</dd>
           </div>
-        </div>
-      </div>
+          <div>
+            <dt>Context</dt>
+            <dd>USC Games <em>(Thesis)</em></dd>
+          </div>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>Unity · <em>2v2 Arena Shooter</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://cooperyang.itch.io/vect0r"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Itch Page ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-      <!-- Card Based Loadout -->
-      <div class="section-block"><h2>Card Based Loadout</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vect0r-gameplay1.gif" alt="Card-based loadout" loading="lazy">
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <iframe
+            src="https://www.youtube.com/embed/2p_BgcVLPQc"
+            allowfullscreen
+            loading="lazy"
+            title="VECT0R trailer"
+          ></iframe>
         </div>
-        <div class="col">
-          <p>Every match feels fresh and unpredictable thanks to randomized card options and evolving loadouts. Cards serve as the core of your strategy, offering an array of weapons, buffs, and gadgets. During the preparation phase, a shop displays randomized card options, ensuring each round requires new tactics and adaptations.</p>
-        </div>
-      </div>
+      </section>
 
-      <div class="content-row full">
-        <div class="col">
-          <img src="../assets/images/vect0r-gameplay2.gif" alt="Loadout gameplay" loading="lazy">
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            VECT0R is a high-speed <em>2v2 arena shooter</em> built in Unity. Source-engine
+            movement lineage — air-strafing, surfing, bunny-hopping — reborn as
+            <strong>core features</strong>, not exploits.
+          </p>
+          <p>
+            Each round opens with a shop of randomized <em>cards</em> that mutate your
+            loadout, so every match plays differently from the one before it.
+          </p>
         </div>
-      </div>
-
-      <!-- Weapons and Movement Gadgets -->
-      <div class="section-block"><h2>Weapons and Movement Gadgets</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vect0r-grapple.gif" alt="Grappling Hook" loading="lazy">
-          <p class="media-caption">Grappling Hook</p>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                >Card-based <em>loadout</em> system — customize weapons and gadgets
+                mid-match.</span
+              >
+            </li>
+            <li>
+              <span
+                >Weapons &amp; <em>movement</em> gadgets — grappling hook, dash, minigun,
+                rocket launcher.</span
+              >
+            </li>
+            <li>
+              <span>Arena <em>level design</em>, environment, and lighting.</span>
+            </li>
+            <li>
+              <span
+                >Player <em>movement</em> system — responsive, high-speed core
+                locomotion.</span
+              >
+            </li>
+          </ol>
         </div>
-        <div class="col">
-          <img src="../assets/images/vect0r-dash.gif" alt="Dash Device" loading="lazy">
-          <p class="media-caption">Dash Device</p>
-        </div>
-      </div>
+      </section>
 
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vect0r-shotgun.gif" alt="Shotgun" loading="lazy">
-          <p class="media-caption">Shotgun</p>
-        </div>
-        <div class="col">
-          <img src="../assets/images/vect0r-minigun.gif" alt="Minigun" loading="lazy">
-          <p class="media-caption">Minigun</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vect0r-rocket.gif" alt="Rocket Launcher" loading="lazy">
-          <p class="media-caption">Rocket Launcher</p>
-        </div>
-        <div class="col"></div>
-      </div>
-
-      <!-- Level Design -->
-      <div class="section-block"><h2>Level Design</h2></div>
-
-      <div class="content-row full">
-        <div class="col">
-          <p><strong>Initial Guidelines:</strong></p>
-          <p>- <strong>Ample Vertical Spaces</strong> &mdash; Players should have multiple ways to move vertically.</p>
-          <p>- <strong>No Sharp or Tight Corners</strong> &mdash; Accommodates high movement speeds.</p>
-          <p>- <strong>Symmetrical Maps</strong> &mdash; Ensures balanced, competitive play.</p>
-          <p>- <strong>Falling Off the Map</strong> &mdash; Players can be knocked or jump off edges.</p>
-        </div>
-      </div>
-
-      <div class="content-row full">
-        <div class="col">
-          <img src="../assets/images/vect0r-hero.gif" alt="Arena overview" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Level Design Iterations -->
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="step-label">Step 01 — 1st Blockout</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/vect0r-ld-attempt1-top.png" alt="1st blockout top view" loading="lazy">
-                <img src="../assets/images/vect0r-ld-attempt1-3d.png" alt="1st blockout 3D view" loading="lazy">
-              </div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Core <em>Loop</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-gameloop.png"
+                alt="Game loop diagram"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-mechanics.png"
+                alt="Mechanics chart"
+                loading="lazy"
+              />
+              <p class="cap">Game loop (left) · Mechanics chart (right)</p>
             </div>
-            <div><p>Map exceeded optimal size, delaying enemy encounters.</p></div>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-label">Step 02 — 2nd Blockout</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/vect0r-ld-attempt2-top.png" alt="2nd blockout top view" loading="lazy">
-                <img src="../assets/images/vect0r-ld-attempt2-3d.png" alt="2nd blockout 3D view" loading="lazy">
-              </div>
-            </div>
-            <div><p>Reduced scale but insufficient obstacles; players gravitated toward center.</p></div>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-label">Step 03 — Blockout Rework</div>
-          <div class="step-content">
-            <div><img src="../assets/images/vect0r-rework-sketch.jpg" alt="Blockout rework sketches" loading="lazy"></div>
-            <div><p>Introduced blockout metrics to refine scale.</p></div>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-label">Step 04 — Alpha</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/vect0r-ld-alpha-3d.png" alt="Alpha 3D view" loading="lazy">
-                <img src="../assets/images/vect0r-ld-alpha-3d-2.png" alt="Alpha alternate view" loading="lazy">
-              </div>
-            </div>
-            <div><p>Refined layout with improved spatial flow.</p></div>
-          </div>
-        </div>
-
-        <div class="timeline-step active">
-          <div class="step-label">Step 05 — Beta / Final</div>
-          <div class="step-content full">
-            <div>
-              <img src="../assets/images/vect0r-ld-beta-3d.png" alt="Beta main view" loading="lazy">
-              <div class="image-gallery cols-2" style="margin-top:10px;">
-                <img src="../assets/images/vect0r-ld-beta-3d-2.png" alt="Beta alternate" loading="lazy">
-                <img src="../assets/images/vect0r-ld-beta-3d-3.png" alt="Beta detail" loading="lazy">
-              </div>
-              <p>Adopted a brutalist architectural style, highlighting concrete materials to establish a stark, grim atmosphere — perfectly complementing the abstract nature of the levels.</p>
+            <div class="spread__text">
+              <h3>Systems at a glance</h3>
+              <p>
+                The round loop drives everything — prep, shop, fight, reset. Each phase
+                feeds the next: cards bought in prep shape the fight, fight outcomes shape
+                the next shop. A <em>tight</em> economy with room for long tactics.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Color Zones -->
-      <div class="content-row full">
-        <div class="col">
-          <div class="image-gallery cols-2">
-            <img src="../assets/images/vect0r-beta-blue.png" alt="Blue zone" loading="lazy">
-            <img src="../assets/images/vect0r-beta-orange.png" alt="Orange zone" loading="lazy">
-            <img src="../assets/images/vect0r-beta-red.png" alt="Red zone" loading="lazy">
-            <img src="../assets/images/vect0r-beta-white.png" alt="White zone" loading="lazy">
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Card-based <em>Loadout</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-gameplay1.gif"
+                alt="Card-based loadout"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>Every match, a new deck</h3>
+              <p>
+                Every match feels <em>fresh</em> thanks to randomized card options and
+                evolving loadouts. Cards are the <strong>core strategy layer</strong> — an
+                array of weapons, buffs, and gadgets.
+              </p>
+              <p>
+                In the prep phase a shop surfaces a randomized hand; each round forces new
+                tactics.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-gameplay2.gif"
+                alt="Loadout gameplay"
+                loading="lazy"
+              />
+              <p class="cap">Loadout in play — mid-match mutation</p>
+            </div>
+            <div class="spread__text">
+              <h3>Mid-match mutation</h3>
+              <p>
+                The loadout is never locked. Players pivot between rounds — a support build
+                becomes aggressive, a sniper becomes a mobility specialist — as the shop's
+                <em>randomized</em> offerings rewrite the meta on the fly.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="content-row full">
-        <div class="col">
-          <img src="../assets/images/vect0r-beta-vertical.gif" alt="Vertical level design" loading="lazy">
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>Weapons &amp; <em>Gadgets</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-grapple.gif"
+                alt="Grappling Hook"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-dash.gif"
+                alt="Dash Device"
+                loading="lazy"
+              />
+              <p class="cap">Grappling hook (left) · Dash device (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Movement gadgets</h3>
+              <p>
+                Gadgets extend the <em>locomotion</em> system — each one a verb players
+                combine with air-strafing, surfing, and bunny-hops. The grapple rewards
+                long sightlines; the dash punishes hesitation.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-shotgun.gif"
+                alt="Shotgun"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-minigun.gif"
+                alt="Minigun"
+                loading="lazy"
+              />
+              <p class="cap">Shotgun (left) · Minigun (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Weapon feel</h3>
+              <p>
+                Each weapon carries unique <strong>recoil</strong> that alters trajectory —
+                shotguns rocket-jump, miniguns brake your slide, rockets fling you upward.
+                Weapons <em>are</em> movement.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-rocket.gif"
+                alt="Rocket Launcher"
+                loading="lazy"
+              />
+              <p class="cap">Rocket launcher — the skill ceiling</p>
+            </div>
+            <div class="spread__text">
+              <h3>Rocket jump</h3>
+              <p>
+                The rocket launcher is the <em>high-skill</em> anchor — vertical mobility,
+                splash damage, and a heavy cost-per-shot. Mastering it unlocks traversal
+                routes that no other weapon offers.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Movement System -->
-      <div class="section-block"><h2>Movement System</h2></div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 04</span>
+          <h2>Level <em>Design</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-hero.gif"
+                alt="Arena overview"
+                loading="lazy"
+              />
+              <p class="cap">Arena overview — brutalist beta</p>
+            </div>
+            <div class="spread__text">
+              <h3>Initial guidelines</h3>
+              <p>
+                <strong>Ample vertical spaces</strong> — multiple ways to move up.
+                <strong>No sharp corners</strong> — accommodates high movement speeds.
+                <strong>Symmetrical maps</strong> — ensures balanced, competitive play.
+                <strong>Falling off the map</strong> — knockback and jumps can punish.
+              </p>
+            </div>
+          </div>
 
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vect0r-movement.png" alt="Movement system diagram" loading="lazy">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-ld-attempt1-top.png"
+                alt="First blockout top view"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-ld-attempt1-3d.png"
+                alt="First blockout 3D view"
+                loading="lazy"
+              />
+              <p class="cap">Step 01 · First blockout — 01 / 2025</p>
+            </div>
+            <div class="spread__text">
+              <h3>Step 01 · First blockout</h3>
+              <p>
+                Exceeded optimal size — the map was too large for the 2v2 cadence and
+                <em>delayed</em> enemy encounters. Players spent more time traveling than
+                fighting.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-ld-attempt2-top.png"
+                alt="Second blockout top view"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-ld-attempt2-3d.png"
+                alt="Second blockout 3D view"
+                loading="lazy"
+              />
+              <p class="cap">Step 02 · Second blockout — 02 / 2025</p>
+            </div>
+            <div class="spread__text">
+              <h3>Step 02 · Second blockout</h3>
+              <p>
+                Reduced scale — but players <em>gravitated</em> to the center, leaving
+                flanks unused. A smaller map alone didn't fix the encounter problem.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-rework-sketch.jpg"
+                alt="Rework sketch"
+                loading="lazy"
+              />
+              <p class="cap">Step 03 · Rework — 03 / 2025</p>
+            </div>
+            <div class="spread__text">
+              <h3>Step 03 · Rework</h3>
+              <p>
+                Introduced blockout <strong>metrics</strong> to refine scale — jump arcs,
+                dash distances, and rocket-jump heights mapped to grid units. Every wall
+                height became a <em>decision</em>.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-ld-alpha-3d.png"
+                alt="Alpha 3D view"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-ld-alpha-3d-2.png"
+                alt="Alpha 3D view 2"
+                loading="lazy"
+              />
+              <p class="cap">Step 04 · Alpha — 04 / 2025</p>
+            </div>
+            <div class="spread__text">
+              <h3>Step 04 · Alpha</h3>
+              <p>
+                Refined layout with improved <em>spatial flow</em> — tested with players,
+                measured time-to-first-contact, adjusted vertical routes based on heatmaps.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-ld-beta-3d.png"
+                alt="Beta 3D view"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-ld-beta-3d-2.png"
+                alt="Beta 3D view 2"
+                loading="lazy"
+              />
+              <p class="cap">Step 05 · Final — Beta</p>
+            </div>
+            <div class="spread__text">
+              <h3>Step 05 · Beta · Final</h3>
+              <p>
+                Adopted a <em>brutalist</em> concrete style — a stark atmosphere matching
+                the abstract, movement-first levels. The aesthetic <strong>reinforces</strong>
+                the metric grid underneath.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-beta-blue.png"
+                alt="Blue zone"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-beta-orange.png"
+                alt="Orange zone"
+                loading="lazy"
+              />
+              <p class="cap">Blue zone (left) · Orange zone (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Color-coded zones</h3>
+              <p>
+                The beta arena is split into four color zones — blue, orange, red, white —
+                each with a distinct <em>role</em> in competitive play. Call-outs become
+                intuitive; team coordination gets faster.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vect0r-beta-red.png"
+                alt="Red zone"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vect0r-beta-white.png"
+                alt="White zone"
+                loading="lazy"
+              />
+              <p class="cap">Red zone (left) · White zone (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Zone character</h3>
+              <p>
+                Each zone tunes cover density, verticality, and sightlines — red rewards
+                aggression, white rewards <em>patience</em>. The zones force rotation, not
+                camping.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-beta-vertical.gif"
+                alt="Vertical level design"
+                loading="lazy"
+              />
+              <p class="cap">Vertical play — rocket jumps and grapple routes</p>
+            </div>
+            <div class="spread__text">
+              <h3>Verticality</h3>
+              <p>
+                The map's vertical stack pays off the movement system — <em>every</em>
+                level of the arena is reachable through at least two gadget routes, and
+                most through three.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col">
-          <p>Vect0r's movement system takes inspiration from the Source Engine, turning traditional "exploits" — like air-strafing, surfing, and bunny hopping — into core features. Recreated in Unity with our own spin, the system offers advanced mobility options such as sliding, auto-bhopping, and rocket jumps.</p>
-          <p>I also developed various movement gadgets, including jump pads, dashes, and double jumps. Each weapon has unique recoil that can alter a player's trajectory, adding another layer of skill and strategy to combat.</p>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 05</span>
+          <h2>Movement <em>System</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vect0r-movement.png"
+                alt="Movement system diagram"
+                loading="lazy"
+              />
+              <p class="cap">Movement system — Source lineage, Unity spin</p>
+            </div>
+            <div class="spread__text">
+              <h3>Exploits as features</h3>
+              <p>
+                VECT0R's movement takes its lineage from the <em>Source Engine</em>,
+                turning traditional exploits — air-strafing, surfing, bunny-hopping — into
+                core features. Rebuilt in Unity with its own spin: sliding, auto-bhop,
+                rocket jumps.
+              </p>
+              <p>
+                I also built movement gadgets — jump pads, dashes, double jumps. Each
+                weapon carries unique <strong>recoil</strong> that alters trajectory,
+                layering skill and strategy into combat.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="next-project">
-        <a href="epitaph-1997.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 03 / 05</span>
+        <a href="/projects/epitaph-1997.html" data-cursor="Next">Epitaph 1997 →</a>
+      </section>
+    </main>
+  </body>
 </html>

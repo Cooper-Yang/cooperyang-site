@@ -1,238 +1,447 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VAMP - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>VAMP - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="VAMP — VR arcade revival by Cooper Yang. A 1987 Sega motorcycle machine reborn in Unreal Engine 5."
+    />
+    <title>VAMP — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html" class="active">Projects</a>
-        <a href="../archive.html">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <!-- Hero -->
-      <div class="content-row full"><div class="col">
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/ubiVjaDy97Y" allowfullscreen loading="lazy"></iframe>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Case Study · 05 / 05</span>
+          <span>Sep 2024 — Dec 2024</span>
         </div>
-      </div></div>
-      <div class="hero-card">
-        <h1>VAMP</h1>
-        <div class="hero-meta"><span class="role">Game Designer, Hardware Engineer</span><span class="date">2024.9 - 2024.12</span></div>
-        <p class="hero-desc"><em>- Unreal Engine 5, VR</em><br>
-        - Revived a 1987 Sega arcade motorcycle machine with a modern VR twist<br>
-        - Participants in the Sony USC ETC Transmedia Challenge<br>
-        - Awarded <strong>Best Immersive Software &amp; Hardware</strong></p>
-      </div>
+        <h1 class="project-head__title"><em>VAMP</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Game Designer · Hardware Engineer</dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>Sony USC ETC <em>(Transmedia Challenge)</em></dd>
+          </div>
+          <div>
+            <dt>Engine · Platform</dt>
+            <dd>Unreal Engine 5 · <em>VR · Arcade Cabinet</em></dd>
+          </div>
+          <div>
+            <dt>Award</dt>
+            <dd><em>Best Immersive Software &amp; Hardware ✦</em></dd>
+          </div>
+        </dl>
+      </section>
 
-      <!-- Contributions -->
-      <div class="contrib-block">
-        <div class="contrib-header">contributions</div>
-        <ul class="contrib-list">
-          <li><span class="num">01</span><span>Pitched concept of reviving an old arcade motorcycle machine with VR for Sony USC ETC Transmedia Challenge</span></li>
-          <li><span class="num">02</span><span>Co-Engineered solution to parse voltage signals from arcade controller using Arduino, integrated with Unreal Engine</span></li>
-          <li><span class="num">03</span><span>Designed levels with OutRun and Synthwave aesthetics</span></li>
-          <li><span class="num">04</span><span>Programmed motorcycle mechanics using Unreal Engine Blueprints</span></li>
-        </ul>
-      </div>
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <iframe
+            src="https://www.youtube.com/embed/ubiVjaDy97Y"
+            allowfullscreen
+            loading="lazy"
+            title="VAMP trailer"
+          ></iframe>
+        </div>
+      </section>
 
-      <!-- Pitch and Visual Aesthetic -->
-      <div class="section-block"><h2>Pitch and Visual Aesthetic</h2></div>
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            VAMP revives a <em>1987 Sega arcade motorcycle</em> machine and fuses it with
+            a modern VR twist. We parsed the cabinet's raw voltage signals through an
+            Arduino, piped them into Unreal Engine 5, and dressed the result in
+            <em>OutRun</em> neon.
+          </p>
+          <p>
+            Built for the <strong>Sony USC ETC Transmedia Challenge</strong> and awarded
+            <em>Best Immersive Software &amp; Hardware</em>. Retro cabinet, modern headset
+            — same handlebars.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                >Pitched the <em>concept</em> — reviving an old arcade motorcycle with VR
+                for Sony USC ETC.</span
+              >
+            </li>
+            <li>
+              <span
+                >Co-engineered <em>voltage parsing</em> — Arduino signal capture
+                integrated with Unreal Engine.</span
+              >
+            </li>
+            <li>
+              <span
+                >Designed levels with <em>OutRun</em> and Synthwave aesthetics — city
+                dense, highway wide.</span
+              >
+            </li>
+            <li>
+              <span
+                >Programmed <em>motorcycle</em> mechanics in Unreal Blueprints — throttle,
+                steering, braking.</span
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-photo.jpg" alt="VAMP arcade machine" loading="lazy">
-        </div>
-        <div class="col">
-          <p>The project began with reviving a classic arcade motorcycle game by integrating VR technology to create a retro-futuristic experience. Pitched this concept to Sony and USC through sketches and mood boards. Inspired by 80s and 90s neon retro aesthetics, designed visuals establishing vibrant, immersive atmosphere including environments, UI elements, and overall look and feel.</p>
-        </div>
-      </div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Pitch &amp; <em>Aesthetic</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-photo.jpg"
+                alt="VAMP arcade machine"
+                loading="lazy"
+              />
+              <p class="cap">The cabinet · 1987 Sega</p>
+            </div>
+            <div class="spread__text">
+              <h3>Can we revive it?</h3>
+              <p>
+                The project began with a question — <em>can we revive a forty-year-old
+                arcade motorcycle without gutting its soul?</em>
+              </p>
+              <p>
+                We pitched the concept to Sony and USC through sketches and mood boards.
+                The answer was <strong>80s and 90s neon retro</strong> — vibrant,
+                immersive, warmly overdriven. I designed the visual language end-to-end:
+                environments, UI, and overall look.
+              </p>
+            </div>
+          </div>
 
-      <div class="content-row full">
-        <div class="col">
-          <img src="../assets/images/vamp-screenshot1.png" alt="Visual aesthetic" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Hardware Integration -->
-      <div class="section-block"><h2>Hardware Integration</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-screenshot2.png" alt="System overview" loading="lazy">
-          <p class="media-caption">System Overview</p>
-        </div>
-        <div class="col">
-          <p>Outlines entire process from arcade motorcycle controller to computer interface to VR gameplay.</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-screenshot3.png" alt="Multimeter testing" loading="lazy">
-        </div>
-        <div class="col">
-          <p><strong>Multimeter Testing and Jump-Wiring:</strong> Verified voltage outputs from motorcycle controller wires using multimeter and established jump-wire connections.</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-screenshot4.png" alt="Wire identification" loading="lazy">
-        </div>
-        <div class="col">
-          <p><strong>Wire Identification:</strong> Identified which wires correspond to throttle, brake, steering to ensure accurate signal mapping.</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-gameplay1.gif" alt="Arduino signal parsing" loading="lazy">
-        </div>
-        <div class="col">
-          <p><strong>Arduino Signal Parsing:</strong> Arduino reads and interprets controller voltage changes into processable data. Transmits data via serial communication, bridging hardware and Unreal Engine environment for integrated VR gameplay.</p>
-        </div>
-      </div>
-
-      <div class="content-row full">
-        <div class="col">
-          <img src="../assets/images/vamp-gameplay2.gif" alt="Hardware demo" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Gameplay and Level Design -->
-      <div class="section-block"><h2>Gameplay and Level Design</h2></div>
-
-      <div class="content-row full">
-        <div class="col">
-          <p>Combined city and highway sections providing balance between urban density and open-road freedom for varied player experiences.</p>
-        </div>
-      </div>
-
-      <div class="content-row full">
-        <div class="col">
-          <img src="../assets/images/vamp-screenshot5.png" alt="Level layout" loading="lazy">
-          <p class="media-caption">Level Layout Overview</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-city.gif" alt="City environment gameplay" loading="lazy">
-          <p class="media-caption">City Environment Gameplay</p>
-        </div>
-        <div class="col">
-          <p>Players navigate through a neon-lit metropolis filled with tight turns, glowing signage, and a bustling street ambiance. The city level demands precision and control at moderate speeds.</p>
-        </div>
-      </div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-highway.gif" alt="Highway environment gameplay" loading="lazy">
-          <p class="media-caption">Highway Environment Gameplay</p>
-        </div>
-        <div class="col">
-          <p>In contrast, the highway section features broad lanes and high-speed stretches, inviting players to accelerate and test their maneuverability in a more open environment.</p>
-        </div>
-      </div>
-
-      <!-- Motorcycle Mechanics -->
-      <div class="section-block"><h2>Motorcycle Mechanics (Blueprints)</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <div class="image-gallery">
-            <img src="../assets/images/vamp-blueprint1.png" alt="Blueprint architecture" loading="lazy">
-            <img src="../assets/images/vamp-blueprint2.png" alt="Serial data integration" loading="lazy">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-screenshot1.png"
+                alt="Visual aesthetic"
+                loading="lazy"
+              />
+              <p class="cap">Visual aesthetic — OutRun neon</p>
+            </div>
+            <div class="spread__text">
+              <h3>OutRun lineage</h3>
+              <p>
+                Warm magentas, electric blues, sodium orange — the <em>palette</em> comes
+                straight from the era the cabinet was built in. The goal wasn't
+                nostalgia; it was to honor a machine that was designed to feel
+                <strong>fast</strong> in 1987 and still does in VR.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <p><strong>Serial Data Integration:</strong> Raw input from the Arduino is captured via serial communication and stored within Unreal Engine. By reading the voltage data sent over serial, the system translates physical controller actions into in-game events.</p>
-        </div>
-      </div>
+      </section>
 
-      <div class="content-row">
-        <div class="col">
-          <div class="image-gallery">
-            <img src="../assets/images/vamp-blueprint3.png" alt="Input processing" loading="lazy">
-            <img src="../assets/images/vamp-blueprint4.png" alt="Control flow" loading="lazy">
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Hardware <em>Integration</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-screenshot2.png"
+                alt="System overview"
+                loading="lazy"
+              />
+              <p class="cap">System overview</p>
+            </div>
+            <div class="spread__text">
+              <h3>Four decades, one serial line</h3>
+              <p>
+                The pipeline runs from <em>arcade controller</em> to computer interface to
+                <em>VR headset</em> — four decades of hardware speaking through a single
+                serial line.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-screenshot3.png"
+                alt="Multimeter testing"
+                loading="lazy"
+              />
+              <p class="cap">01 · Multimeter testing</p>
+            </div>
+            <div class="spread__text">
+              <h3>01 · Multimeter Testing</h3>
+              <p>
+                Verified <em>voltage outputs</em> from the motorcycle controller wires
+                using a multimeter, then established <strong>jump-wire connections</strong>
+                to route signal into the breadboard.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-screenshot4.png"
+                alt="Wire identification"
+                loading="lazy"
+              />
+              <p class="cap">02 · Wire identification</p>
+            </div>
+            <div class="spread__text">
+              <h3>02 · Wire Identification</h3>
+              <p>
+                Identified which wires correspond to <em>throttle</em>, <em>brake</em>,
+                and <em>steering</em> — ensuring accurate signal mapping before writing a
+                line of code.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-gameplay1.gif"
+                alt="Arduino signal parsing"
+                loading="lazy"
+              />
+              <p class="cap">03 · Arduino parsing — live</p>
+            </div>
+            <div class="spread__text">
+              <h3>03 · Arduino Parsing</h3>
+              <p>
+                The Arduino reads and interprets <em>controller voltage</em> changes into
+                processable data, transmitting over serial to bridge
+                <strong>hardware and Unreal</strong> in real time.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-gameplay2.gif"
+                alt="Hardware demo"
+                loading="lazy"
+              />
+              <p class="cap">Hardware demo · live voltage to Unreal</p>
+            </div>
+            <div class="spread__text">
+              <h3>End-to-end demo</h3>
+              <p>
+                The full loop — <em>physical handlebar</em> to serial to Unreal to VR
+                headset — latency low enough that the cabinet feels like a native input
+                device. The forty-year-old iron stays alive.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <img src="../assets/images/vamp-blueprint5.png" alt="Movement control and brake lights" loading="lazy">
-          <p class="media-caption">Movement Control + Brake Lights</p>
-        </div>
-      </div>
+      </section>
 
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/vamp-blueprint5.png" alt="Applying inputs to Chaos Vehicle" loading="lazy">
-        </div>
-        <div class="col">
-          <p><strong>Applying Inputs to the Chaos Vehicle:</strong> The processed controller inputs are fed into Unreal Engine's Chaos Vehicle system, governing the motorcycle's throttle, steering, and braking in real time.</p>
-        </div>
-      </div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>Gameplay &amp; <em>Levels</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-screenshot5.png"
+                alt="Level layout"
+                loading="lazy"
+              />
+              <p class="cap">Level layout overview</p>
+            </div>
+            <div class="spread__text">
+              <h3>Two feels, one cabinet</h3>
+              <p>
+                Combined <em>city</em> and <em>highway</em> sections providing balance
+                between urban density and open-road freedom — two feels, one cabinet.
+              </p>
+            </div>
+          </div>
 
-      <div class="content-row">
-        <div class="col">
-          <div class="image-gallery">
-            <img src="../assets/images/vamp-blueprint6.png" alt="Debug code" loading="lazy">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-city.gif"
+                alt="City environment gameplay"
+                loading="lazy"
+              />
+              <p class="cap">01 · City</p>
+            </div>
+            <div class="spread__text">
+              <h3>01 · City</h3>
+              <p>
+                Players navigate a <em>neon-lit metropolis</em> — tight turns, glowing
+                signage, bustling street ambiance. The city demands
+                <strong>precision and control</strong> at moderate speeds.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-highway.gif"
+                alt="Highway environment gameplay"
+                loading="lazy"
+              />
+              <p class="cap">02 · Highway</p>
+            </div>
+            <div class="spread__text">
+              <h3>02 · Highway</h3>
+              <p>
+                The highway features <em>broad lanes</em> and high-speed stretches —
+                invite the throttle, test <strong>maneuverability</strong> in the open.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <img src="../assets/images/vamp-blueprint7.png" alt="Debugging and calibration curves" loading="lazy">
-          <p class="media-caption">Debugging and Calibration Tools</p>
-          <p>Various debug overlays and code snippets illustrate how we compensate for controller dead zones and unstable voltage readings, ensuring smooth and reliable gameplay.</p>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 04</span>
+          <h2>Motorcycle <em>Blueprints</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vamp-blueprint1.png"
+                alt="Blueprint architecture"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vamp-blueprint2.png"
+                alt="Serial data integration"
+                loading="lazy"
+              />
+              <p class="cap">01 · Serial data</p>
+            </div>
+            <div class="spread__text">
+              <h3>01 · Serial Data</h3>
+              <p>
+                Raw input from the Arduino is captured via <em>serial</em> communication
+                and stored inside Unreal Engine. Reading <strong>voltage data</strong>
+                sent over the wire translates physical controller actions into in-game
+                events.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vamp-blueprint3.png"
+                alt="Input processing"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vamp-blueprint4.png"
+                alt="Control flow"
+                loading="lazy"
+              />
+              <p class="cap">Input processing · control flow</p>
+            </div>
+            <div class="spread__text">
+              <h3>Input processing</h3>
+              <p>
+                Raw serial values pass through <em>smoothing</em> and <em>dead-zone</em>
+                stages before being consumed — raw voltage from a 1987 cabinet is noisy,
+                and the blueprints scrub it into something Unreal can trust.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/vamp-blueprint5.png"
+                alt="Movement control and brake lights"
+                loading="lazy"
+              />
+              <p class="cap">02 · Chaos Vehicle — movement + brake lights</p>
+            </div>
+            <div class="spread__text">
+              <h3>02 · Chaos Vehicle</h3>
+              <p>
+                Processed controller inputs feed into Unreal's <em>Chaos Vehicle</em>
+                system — governing <strong>throttle, steering, and braking</strong> in
+                real time. The cabinet speaks Unreal.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/vamp-blueprint6.png"
+                alt="Debug code"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/vamp-blueprint7.png"
+                alt="Debugging and calibration curves"
+                loading="lazy"
+              />
+              <p class="cap">Debugging · calibration tools</p>
+            </div>
+            <div class="spread__text">
+              <h3>Debug &amp; calibration</h3>
+              <p>
+                Overlays and snippets illustrate how we compensate for <em>controller
+                dead zones</em> and <em>unstable voltage</em> readings — ensuring smooth,
+                reliable gameplay across a forty-year-old cabinet.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="next-project">
-        <a href="../archive.html">View Archive <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · View / Archive</span>
+        <a href="/archive.html" data-cursor="Next">Archive →</a>
+      </section>
+    </main>
+  </body>
 </html>

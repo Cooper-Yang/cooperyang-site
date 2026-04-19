@@ -1,117 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Flashlight - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>Flashlight - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Flashlight — Top-Down Survival Horror case study by Cooper Yang. Dynamic field-of-view mechanic in Unity."
+    />
+    <title>Flashlight — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html" class="active">Projects</a>
-        <a href="../archive.html">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <!-- Hero -->
-      <div class="content-row full"><div class="col">
-        <img src="../assets/images/flashlight-thumb.gif" alt="Flashlight gameplay" loading="lazy">
-      </div></div>
-      <div class="hero-card">
-        <h1>Flashlight</h1>
-        <div class="hero-meta"><span class="role">Game Designer, Level Designer</span><span class="date">2019.10 - 2019.12</span></div>
-        <p class="hero-desc"><em>- Top-Down Survival Horror Game, Unity</em><br>
-        - Flashlight Mechanic: The flashlight attracts monsters, requiring strategic use to navigate and manipulate their movements.<br>
-        - Showcase: Featured in NYU Game Center 2019 Halloween Showcase</p>
-        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/flashlight" target="_blank" rel="noopener">Itch Page</a></div>
-      </div>
-
-      <!-- Contributions -->
-      <div class="contrib-block">
-        <div class="contrib-header">contributions</div>
-        <ul class="contrib-list">
-          <li><span class="num">01</span><span>Puzzle and Level Design</span></li>
-          <li><span class="num">02</span><span>Light Mechanic with dynamic field-of-view system that visualizes sight, detects and handles targets in real time</span></li>
-          <li><span class="num">03</span><span>Atmospheric Audio Implementation</span></li>
-        </ul>
-      </div>
-
-      <!-- Level Design -->
-      <div class="section-block"><h2>Level Design</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/flashlight-screenshot1.png" alt="Level design" loading="lazy">
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Case Study · 04 / 05</span>
+          <span>Oct 2019 — Dec 2019</span>
         </div>
-        <div class="col">
-          <p>- Setting in abandoned house with tight, confined spaces</p>
-          <p>- Circular Level Design with natural, non-linear paths</p>
-          <p>- Wires as visual guides and puzzle clues</p>
-        </div>
-      </div>
-
-      <!-- FOV Implementation -->
-      <div class="section-block"><h2>FOV Implementation</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/flashlight-screenshot2.png" alt="FOV system" loading="lazy">
-        </div>
-        <div class="col">
-          <p>- Initialization of view angle and mesh creation</p>
-          <p>- Real-time sight area visualization</p>
-          <p>- Target identification within field of view</p>
-          <p>- Status updates when targets become visible</p>
-        </div>
-      </div>
-
-      <!-- Code Block -->
-      <div class="content-row full">
-        <div class="col">
-          <div class="code-block collapsed">
-          <div class="code-block-header">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span class="filename">FieldOfView.cs</span>
+        <h1 class="project-head__title"><em>Flashlight</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Game Designer · Level Designer</dd>
           </div>
-          <div class="code-block-body">
-            <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">using</span> System.Collections;</td></tr>
+          <div>
+            <dt>Context</dt>
+            <dd>NYU Game Center <em>(2019 Halloween)</em></dd>
+          </div>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>Unity · <em>Top-Down Survival Horror</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://cooperyang.itch.io/flashlight"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Itch Page ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <img
+            src="/assets/images/flashlight-thumb.gif"
+            alt="Flashlight gameplay"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            Flashlight is a <em>top-down survival horror</em> game built in Unity. The
+            central conceit is a <strong>mechanic that punishes sight</strong> — the
+            flashlight attracts monsters, forcing players to weaponize darkness to survive.
+          </p>
+          <p>
+            Featured in the NYU Game Center 2019 Halloween Showcase. The dynamic
+            field-of-view system — rendered mesh, real-time targeting, layered audio — is
+            the <em>beating heart</em> of the project.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                ><em>Puzzle</em> and level design — circular layouts with non-linear
+                paths.</span
+              >
+            </li>
+            <li>
+              <span
+                >Dynamic <em>field-of-view</em> — mesh-based sight that detects and handles
+                targets in real time.</span
+              >
+            </li>
+            <li>
+              <span
+                >Atmospheric <em>audio</em> implementation — ambience, interaction cues,
+                monster vocals.</span
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Level <em>Design</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/flashlight-screenshot1.png"
+                alt="Level design"
+                loading="lazy"
+              />
+              <p class="cap">Abandoned house · top-down plan</p>
+            </div>
+            <div class="spread__text">
+              <h3>Tight, looping spaces</h3>
+              <p>
+                <strong>Abandoned house</strong> — tight, confined spaces that force
+                decisions. <strong>Circular layout</strong> — natural, non-linear paths
+                that loop back on themselves.
+              </p>
+              <p>
+                <strong>Wires</strong> as visual guides and puzzle clues — follow the
+                cable, find the <em>answer</em>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>FOV <em>Implementation</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/flashlight-screenshot2.png"
+                alt="FOV system"
+                loading="lazy"
+              />
+              <p class="cap">Cone mesh · real-time occlusion</p>
+            </div>
+            <div class="spread__text">
+              <h3>Mesh-based sight</h3>
+              <p>
+                <strong>Initialization</strong> — view angle and mesh creation.
+                <strong>Real-time visualization</strong> — sight area rendered as a dynamic
+                mesh.
+              </p>
+              <p>
+                <strong>Target identification</strong> within the cone of view.
+                <strong>Status updates</strong> whenever targets enter or leave
+                <em>visibility</em>.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread spread--full">
+            <div class="code-block collapsed">
+              <div class="code-block-header">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <span class="filename">FieldOfView.cs</span>
+              </div>
+              <div class="code-block-body">
+                <table><tr><td class="line-num">1</td><td class="line-code"><span class="kw">using</span> System.Collections;</td></tr>
 <tr><td class="line-num">2</td><td class="line-code"><span class="kw">using</span> System.Collections.Generic;</td></tr>
 <tr><td class="line-num">3</td><td class="line-code"><span class="kw">using</span> UnityEngine;</td></tr>
 <tr><td class="line-num">4</td><td class="line-code"></td></tr>
@@ -282,51 +359,97 @@
 <tr><td class="line-num">169</td><td class="line-code">        }</td></tr>
 <tr><td class="line-num">170</td><td class="line-code">    }</td></tr>
 <tr><td class="line-num">171</td><td class="line-code">}</td></tr></table>
+              </div>
+              <button class="code-expand-btn">// expand full source</button>
+              <div class="code-block-footer">
+                <span>C#</span>
+                <span>171 lines</span>
+              </div>
+            </div>
           </div>
-          <button class="code-expand-btn">// expand full source</button>
-          <div class="code-block-footer">
-            <span>C#</span>
-            <span>171 lines</span>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>Audio <em>Design</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <p class="label">01 · Ambience</p>
+              <audio controls preload="metadata" style="width: 100%">
+                <source src="/assets/audio/Background-Depression.mp3" type="audio/mpeg" />
+              </audio>
+              <p class="cap">Background Depression</p>
+
+              <p class="label" style="margin-top: 2rem">02 · Interaction Cues</p>
+              <audio controls preload="metadata" style="width: 100%">
+                <source src="/assets/audio/DoorCloses1.wav" type="audio/wav" />
+              </audio>
+              <p class="cap">Door closes</p>
+              <audio
+                controls
+                preload="metadata"
+                style="width: 100%; margin-top: 0.75rem"
+              >
+                <source src="/assets/audio/LightTorchOpen.wav" type="audio/wav" />
+              </audio>
+              <p class="cap">Light torch open</p>
+              <audio
+                controls
+                preload="metadata"
+                style="width: 100%; margin-top: 0.75rem"
+              >
+                <source src="/assets/audio/Locked.wav" type="audio/wav" />
+              </audio>
+              <p class="cap">Locked</p>
+              <audio
+                controls
+                preload="metadata"
+                style="width: 100%; margin-top: 0.75rem"
+              >
+                <source src="/assets/audio/Player-Footstep-Wood-2.mp3" type="audio/mpeg" />
+              </audio>
+              <p class="cap">Player footstep</p>
+
+              <p class="label" style="margin-top: 2rem">03 · Monster Vocals</p>
+              <audio controls preload="metadata" style="width: 100%">
+                <source src="/assets/audio/Monster-Roar1.mp3" type="audio/mpeg" />
+              </audio>
+              <p class="cap">Monster roar 1</p>
+              <audio
+                controls
+                preload="metadata"
+                style="width: 100%; margin-top: 0.75rem"
+              >
+                <source src="/assets/audio/Monster-Roar2mp3.mp3" type="audio/mpeg" />
+              </audio>
+              <p class="cap">Monster roar 2</p>
+            </div>
+            <div class="spread__text">
+              <h3>Horror in the ear</h3>
+              <p>
+                Horror lives in the <em>ear</em>, not the eye. I layered ambience,
+                interaction cues, and monster vocals so the <strong>soundscape</strong>
+                could do most of the scaring.
+              </p>
+              <p>
+                Three channels stack on top of each other: the dread bed, the player's
+                <em>own</em> sounds (door, torch, lock, footstep), and the monster's
+                vocals — each tuned so players learn the creature through hearing before
+                ever seeing it.
+              </p>
+            </div>
           </div>
         </div>
-        </div>
-      </div>
+      </section>
 
-      <!-- Audio Design -->
-      <div class="section-block"><h2>Audio Design</h2></div>
-
-      <div class="content-row">
-        <div class="col">
-          <p><strong>Ambiance:</strong></p>
-          <audio controls preload="metadata"><source src="../assets/audio/Background-Depression.mp3" type="audio/mpeg"></audio>
-          <p class="media-caption">Background Depression</p>
-
-          <p><strong>Player Interaction Cues:</strong></p>
-          <audio controls preload="metadata"><source src="../assets/audio/DoorCloses1.wav" type="audio/wav"></audio>
-          <p class="media-caption">Door Closes</p>
-          <audio controls preload="metadata"><source src="../assets/audio/LightTorchOpen.wav" type="audio/wav"></audio>
-          <p class="media-caption">Light Torch Open</p>
-          <audio controls preload="metadata"><source src="../assets/audio/Locked.wav" type="audio/wav"></audio>
-          <p class="media-caption">Locked</p>
-          <audio controls preload="metadata"><source src="../assets/audio/Player-Footstep-Wood-2.mp3" type="audio/mpeg"></audio>
-          <p class="media-caption">Player Footstep</p>
-        </div>
-        <div class="col">
-          <p><strong>Monster Sounds:</strong></p>
-          <audio controls preload="metadata"><source src="../assets/audio/Monster-Roar1.mp3" type="audio/mpeg"></audio>
-          <p class="media-caption">Monster Roar 1</p>
-          <audio controls preload="metadata"><source src="../assets/audio/Monster-Roar2mp3.mp3" type="audio/mpeg"></audio>
-          <p class="media-caption">Monster Roar 2</p>
-        </div>
-      </div>
-
-      <div class="next-project">
-        <a href="vamp.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 05 / 05</span>
+        <a href="/projects/vamp.html" data-cursor="Next">VAMP →</a>
+      </section>
+    </main>
+  </body>
 </html>

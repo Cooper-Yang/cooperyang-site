@@ -1,272 +1,405 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SYNCED: Off Planet - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>SYNCED: Off Planet - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SYNCED: Off Planet — Combat & Level Design case study by Cooper Yang. NExT Studios / Tencent."
+    />
+    <title>SYNCED: Off Planet — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html" class="active">Projects</a>
-        <a href="../archive.html">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Case Study · 01 / 05</span>
+          <span>Aug 2022 — May 2024</span>
+        </div>
+        <h1 class="project-head__title">SYNCED: <em>Off Planet</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Combat Designer · Level Designer</dd>
+          </div>
+          <div>
+            <dt>Studio</dt>
+            <dd>NExT Studios <em>(Tencent)</em></dd>
+          </div>
+          <div>
+            <dt>Engine · Genre</dt>
+            <dd>Unreal Engine 4 · <em>Co-op Looter Shooter</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://www.syncedthegame.com/en/"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Official Site ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <iframe
+            src="https://www.youtube.com/embed/_4LxdQZhHys"
+            allowfullscreen
+            loading="lazy"
+            title="SYNCED trailer"
+          ></iframe>
+        </div>
+      </section>
 
-  <main class="main">
-    <div class="project-content">
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            SYNCED is a co-op looter shooter developed by NExT Studios where players fight
+            alongside tamed Nano companions. I joined the combat team for Season 1 and stayed
+            through the Season 2 content update.
+          </p>
+          <p>
+            My work concentrated on three pillars — bosses that close the main story beats, a
+            procedural <em>Rift</em> system that reshapes the endgame loop, and a VR Training
+            space that teaches the game without a single tooltip.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                >Multiple <strong>boss fights</strong> for PvE — including the Season 1
+                final boss <em>Lambent Mind</em> and Season 2 additions.</span
+              >
+            </li>
+            <li>
+              <span
+                >Designed the <strong>Rift system</strong> — the core endgame feature in the
+                main PvE level.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>VR Training</strong> level — tutorial, loadout sandbox, and
+                leaderboard challenges in one.</span
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <!-- Hero: Trailer + Title -->
-      <div class="content-row full">
-        <div class="col">
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/_4LxdQZhHys" allowfullscreen loading="lazy"></iframe>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2><em>Boss</em> Design</h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/HALd-z7TjXM"
+                  allowfullscreen
+                  loading="lazy"
+                  title="Lambent Mind walkthrough"
+                ></iframe>
+              </div>
+              <p class="cap">Lambent Mind — final boss walkthrough</p>
+            </div>
+            <div class="spread__text">
+              <h3>Design approach</h3>
+              <p>
+                Boss attacks are designed <em>around</em> the core combat system — firearms,
+                AI companions, and the nano leap — not despite it. Bosses close distances and
+                switch targets fast, forcing strategic movement and positioning over
+                hold-the-trigger play.
+              </p>
+              <p>
+                Vulnerable parts create puzzles inside the fight; they reward precision and
+                timing, and punish players who try to brute-force the health bar.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/synced-boss1.gif"
+                alt="Lambent Mind phase 1"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/synced-boss2.gif"
+                alt="Lambent Mind phase 1"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>Lambent Mind · Phase 01</h3>
+              <p>
+                <strong>Two bosses</strong> — one close-range bruiser, one long-range
+                punisher. They heal each other, flank together, and force the squad to split
+                attention. Players who ignore one get punished by the other.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/synced-thumb.gif"
+                alt="Lambent Mind phase 2"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/synced-gameplay1.gif"
+                alt="Lambent Mind phase 2"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>Lambent Mind · Phase 02</h3>
+              <p>
+                The two bosses <strong>merge</strong> into a single, larger entity — faster,
+                stronger, and carrying combined attack patterns from both earlier forms. The
+                fight escalates into a <em>combined exam</em> of everything the player
+                learned in phase 01.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/synced-gameplay2.gif"
+                alt="Additional boss"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/synced-gameplay3.gif"
+                alt="Additional boss"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>Additional bosses</h3>
+              <p>
+                Other PvE bosses I contributed across Season 1 &amp; 2 — each built on the
+                same <em>puzzle-inside-the-fight</em> principle: vulnerable states, telegraphed
+                windows, and cooperative interruption.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="hero-card">
-        <h1><a href="https://www.nextstudios.com/index_en/" target="_blank" rel="noopener"><u>SYNCED: Off Planet</u></a></h1>
-        <div class="hero-meta">
-          <span class="role">Enemy Designer, Level Designer</span>
-          <span class="date">2022.8-2024.5</span>
-        </div>
-        <p class="hero-desc"><em>- TPS, Unreal Engine 4</em><br>
-        - Developed by NExT Studios, SYNCED is a co-op looter shooter where players will fight alongside their tamed Nano.</p>
-        <div class="hero-actions">
-          <a class="page-link" href="https://www.syncedthegame.com/en/" target="_blank" rel="noopener">Official Site</a>
-        </div>
-      </div>
-
-      <!-- My Contributions -->
-      <div class="contrib-block">
-        <div class="contrib-header">contributions</div>
-        <ul class="contrib-list">
-          <li><span class="num">01</span><span>Developed multiple <strong>boss fights</strong> for PvE, including the <strong>final boss</strong> for Season 1 and the Season 2 update.</span></li>
-          <li><span class="num">02</span><span>Designed the <strong>Rift system</strong>, a <strong>core feature</strong> in the main PvE level.</span></li>
-          <li><span class="num">03</span><span>Created the <strong>VR Training level</strong>, focused on onboarding and player skill-building.</span></li>
-        </ul>
-      </div>
-
-      <!-- Boss Design Header -->
-      <div class="section-block">
-        <h2>Boss Design</h2>
-      </div>
-
-      <!-- Boss walkthrough video + design approach -->
-      <div class="content-row">
-        <div class="col">
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/HALd-z7TjXM" allowfullscreen loading="lazy"></iframe>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>The <em>Rift</em> System</h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/4JwVanDnpWw"
+                  allowfullscreen
+                  loading="lazy"
+                  title="Rift gameplay"
+                ></iframe>
+              </div>
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/CWS9euqsh7I"
+                  allowfullscreen
+                  loading="lazy"
+                  title="Rift Chaser story"
+                ></iframe>
+              </div>
+              <p class="cap">
+                Rift gameplay (left) · Rift Chaser story trailer (right)
+              </p>
+            </div>
+            <div class="spread__text">
+              <h3>Launched · Sept 8, 2023</h3>
+              <p>
+                Rifts are controlled, sub-level challenges layered into the open-world Dead
+                Sector. Each Rift introduces randomized mechanics and drops narrative
+                fragments that uncover the origins of Nano creatures.
+              </p>
+              <p>
+                Placement and completion order are randomized, so every player assembles the
+                story in a <em>different sequence</em>.
+              </p>
+            </div>
           </div>
-          <p class="media-caption">Lambent Mind Boss Fight Walkthrough</p>
-        </div>
-        <div class="col">
-          <p><strong><u>Boss Design Approach:</u></strong></p>
-          <p>- Boss attacks are designed around the core combat system (firearms, AI companions, nano leap).</p>
-          <p>- Bosses are able to <strong>close distances</strong> and <strong>switch targets</strong> very fast, encouraging player to do strategic movement and positioning</p>
-          <p>- Bosses' <strong>vulnerable parts</strong> create opportunities for players to <strong>combine puzzle-solving with combat skills</strong>, rewarding precision and timing.</p>
-        </div>
-      </div>
 
-      <!-- Key Boss Design label -->
-      <div class="content-row full">
-        <div class="col">
-          <p><strong><u>Key Boss Design - Lambent Mind (Final Boss, Season 1):</u></strong></p>
-        </div>
-      </div>
-
-      <!-- Phase 1: GIFs + description -->
-      <div class="content-row">
-        <div class="col">
-          <div class="image-gallery">
-            <img src="../assets/images/synced-boss1.gif" alt="Boss Phase 1" loading="lazy">
-            <img src="../assets/images/synced-boss2.gif" alt="Boss Phase 1" loading="lazy">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/synced-gameplay4.gif"
+                alt="Rift gameplay"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/synced-rift1.gif"
+                alt="Rift system"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>Experience goal</h3>
+              <p>
+                Enrich PvE gameplay by offering <strong>controlled, sub-level
+                challenges</strong> beyond the standard open-world combat in the Dead
+                Sector — a <em>second loop</em> inside the main map.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <p>Phase 1:</p>
-          <p>- <strong>Two bosses</strong>--one specializes in close-range combat, the other in long-range attacks.</p>
-          <p>- Cooperative mechanics: heal each other or coordinating attacks.</p>
-        </div>
-      </div>
 
-      <!-- Phase 2: GIFs + description -->
-      <div class="content-row">
-        <div class="col">
-          <div class="image-gallery">
-            <img src="../assets/images/synced-thumb.gif" alt="Boss Phase 2" loading="lazy">
-            <img src="../assets/images/synced-gameplay1.gif" alt="Boss Phase 2" loading="lazy">
-          </div>
-        </div>
-        <div class="col">
-          <p>Phase 2:</p>
-          <p>- The two bosses merge into a single, larger entity with enhanced speed and strength.</p>
-          <p>- Combined attack patterns from both earlier forms create a more <strong>comprehensive challenge</strong>.</p>
-        </div>
-      </div>
-
-      <!-- Other Bosses -->
-      <div class="content-row full">
-        <div class="col">
-          <div class="image-gallery cols-2">
-            <img src="../assets/images/synced-gameplay2.gif" alt="Other boss design" loading="lazy">
-            <img src="../assets/images/synced-gameplay3.gif" alt="Other boss design" loading="lazy">
-          </div>
-          <p class="media-caption">Other Bosses I Designed</p>
-        </div>
-      </div>
-
-      <!-- Rift System Header -->
-      <div class="section-block">
-        <h2>Rift System</h2>
-      </div>
-
-      <!-- Rift videos side by side -->
-      <div class="content-row">
-        <div class="col">
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/4JwVanDnpWw" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="media-caption">Rift Gameplay</p>
-        </div>
-        <div class="col">
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/CWS9euqsh7I" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="media-caption">Rift Chaser Story Trailer</p>
-        </div>
-      </div>
-
-      <!-- Rift launch date -->
-      <div class="content-row full">
-        <div class="col">
-          <p>The Rift system launched with SYNCED on <strong>September 8, 2023.</strong></p>
-        </div>
-      </div>
-
-      <!-- Rift GIFs + Experience Goal -->
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/synced-gameplay4.gif" alt="Rift gameplay" loading="lazy">
-          <img src="../assets/images/synced-rift1.gif" alt="Rift system" loading="lazy">
-        </div>
-        <div class="col">
-          <p><strong><u>Experience Goal:</u></strong></p>
-          <p>- To enrich PvE gameplay by offering <strong>controlled, sub-level challenges</strong> beyond the standard open-world combat in the Dead Sector.</p>
-        </div>
-      </div>
-
-      <!-- Core Game Flow + Dynamic Rifts -->
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/synced-rift-doc.png" alt="Core Game Flow" loading="lazy">
-          <p class="media-caption">Core Game Flow</p>
-        </div>
-        <div class="col">
-          <p><strong><u>Dynamic Rifts:</u></strong></p>
-          <p>- Each Rift introduces randomized mechanics to keep gameplay fresh and engaging.</p>
-          <p>- Players collect <strong>narrative fragments</strong> within Rifts to uncover the origins of Nano creatures.</p>
-          <p>- Randomized Rift placement and completion order provide <strong>unique story interpretations for each player</strong>.</p>
-        </div>
-      </div>
-
-      <!-- VR Training Header -->
-      <div class="section-block">
-        <h2>VR Training</h2>
-      </div>
-
-      <!-- VR Training video + intro -->
-      <div class="content-row">
-        <div class="col">
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/FGch9E5f5Fk" allowfullscreen loading="lazy"></iframe>
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/synced-dynamic-rifts.png"
+                alt="Dynamic Rifts game flow"
+                loading="lazy"
+              />
+              <p class="cap">Dynamic Rifts — core game flow</p>
+            </div>
+            <div class="spread__text">
+              <h3>Dynamic rifts</h3>
+              <p>
+                Each Rift introduces randomized mechanics to keep gameplay fresh. Players
+                collect <strong>narrative fragments</strong> to uncover Nano origins.
+                Randomized placement and completion order yield <em>unique story
+                interpretations</em> per player.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <p>I conceptualized and refined the VR Training levels, a space where players can test their loadouts and tackle a variety of challenges.</p>
-        </div>
-      </div>
+      </section>
 
-      <!-- VR Training: Core functions label -->
-      <div class="content-row">
-        <div class="col"></div>
-        <div class="col">
-          <p><u><strong>Core functions:</strong></u></p>
-        </div>
-      </div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>VR <em>Training</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/FGch9E5f5Fk"
+                  allowfullscreen
+                  loading="lazy"
+                  title="VR Training"
+                ></iframe>
+              </div>
+            </div>
+            <div class="spread__text">
+              <h3>Three functions, one room</h3>
+              <p>
+                I conceptualized and refined the VR Training level — a space where players
+                test loadouts and tackle a variety of challenges. Three core functions, no
+                tooltips.
+              </p>
+            </div>
+          </div>
 
-      <!-- 1. Onboarding -->
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/synced-vr-onboarding.gif" alt="VR Training Onboarding" loading="lazy">
-        </div>
-        <div class="col">
-          <p>1. Onboarding: It acquaints players with nanos, perks, and the game's weaponry. To support this, I incorporated a concise tutorial ensuring players maximize their VR Training experience.</p>
-        </div>
-      </div>
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/synced-vr-onboarding.gif"
+                alt="VR Training onboarding"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>01 · Onboarding</h3>
+              <p>
+                Acquaints players with nanos, perks, and weapons. A concise
+                <em>tutorial</em> ensures players extract maximum value from the VR Training
+                space.
+              </p>
+            </div>
+          </div>
 
-      <!-- 2. Loadout Testing -->
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/synced-vr-loadout.gif" alt="VR Training Loadout Testing" loading="lazy">
-        </div>
-        <div class="col">
-          <p>2. Loadout Testing: Players can evaluate their <strong>chosen combinations</strong> of perks and weapons using test dummies. The VR Training also offers a glimpse into weapons and perks they haven't unlocked yet, allowing for experimentation.</p>
-        </div>
-      </div>
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/synced-vr-loadout.gif"
+                alt="VR Training loadout"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>02 · Loadout Testing</h3>
+              <p>
+                Players evaluate chosen combinations of perks and weapons against test
+                dummies. The VR also <em>previews</em> weapons and perks they haven't
+                unlocked yet — letting them <em>experiment</em> before committing.
+              </p>
+            </div>
+          </div>
 
-      <!-- 3. Skill Challenges -->
-      <div class="content-row">
-        <div class="col">
-          <img src="../assets/images/synced-vr-challenges.gif" alt="VR Training Skill Challenges" loading="lazy">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/synced-vr-challenges.gif"
+                alt="VR Training challenges"
+                loading="lazy"
+              />
+            </div>
+            <div class="spread__text">
+              <h3>03 · Skill Challenges</h3>
+              <p>
+                Mobility tests and combat scenarios, each tied to a
+                <strong>leaderboard</strong>. Competition replaces tutorial fatigue —
+                players stay to post a <em>time</em>, not to tick a checkbox.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col">
-          <p>3. Skill Challenges: The level includes an array of tasks, ranging from mobility tests to combat scenarios. To foster <strong>competitiveness</strong>, each challenge is accompanied by a <strong>leaderboard</strong>, enabling players to measure their prowess against others.</p>
-        </div>
-      </div>
+      </section>
 
-      <div class="next-project">
-        <a href="vect0r.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 02 / 05</span>
+        <a href="/projects/vect0r.html" data-cursor="Next">VECT0R →</a>
+      </section>
+    </main>
+  </body>
 </html>

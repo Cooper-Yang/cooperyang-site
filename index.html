@@ -1,129 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cooper Yang - Game Designer portfolio. Combat design, level design, and game design projects.">
-  <title>Cooper Yang - Game Designer</title>
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cooper Yang - Combat Designer &amp; Game Designer. Portfolio reel and selected work."
+    />
+    <title>Cooper Yang &mdash; Combat &amp; Game Designer</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
 
-  <!-- Sidebar (Desktop) -->
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body class="home">
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="top-bar">
+      <a href="/" class="brand">Cooper Yang &mdash; '26</a>
       <nav>
-        <a href="about.html">About Me</a>
-        <a href="index.html" class="active">Projects</a>
-        <a href="archive.html">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/" class="is-active">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <!-- Mobile Header -->
-  <header class="mobile-header">
-    <span class="name"><a href="index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <!-- Mobile Nav Overlay -->
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="about.html">About Me</a>
-    <a href="index.html">Projects</a>
-    <a href="archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <!-- Main Content -->
-  <main class="main">
-    <h1 class="sr-only">Cooper Yang - Game Design Portfolio</h1>
-    <div class="project-grid">
-
-      <a class="project-card" href="projects/synced.html">
-        <img src="assets/images/synced-thumb.gif" alt="SYNCED: Off Planet" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">SYNCED: Off Planet (Tencent)</div>
-          <div class="card-role">Combat Designer</div>
-          <div class="card-tags">
-            <span class="tag">NExT Studio</span>
-            <span class="tag">Boss Fight</span>
-            <span class="tag">UE Blueprint</span>
-          </div>
+    <section class="marquee-top" aria-label="Practice areas">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Combat Design</span><span class="dot">&diams;</span>
+          <span>Level Design</span><span class="dot">&diams;</span>
+          <span>Boss Fights</span><span class="dot">&diams;</span>
+          <span>Unreal Engine</span><span class="dot">&diams;</span>
+          <span>USC Games</span><span class="dot">&diams;</span>
+          <span>NExT Studios</span><span class="dot">&diams;</span>
+          <span>Combat Design</span><span class="dot">&diams;</span>
+          <span>Level Design</span><span class="dot">&diams;</span>
+          <span>Boss Fights</span><span class="dot">&diams;</span>
+          <span>Unreal Engine</span><span class="dot">&diams;</span>
+          <span>USC Games</span><span class="dot">&diams;</span>
+          <span>NExT Studios</span><span class="dot">&diams;</span>
         </div>
-      </a>
+      </div>
+    </section>
 
-      <a class="project-card" href="projects/vect0r.html">
-        <img src="assets/images/vect0r-thumb.gif" alt="VECT0R" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">VECT0R</div>
-          <div class="card-role">Game Designer, Level Designer</div>
-          <div class="card-tags">
-            <span class="tag">USC Games</span>
-            <span class="tag">Arena Shooter</span>
-            <span class="tag">Evolving Loadouts</span>
-          </div>
+    <main class="home-stage">
+      <section class="home-hero" data-reel aria-label="Portfolio reel hero">
+        <!-- Top: full-width cinematic reel -->
+        <div class="home-hero__reel">
+          <div class="home-hero__media" data-reel-stage></div>
+          <div class="home-hero__vignette" aria-hidden="true"></div>
+
+          <button
+            class="hero-nav hero-nav--prev"
+            data-reel-prev
+            type="button"
+            aria-label="Previous project"
+            data-cursor="Prev"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path
+                d="M15 4 L7 12 L15 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            class="hero-nav hero-nav--next"
+            data-reel-next
+            type="button"
+            aria-label="Next project"
+            data-cursor="Next"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path
+                d="M9 4 L17 12 L9 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <a
+            class="home-hero__ticker"
+            href="#"
+            data-reel-link
+            data-reel-ticker
+            data-cursor="View"
+            aria-live="polite"
+          >
+            <span class="ticker__label">Now Showing</span>
+            <span class="ticker__title">&mdash;</span>
+            <span class="ticker__num">00 / 05</span>
+          </a>
         </div>
-      </a>
 
-      <a class="project-card" href="projects/epitaph-1997.html">
-        <img src="assets/images/epitaph-thumb.gif" alt="Epitaph 1997" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Epitaph 1997</div>
-          <div class="card-role">Level Designer, Producer</div>
-          <div class="card-tags">
-            <span class="tag">NYU Game Center</span>
-            <span class="tag">Eastern Horror</span>
-            <span class="tag">Action RPG</span>
+        <!-- Bottom: cream info bar (intro + work list side-by-side) -->
+        <div class="home-hero__bar">
+          <div class="home-hero__intro">
+            <h1 class="home-hero__name">
+              Cooper <span class="italic">Yang</span>
+            </h1>
+
+            <p class="home-hero__tagline">
+              Building tactile, feel-first combat systems, bosses, and spaces.
+              Previously at NExT Studios (Tencent). Currently at USC Games.
+            </p>
+
+            <a class="home-hero__cta" href="mailto:cooperyang@usc.edu" data-cursor="Write">
+              Available for work &#8599;
+            </a>
           </div>
+
+          <nav class="home-work-dock" aria-label="Selected work">
+            <div class="home-work-dock__meta">
+              <span>Selected <em>Work</em></span>
+              <a href="/archive.html" data-cursor="Archive">Archive &#8599;</a>
+            </div>
+
+            <div class="home-work-dock__list">
+            <a
+              class="home-work-link"
+              href="/projects/synced.html"
+              data-reel-index="0"
+              data-cursor="View"
+            >
+              <span class="work-link__num">01</span>
+              <span class="work-link__title">SYNCED: <em>Off Planet</em></span>
+              <span class="work-link__role">Combat &middot; Boss &middot; Level</span>
+              <span class="work-link__year">2022&ndash;24</span>
+            </a>
+
+            <a
+              class="home-work-link"
+              href="/projects/vect0r.html"
+              data-reel-index="1"
+              data-cursor="View"
+            >
+              <span class="work-link__num">02</span>
+              <span class="work-link__title">VECT0R</span>
+              <span class="work-link__role">Game &middot; Level Design</span>
+              <span class="work-link__year">2024</span>
+            </a>
+
+            <a
+              class="home-work-link"
+              href="/projects/epitaph-1997.html"
+              data-reel-index="2"
+              data-cursor="View"
+            >
+              <span class="work-link__num">03</span>
+              <span class="work-link__title">Epitaph 1997</span>
+              <span class="work-link__role">Level Design &middot; Producer</span>
+              <span class="work-link__year">2023</span>
+            </a>
+
+            <a
+              class="home-work-link"
+              href="/projects/flashlight.html"
+              data-reel-index="3"
+              data-cursor="View"
+            >
+              <span class="work-link__num">04</span>
+              <span class="work-link__title">Flashlight</span>
+              <span class="work-link__role">Game &middot; Level Design</span>
+              <span class="work-link__year">2023</span>
+            </a>
+
+            <a
+              class="home-work-link"
+              href="/projects/vamp.html"
+              data-reel-index="4"
+              data-cursor="View"
+            >
+              <span class="work-link__num">05</span>
+              <span class="work-link__title">Vamp</span>
+              <span class="work-link__role">Game Design &middot; Hardware</span>
+              <span class="work-link__year">2024</span>
+            </a>
+            </div>
+          </nav>
         </div>
-      </a>
-
-      <a class="project-card" href="projects/flashlight.html">
-        <img src="assets/images/flashlight-thumb.gif" alt="Flashlight" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Flashlight</div>
-          <div class="card-role">Game Designer, Level Designer</div>
-          <div class="card-tags">
-            <span class="tag">Survival Horror</span>
-            <span class="tag">Puzzle</span>
-            <span class="tag">Top Down</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="project-card" href="projects/vamp.html">
-        <img src="assets/images/vamp-thumb.gif" alt="VAMP" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">VAMP</div>
-          <div class="card-role">Game Designer, Hardware Engineer</div>
-          <div class="card-tags">
-            <span class="tag">VR</span>
-            <span class="tag">Arcade Revival</span>
-            <span class="tag">Unreal Engine 5</span>
-            <span class="tag">Sony Transmedia Challenge</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </main>
-
-  <script src="js/main.js"></script>
-</body>
+      </section>
+    </main>
+  </body>
 </html>

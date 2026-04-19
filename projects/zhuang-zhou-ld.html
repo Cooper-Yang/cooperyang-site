@@ -1,153 +1,258 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Zhuang Zhou Dreamed of Butterfly - Level Design - Game design project by Cooper Yang. Portfolio case study with design documentation.">
-  <title>Zhuang Zhou Dreamed of Butterfly - Level Design - Cooper Yang</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Zhuang Zhou Dreamed of Butterfly — Level Design case study by Cooper Yang. Shanshui flight, pedestals, and painterly metrics."
+    />
+    <title>Zhuang Zhou — Butterfly LD — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="../index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="../about.html">About Me</a>
-        <a href="../index.html">Projects</a>
-        <a href="../archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
-    </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
+    </header>
 
-  <header class="mobile-header">
-    <span class="name"><a href="../index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
-
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="../about.html">About Me</a>
-    <a href="../index.html">Projects</a>
-    <a href="../archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="../assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <div class="project-content">
-
-      <div class="hero-card">
-        <h1>Zhuang Zhou Dreamed of Butterfly - Level Design</h1>
-        <div class="hero-meta"><span class="role">Level Designer</span></div>
-        <div class="page-tags">
-          <span class="tag">Daoist</span>
-          <span class="tag">Butterfly</span>
-          <span class="tag">3D Platformer</span>
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Level Design · 12 / 13</span>
+          <span>2024</span>
         </div>
-        <div class="hero-actions"><a class="page-link" href="https://cooperyang.itch.io/zhuang-zhou-dreamed-of-butterfly" target="_blank" rel="noopener">Itch Page</a></div>
-      </div>
+        <h1 class="project-head__title">Zhuang Zhou — <em>Butterfly LD</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Level Designer</dd>
+          </div>
+          <div>
+            <dt>Genre</dt>
+            <dd><em>3D Platformer</em> · Flight · Daoist</dd>
+          </div>
+          <div>
+            <dt>Tags</dt>
+            <dd>Shanshui / Butterfly</dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://cooperyang.itch.io/zhuang-zhou-dreamed-of-butterfly"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Itch page ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-      <div class="section-block"><h2>Design Goals</h2></div>
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            A flight-first <em>3D platformer</em> that carries players from a realist museum
+            into a <em>shanshui</em> dreamworld. Pedestals anchor; hoops accelerate. Each
+            beat is painted to keep the butterfly moving and the duality reading — awake, or
+            dreaming.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span><strong>Flight-first layout</strong> — pedestals and hoops positioned to
+                preserve momentum.</span>
+            </li>
+            <li>
+              <span><strong>Shanshui transition</strong> — museum to dreamworld; duality and
+                transformation as spatial arcs.</span>
+            </li>
+            <li>
+              <span><strong>Painterly level art</strong> — shaders and landmarks that
+                support navigation instead of fighting it.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <p><strong>1. Narrative Immersion:</strong></p>
-      <p>- Design levels to transition players from the realistic museum to the dream-like shanshui world.</p>
-      <p>- Use environmental storytelling to reflect themes of duality and transformation.</p>
-      <p><strong>2. Flying Mechanic Integration:</strong></p>
-      <p>- Center levels around the butterfly's flying mechanics, emphasizing freedom and exploration.</p>
-      <p>- Use pedestals as visual guides to direct player navigation.</p>
-      <p>- Incorporate verticality for layered challenges and multi-directional paths.</p>
-      <p><strong>3. Guided Exploration:</strong></p>
-      <p>- Utilize environmental cues like lighting and landmarks to subtly guide players.</p>
-      <p>- Balance clear progression with opportunities for open exploration.</p>
-
-      <div class="section-block"><h2>Design Process</h2></div>
-
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="step-label">Step 01 — Mood Board</div>
-          <div class="step-content">
-            <div><img src="../assets/images/zhuangzhou-moodboard.png" alt="Mood Board" loading="lazy"></div>
-            <div><p>Take inspiration from real world museums and Shanshui Painting.</p></div>
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Design <em>Goals</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/zhuangzhou-moodboard.png"
+                alt="Mood board"
+                loading="lazy"
+              />
+              <p class="cap">Mood board — museum and shanshui references</p>
+            </div>
+            <div class="spread__text">
+              <h3>Three north stars</h3>
+              <p>
+                The level had to hold <em>narrative immersion</em>, <em>flight integration</em>,
+                and <em>guided exploration</em> at the same time — each goal steering the
+                other two.
+              </p>
+              <ol class="project-contribs">
+                <li>
+                  <span><strong>Narrative immersion</strong> — transition from the museum
+                    into a shanshui dream; duality and transformation.</span>
+                </li>
+                <li>
+                  <span><strong>Flying mechanic integration</strong> — levels centered on
+                    freedom, with pedestals as visual guides and vertical layering.</span>
+                </li>
+                <li>
+                  <span><strong>Guided exploration</strong> — lighting and landmarks cue
+                    direction without breaking openness.</span>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-step">
-          <div class="step-label">Step 02 — Metrics</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/zhuangzhou-metrics.png" alt="Metrics" loading="lazy">
-                <img src="../assets/images/zhuangzhou-reference1.png" alt="Design reference" loading="lazy">
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Design <em>Process</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/zhuangzhou-metrics.png"
+                alt="Metrics"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/zhuangzhou-reference1.png"
+                alt="Design reference"
+                loading="lazy"
+              />
+              <p class="cap">Whitebox metrics · design reference</p>
+            </div>
+            <div class="spread__text">
+              <h3>01 · Whitebox &amp; metrics</h3>
+              <p>
+                Uniform pedestals and hoops during whitebox — same scale, same spacing —
+                so every iteration could be compared for <em>clarity</em> and
+                <em>consistency</em> before art landed on top.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/zhuangzhou-props1.png"
+                alt="Props positioning"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/zhuangzhou-props2.png"
+                alt="Props flow"
+                loading="lazy"
+              />
+              <p class="cap">Prop placement — positioning and flow</p>
+            </div>
+            <div class="spread__text">
+              <h3>02 · Prop positioning</h3>
+              <p>
+                Hoops and pedestals placed to preserve momentum — the player should never
+                have to <em>brake</em> to find the next beat. Flow first, aesthetics second.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/zhuangzhou-props3.png"
+                alt="Level art"
+                loading="lazy"
+              />
+              <img
+                src="/assets/images/zhuangzhou-levelart.png"
+                alt="Shanshui aesthetic"
+                loading="lazy"
+              />
+              <p class="cap">Painterly shanshui shaders</p>
+            </div>
+            <div class="spread__text">
+              <h3>03 · Level art</h3>
+              <p>
+                Painterly <em>shanshui</em> shaders across the dreamworld pass — art
+                supports navigation rather than fighting it. Landmarks stay readable at
+                flight speeds.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2><em>Playthrough</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/LCUe-XpuqiQ"
+                  allowfullscreen
+                  loading="lazy"
+                  title="Zhuang Zhou — playthrough"
+                ></iframe>
               </div>
+              <p class="cap">Full playthrough — museum to dreamworld</p>
             </div>
-            <div>
-              <p>- Established uniform metrics for pedestals and hoops during the white box phase to ensure clarity and consistency throughout the level.</p>
-              <p>- Defined pedestals as stationary platforms and hoops as wind-boosting elements, each with a distinct purpose to aid navigation.</p>
-              <p>- Maintained consistent dimensions and functionality so players could easily recognize and interact with these elements without confusion.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-label">Step 03 — Props Position</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/zhuangzhou-props1.png" alt="Props positioning" loading="lazy">
-                <img src="../assets/images/zhuangzhou-props2.png" alt="Props flow" loading="lazy">
-              </div>
-            </div>
-            <div>
-              <p>Strategically positioned hoops and pedestals to create a seamless flow, allowing players to maintain momentum while navigating the level.</p>
+            <div class="spread__text">
+              <h3>End-to-end run</h3>
+              <p>
+                A recorded flight through the full level — the realist museum opening, the
+                transition into the painted shanshui, and the final pedestal beats.
+              </p>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-step active">
-          <div class="step-label">Step 04 — Level Art</div>
-          <div class="step-content">
-            <div>
-              <div class="image-gallery cols-2">
-                <img src="../assets/images/zhuangzhou-props3.png" alt="Level art" loading="lazy">
-                <img src="../assets/images/zhuangzhou-levelart.png" alt="Shanshui aesthetic" loading="lazy">
-              </div>
-            </div>
-            <div>
-              <p>- Incorporated simple level art, including props, to enhance the narrative and immerse players in the environment.</p>
-              <p>- Applied shaders to terrain to evoke the shanshuihua (Chinese landscape painting) aesthetic, creating a dream-like, painterly feel.</p>
-              <p>- Ensured that the artistic elements complemented gameplay without overshadowing the clarity of navigation or mechanics.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-block"><h2>Playthrough</h2></div>
-
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/LCUe-XpuqiQ" allowfullscreen loading="lazy"></iframe>
-      </div>
-
-      <div class="next-project">
-        <a href="portal2-light-bridge-ld.html">Next Project <span class="arrow">&rarr;</span></a>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="../js/main.js"></script>
-</body>
+      <section class="project-next">
+        <span class="label">Next · 13 / 13</span>
+        <a href="/projects/portal2-light-bridge-ld.html" data-cursor="Next">Portal 2 — Light Bridge LD →</a>
+      </section>
+    </main>
+  </body>
 </html>

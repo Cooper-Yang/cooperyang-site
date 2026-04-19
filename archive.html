@@ -1,158 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Archive of game design projects by Cooper Yang including Judge, Pico-8 prototypes, and level designs.">
-  <title>Archive - Cooper Yang</title>
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Archive — additional projects, level design samples, and experimental prototypes by Cooper Yang."
+    />
+    <title>Archive — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" /><link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="name"><a href="index.html">Cooper Yang</a></div>
-      <div class="titles">Combat Designer<br>Game Designer</div>
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
       <nav>
-        <a href="about.html">About Me</a>
-        <a href="index.html">Projects</a>
-        <a href="archive.html" class="active">Archive</a>
-        <hr class="nav-divider" aria-hidden="true">
-        <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-        <a href="mailto:cooperyang@usc.edu">Email</a>
-        <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html" class="is-active">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
       </nav>
+    </header>
+
+    <!-- cursor preview card -->
+    <div class="cursor-preview" data-index-preview aria-hidden="true">
+      <img src="/assets/images/judge-thumb.gif" alt="" />
     </div>
-    <div class="sidebar-bottom">&copy;2025 Cooper Yang</div>
-  </aside>
 
-  <!-- Mobile Header -->
-  <header class="mobile-header">
-    <span class="name"><a href="index.html">Cooper Yang</a></span>
-    <button class="hamburger" aria-label="Open menu">&#9776;</button>
-  </header>
+    <main class="page">
+      <section class="container">
+        <p class="type-meta" data-reveal>
+          Archive <span class="meta-accent">—</span> 08 pieces
+        </p>
 
-  <div class="mobile-nav-overlay">
-    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
-    <a href="about.html">About Me</a>
-    <a href="index.html">Projects</a>
-    <a href="archive.html">Archive</a>
-    <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
-    <a href="mailto:cooperyang@usc.edu">Email</a>
-    <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-
-  <main class="main">
-    <h1 class="section-title">Archive</h1>
-    <div class="project-grid">
-
-      <a class="project-card" href="projects/judge.html">
-        <img src="assets/images/judge-thumb.gif" alt="Judge" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Judge</div>
-          <div class="card-role">Game Designer</div>
-          <div class="card-tags">
-            <span class="tag">Puzzle</span>
-            <span class="tag">Dystopian</span>
+        <div class="hero-name" style="margin-top: 1.5rem">
+          <div class="row">
+            <h1 class="type-hero" data-split-lines>Archive</h1>
           </div>
         </div>
-      </a>
 
-      <a class="project-card" href="projects/incite-infiltrate.html">
-        <img src="assets/images/incite-thumb.gif" alt="Incite & Infiltrate" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Incite &amp; Infiltrate</div>
-          <div class="card-role">Game Designer</div>
-          <div class="card-tags">
-            <span class="tag">Alien Invasion</span>
-            <span class="tag">Deck Building</span>
-          </div>
+        <p
+          class="type-body"
+          data-reveal
+          data-reveal-delay="0.3"
+          style="margin-top: 3rem; max-width: 48ch; font-size: 1.1rem"
+        >
+          Smaller <span class="serif">prototypes</span>, dedicated
+          <span class="serif">level-design</span> pieces, and one-off
+          <span class="serif">experiments</span>. The work that didn&apos;t make the front page
+          but still taught me something worth <em>keeping</em>.
+        </p>
+      </section>
+
+      <!-- Numbered index -->
+      <section class="container" style="margin-top: 6rem">
+        <div class="index-head">
+          <p class="type-meta">All <span class="meta-accent">Pieces</span></p>
+          <p class="type-meta">08 <span class="meta-accent">/</span> 08</p>
         </div>
-      </a>
 
-      <a class="project-card" href="projects/pico8-prototypes.html">
-        <img src="assets/images/pico8-thumb.gif" alt="Experimental Pico-8 Prototypes" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Experimental Pico 8 Prototypes</div>
-          <div class="card-role">Game Designer</div>
-          <div class="card-tags">
-            <span class="tag">Pico 8</span>
-            <span class="tag">12 Prototypes in 4 months</span>
-          </div>
+        <a
+          class="index-row"
+          href="/projects/judge.html"
+          data-index-row
+          data-preview-src="/assets/images/judge-thumb.gif"
+          data-cursor="View"
+        >
+          <span class="num">06</span>
+          <span class="title">Judge</span>
+          <span class="role">Puzzle <span class="meta-accent">·</span> Dystopian</span>
+          <span class="year">2022</span>
+        </a>
+
+        <a
+          class="index-row"
+          href="/projects/incite-infiltrate.html"
+          data-index-row
+          data-preview-src="/assets/images/incite-thumb.gif"
+          data-cursor="View"
+        >
+          <span class="num">07</span>
+          <span class="title"
+            >Incite
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >&amp; Infiltrate</span
+            ></span
+          >
+          <span class="role">Deck Building <span class="meta-accent">·</span> Invasion</span>
+          <span class="year">2023</span>
+        </a>
+
+        <a
+          class="index-row"
+          href="/projects/pico8-prototypes.html"
+          data-index-row
+          data-preview-src="/assets/images/pico8-thumb.gif"
+          data-cursor="View"
+        >
+          <span class="num">08</span>
+          <span
+            class="title"
+            style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+            >Pico-8 Prototypes</span
+          >
+          <span class="role">12 in 4 months</span>
+          <span class="year">2021</span>
+        </a>
+
+        <a
+          class="index-row"
+          href="/projects/doom-e1m1.html"
+          data-index-row
+          data-preview-src="/assets/images/doom-thumb.gif"
+          data-cursor="View"
+        >
+          <span class="num">09</span>
+          <span class="title"
+            >Doom
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >E1M1 Clone</span
+            ></span
+          >
+          <span class="role">FPS <span class="meta-accent">·</span> Recreation</span>
+          <span class="year">2023</span>
+        </a>
+
+        <a
+          class="index-row"
+          href="/projects/vect0r-ld.html"
+          data-index-row
+          data-preview-src="/assets/images/vect0r-grapple.gif"
+          data-cursor="View"
+        >
+          <span class="num">10</span>
+          <span class="title"
+            >VECT0R <span class="meta-accent">—</span>
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >Level Design</span
+            ></span
+          >
+          <span class="role">FPS <span class="meta-accent">·</span> Arena</span>
+          <span class="year">2025</span>
+        </a>
+
+        <a
+          class="index-row"
+          href="/projects/epitaph-1997-ld.html"
+          data-index-row
+          data-preview-src="/assets/images/epitaph-ld-thumb.gif"
+          data-cursor="View"
+        >
+          <span class="num">11</span>
+          <span class="title"
+            >Epitaph 1997 <span class="meta-accent">—</span>
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >LD</span
+            ></span
+          >
+          <span class="role">Eastern Horror <span class="meta-accent">·</span> Puzzle</span>
+          <span class="year">2022</span>
+        </a>
+
+        <a
+          class="index-row"
+          href="/projects/zhuang-zhou-ld.html"
+          data-index-row
+          data-preview-src="/assets/images/zhuangzhou-levelart.png"
+          data-cursor="View"
+        >
+          <span class="num">12</span>
+          <span
+            class="title"
+            style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+            >Zhuang Zhou — Butterfly</span
+          >
+          <span class="role">Daoist <span class="meta-accent">·</span> 3D Platformer</span>
+          <span class="year">2024</span>
+        </a>
+
+        <a
+          class="index-row"
+          href="/projects/portal2-light-bridge-ld.html"
+          data-index-row
+          data-preview-src="/assets/images/portal2-thumb.gif"
+          data-cursor="View"
+        >
+          <span class="num">13</span>
+          <span class="title"
+            >Portal 2
+            <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+              >— Light Bridge</span
+            ></span
+          >
+          <span class="role">Puzzle <span class="meta-accent">·</span> Steam Workshop</span>
+          <span class="year">2021</span>
+        </a>
+      </section>
+
+      <!-- Next -->
+      <section class="container" style="margin-top: 8rem">
+        <a
+          href="/"
+          data-cursor="Home"
+          style="
+            display: block;
+            padding-block: 3rem;
+            border-top: 1px solid var(--color-ink);
+            border-bottom: 1px solid var(--color-ink);
+          "
+        >
+          <p class="type-meta" style="opacity: 0.6">Back to front page</p>
+          <p
+            class="type-display"
+            style="
+              margin-top: 1rem;
+              font-family: var(--font-serif);
+              font-style: italic;
+              font-weight: 500;
+            "
+          >
+            Selected Work →
+          </p>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Index</h4>
+          <ul>
+            <li><a href="/">Work</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/archive.html">Archive</a></li>
+          </ul>
         </div>
-      </a>
-
-      <a class="project-card" href="projects/doom-e1m1.html">
-        <img src="assets/images/doom-thumb.gif" alt="Doom E1M1 Clone" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Doom E1M1 Clone</div>
-          <div class="card-role">Game Designer</div>
-          <div class="card-tags">
-            <span class="tag">Doom</span>
-          </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:cooperyang@usc.edu">cooperyang@usc.edu</a></li>
+            <li>
+              <a href="/assets/Resume_CooperYang.pdf" target="_blank" rel="noopener">Resume</a>
+            </li>
+          </ul>
         </div>
-      </a>
-
-      <a class="project-card" href="projects/vect0r-ld.html">
-        <img src="assets/images/vect0r-grapple.gif" alt="VECT0R - Level Design" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">VECT0R - Level Design</div>
-          <div class="card-role">Level Designer</div>
-          <div class="card-tags">
-            <span class="tag">Arena Shooter</span>
-            <span class="tag">FPS</span>
-          </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <ul>
+            <li>
+              <a href="http://www.linkedin.com/in/cooper-yang" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="https://cooperyang.itch.io/" target="_blank" rel="noopener">Itch.io</a>
+            </li>
+          </ul>
         </div>
-      </a>
-
-      <a class="project-card" href="projects/epitaph-1997-ld.html">
-        <img src="assets/images/epitaph-ld-thumb.gif" alt="Epitaph 1997 - Level Design" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Epitaph 1997 - Level Design</div>
-          <div class="card-role">Level Designer</div>
-          <div class="card-tags">
-            <span class="tag">Eastern Horror</span>
-            <span class="tag">Action RPG</span>
-            <span class="tag">Puzzle</span>
-          </div>
+        <div class="footer-col">
+          <h4>Locale</h4>
+          <ul>
+            <li>Los Angeles, CA</li>
+            <li>Shanghai, CN</li>
+          </ul>
         </div>
-      </a>
+      </div>
 
-      <a class="project-card" href="projects/zhuang-zhou-ld.html">
-        <img src="assets/images/zhuangzhou-levelart.png" alt="Zhuang Zhou Dreamed of Butterfly" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Zhuang Zhou Dreamed of Butterfly - LD</div>
-          <div class="card-role">Level Designer</div>
-          <div class="card-tags">
-            <span class="tag">Daoist</span>
-            <span class="tag">Butterfly</span>
-            <span class="tag">3D Platformer</span>
-          </div>
-        </div>
-      </a>
+      <div class="wordmark" aria-hidden="true">
+        Cooper
+        <span style="font-family: var(--font-serif); font-style: italic; font-weight: 500"
+          >Yang</span
+        >
+      </div>
 
-      <a class="project-card" href="projects/portal2-light-bridge-ld.html">
-        <img src="assets/images/portal2-thumb.gif" alt="Portal 2: Light Bridge" loading="lazy">
-        <div class="card-info">
-          <div class="card-title">Portal 2: Light Bridge - LD</div>
-          <div class="card-role">Level Designer</div>
-          <div class="card-tags">
-            <span class="tag">Steam Workshop</span>
-            <span class="tag">Puzzle</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </main>
-
-  <script src="js/main.js"></script>
-</body>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 3rem;
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          opacity: 0.6;
+        "
+      >
+        <span>© 2026 Cooper Yang. All Rights Reserved.</span>
+        <span>v 2.0</span>
+      </div>
+    </footer>
+  </body>
 </html>
