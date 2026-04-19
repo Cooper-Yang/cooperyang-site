@@ -58,149 +58,107 @@
     </section>
 
     <main class="home-stage">
-      <section class="home-hero" data-reel aria-label="Portfolio reel hero">
-        <!-- Top: full-width cinematic reel -->
-        <div class="home-hero__reel">
-          <div class="home-hero__media" data-reel-stage></div>
-          <div class="home-hero__vignette" aria-hidden="true"></div>
-
-          <button
-            class="hero-nav hero-nav--prev"
-            data-reel-prev
-            type="button"
-            aria-label="Previous project"
-            data-cursor="Prev"
-          >
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path
-                d="M15 4 L7 12 L15 20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-          <button
-            class="hero-nav hero-nav--next"
-            data-reel-next
-            type="button"
-            aria-label="Next project"
-            data-cursor="Next"
-          >
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path
-                d="M9 4 L17 12 L9 20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-
-          <a
-            class="home-hero__ticker"
-            href="#"
-            data-reel-link
-            data-reel-ticker
-            data-cursor="View"
-            aria-live="polite"
-          >
-            <span class="ticker__label">Now Showing</span>
-            <span class="ticker__title">&mdash;</span>
-            <span class="ticker__num">00 / 05</span>
+      <!-- Compact intro -->
+      <section class="home-intro">
+        <div class="home-intro__meta">
+          <span>Portfolio &mdash; 25 / 26</span>
+          <span>Combat &amp; Game Designer</span>
+          <span>Los Angeles &middot; Shanghai</span>
+        </div>
+        <div class="home-intro__body">
+          <h1 class="home-intro__name">
+            Cooper <em>Yang</em>
+          </h1>
+          <p class="home-intro__tagline">
+            Building tactile, feel-first combat systems, bosses, and spaces. Previously at
+            NExT Studios (Tencent). Currently at USC Games.
+          </p>
+          <a class="home-intro__cta" href="mailto:cooperyang@usc.edu" data-cursor="Write">
+            Available for work &#8599;
           </a>
         </div>
+      </section>
 
-        <!-- Bottom: cream info bar (intro + work list side-by-side) -->
-        <div class="home-hero__bar">
-          <div class="home-hero__intro">
-            <h1 class="home-hero__name">
-              Cooper <span class="italic">Yang</span>
-            </h1>
-
-            <p class="home-hero__tagline">
-              Building tactile, feel-first combat systems, bosses, and spaces.
-              Previously at NExT Studios (Tencent). Currently at USC Games.
-            </p>
-
-            <a class="home-hero__cta" href="mailto:cooperyang@usc.edu" data-cursor="Write">
-              Available for work &#8599;
-            </a>
+      <!-- Bento grid of 5 works + archive -->
+      <section class="bento" aria-label="Selected work">
+        <a
+          class="tile tile--feature"
+          href="/projects/synced.html"
+          data-cursor="View"
+        >
+          <div class="tile__media">
+            <img src="/assets/images/synced-thumb.gif" alt="" loading="lazy" />
           </div>
-
-          <nav class="home-work-dock" aria-label="Selected work">
-            <div class="home-work-dock__meta">
-              <span>Selected <em>Work</em></span>
-              <a href="/archive.html" data-cursor="Archive">Archive &#8599;</a>
+          <div class="tile__overlay">
+            <span class="tile__num">01</span>
+            <div class="tile__foot">
+              <h3 class="tile__title">SYNCED: <em>Off Planet</em></h3>
+              <span class="tile__meta">Combat &middot; Boss &middot; Level &mdash; 2022&ndash;24</span>
             </div>
+          </div>
+        </a>
 
-            <div class="home-work-dock__list">
-            <a
-              class="home-work-link"
-              href="/projects/synced.html"
-              data-reel-index="0"
-              data-cursor="View"
-            >
-              <span class="work-link__num">01</span>
-              <span class="work-link__title">SYNCED: <em>Off Planet</em></span>
-              <span class="work-link__role">Combat &middot; Boss &middot; Level</span>
-              <span class="work-link__year">2022&ndash;24</span>
-            </a>
-
-            <a
-              class="home-work-link"
-              href="/projects/vect0r.html"
-              data-reel-index="1"
-              data-cursor="View"
-            >
-              <span class="work-link__num">02</span>
-              <span class="work-link__title">VECT0R</span>
-              <span class="work-link__role">Game &middot; Level Design</span>
-              <span class="work-link__year">2024</span>
-            </a>
-
-            <a
-              class="home-work-link"
-              href="/projects/epitaph-1997.html"
-              data-reel-index="2"
-              data-cursor="View"
-            >
-              <span class="work-link__num">03</span>
-              <span class="work-link__title">Epitaph 1997</span>
-              <span class="work-link__role">Level Design &middot; Producer</span>
-              <span class="work-link__year">2023</span>
-            </a>
-
-            <a
-              class="home-work-link"
-              href="/projects/flashlight.html"
-              data-reel-index="3"
-              data-cursor="View"
-            >
-              <span class="work-link__num">04</span>
-              <span class="work-link__title">Flashlight</span>
-              <span class="work-link__role">Game &middot; Level Design</span>
-              <span class="work-link__year">2023</span>
-            </a>
-
-            <a
-              class="home-work-link"
-              href="/projects/vamp.html"
-              data-reel-index="4"
-              data-cursor="View"
-            >
-              <span class="work-link__num">05</span>
-              <span class="work-link__title">Vamp</span>
-              <span class="work-link__role">Game Design &middot; Hardware</span>
-              <span class="work-link__year">2024</span>
-            </a>
+        <a class="tile" href="/projects/vect0r.html" data-cursor="View">
+          <div class="tile__media">
+            <img src="/assets/images/vect0r-thumb.gif" alt="" loading="lazy" />
+          </div>
+          <div class="tile__overlay">
+            <span class="tile__num">02</span>
+            <div class="tile__foot">
+              <h3 class="tile__title">VECT0R</h3>
+              <span class="tile__meta">Game &middot; Level &mdash; 2024</span>
             </div>
-          </nav>
-        </div>
+          </div>
+        </a>
+
+        <a class="tile" href="/projects/epitaph-1997.html" data-cursor="View">
+          <div class="tile__media">
+            <img src="/assets/images/epitaph-thumb.gif" alt="" loading="lazy" />
+          </div>
+          <div class="tile__overlay">
+            <span class="tile__num">03</span>
+            <div class="tile__foot">
+              <h3 class="tile__title">Epitaph <em>1997</em></h3>
+              <span class="tile__meta">Level Design &middot; Producer &mdash; 2023</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="tile" href="/projects/flashlight.html" data-cursor="View">
+          <div class="tile__media">
+            <img src="/assets/images/flashlight-thumb.gif" alt="" loading="lazy" />
+          </div>
+          <div class="tile__overlay">
+            <span class="tile__num">04</span>
+            <div class="tile__foot">
+              <h3 class="tile__title">Flashlight</h3>
+              <span class="tile__meta">Game &middot; Level Design &mdash; 2023</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="tile" href="/projects/vamp.html" data-cursor="View">
+          <div class="tile__media">
+            <img src="/assets/images/vamp-thumb.gif" alt="" loading="lazy" />
+          </div>
+          <div class="tile__overlay">
+            <span class="tile__num">05</span>
+            <div class="tile__foot">
+              <h3 class="tile__title"><em>Vamp</em></h3>
+              <span class="tile__meta">Game Design &middot; Hardware &mdash; 2024</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="tile tile--archive" href="/archive.html" data-cursor="Archive">
+          <div class="tile__overlay tile__overlay--solid">
+            <span class="tile__num">&mdash;</span>
+            <div class="tile__foot">
+              <h3 class="tile__title">See the <em>rest</em> &#8599;</h3>
+              <span class="tile__meta">Archive &middot; 08 pieces</span>
+            </div>
+          </div>
+        </a>
       </section>
     </main>
   </body>
