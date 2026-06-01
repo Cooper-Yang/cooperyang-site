@@ -1201,6 +1201,27 @@ video {
   grid-column: auto;
 }
 
+/* Inline looping clips (gifs re-encoded to muted mp4) behave like images */
+.spread__media > video {
+  width: 100%;
+  height: auto;
+  grid-column: 1 / -1;
+  filter: saturate(0.92);
+  transition: filter 0.4s var(--ease-out-expo);
+}
+
+.spread__media > video:hover {
+  filter: saturate(1.05);
+}
+
+.spread__media--2 > video,
+.spread__media--3 > video {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #0e0e0e;
+  grid-column: auto;
+}
+
 .spread__media .v {
   position: relative;
   padding-bottom: 56.25%;

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Flashlight — Level Design case study by Cooper Yang. Circular layout, wires as cues, and light-as-lure horror pacing."
+    />
+    <title>Flashlight — Level Design — Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
+      <nav>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Level Design · 14 / 15</span>
+          <span>2019</span>
+        </div>
+        <h1 class="project-head__title">Flashlight — <em>LD</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Level Designer</dd>
+          </div>
+          <div>
+            <dt>Genre</dt>
+            <dd><em>Survival Horror</em> · Top-Down · Puzzle</dd>
+          </div>
+          <div>
+            <dt>Tags</dt>
+            <dd>Light as a lure / Wires</dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a href="/projects/flashlight.html" data-cursor="Visit">Main case study ↗</a>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            A confined, top-down horror space built around a single tension: the flashlight
+            that lets you <em>see</em> is the same thing that draws the monsters in. The level
+            loops back on itself so light, navigation, and threat stay <strong>permanently in
+            conflict</strong>.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span><strong>Circular layout</strong> — non-linear paths that fold back to key
+                points and minimise dead-end backtracking.</span>
+            </li>
+            <li>
+              <span><strong>Wires as cues</strong> — environmental guides that double as puzzle
+                clues through the dark.</span>
+            </li>
+            <li>
+              <span><strong>Light-as-lure tuning</strong> — monster placement that forces
+                strategic use of the flashlight.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 01</span>
+          <h2>Design <em>Goals</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/flashlight-ld-layout1.png"
+                alt="Top-down level layout"
+                loading="lazy"
+              />
+              <p class="cap">Whitebox layout — the looping floor plan</p>
+            </div>
+            <div class="spread__text">
+              <h3>Three things to hold</h3>
+              <p>
+                Every space had to carry one of three loads — atmosphere, mechanic, or
+                escalation. If a room didn't, it folded back into the loop.
+              </p>
+              <ol class="project-contribs">
+                <li>
+                  <span><strong>Immersive horror atmosphere</strong> — confined spaces and
+                    lighting that build tension and suspense.</span>
+                </li>
+                <li>
+                  <span><strong>Strategic flashlight mechanics</strong> — the light's role in
+                    attracting monsters, balancing navigation against manipulation.</span>
+                </li>
+                <li>
+                  <span><strong>Progressive challenge</strong> — mechanics and threats
+                    introduced gradually, then escalated with puzzles.</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Design <em>Process</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img
+                src="/assets/images/flashlight-ld-layout2.png"
+                alt="Wires routed through the level as guides"
+                loading="lazy"
+              />
+              <video
+                src="/assets/images/flashlight-ld-play1.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                aria-label="Flashlight navigation in the dark"
+              ></video>
+              <p class="cap">Circular routing (left) · wires lead room to room (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Circular layout, wires as cues</h3>
+              <p>
+                <strong>Circular level design</strong> encourages exploration with natural,
+                non-linear paths that lead back to key points — minimising unnecessary
+                backtracking.
+              </p>
+              <p>
+                <strong>Wires</strong> are run through the dark, confined spaces as a visual
+                cue, doubling as <em>clues</em> to solve puzzles and orient the player without
+                a map.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <video
+                src="/assets/images/flashlight-ld-play2.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                aria-label="Monsters drawn toward the light"
+              ></video>
+              <video
+                src="/assets/images/flashlight-ld-play3.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                aria-label="Backtracking to reuse the level"
+              ></video>
+              <p class="cap">Light draws monsters (left) · revisiting earlier rooms (right)</p>
+            </div>
+            <div class="spread__text">
+              <h3>Light as a lure, level reused</h3>
+              <p>
+                <strong>Flashlight mechanics</strong> — monsters are positioned to require
+                strategic light use, so navigating and managing threat are the same decision.
+              </p>
+              <p>
+                <strong>Backtracking &amp; level reuse</strong> — puzzles send players back
+                through earlier areas to retrieve key items, deepening their mastery of the
+                space and stretching a small level further.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2><em>Playthrough</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="v">
+                <iframe
+                  src="https://www.youtube.com/embed/Cp1i4SpUy8M"
+                  allowfullscreen
+                  loading="lazy"
+                  title="Flashlight — level design playthrough"
+                ></iframe>
+              </div>
+              <p class="cap">Full playthrough of the level</p>
+            </div>
+            <div class="spread__text">
+              <h3>End-to-end run</h3>
+              <p>
+                A recorded walkthrough of the loop in play — the wire trail, the light
+                management, and the moments where the level turns back on itself.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-next">
+        <span class="label">Next · 15 / 15</span>
+        <a href="/projects/my-hero-academia.html" data-cursor="Next">My Hero Academia — The Forrest →</a>
+      </section>
+    </main>
+  </body>
+</html>

@@ -25,7 +25,9 @@ export default defineConfig({
         vect0rLd: resolve(__dirname, 'projects/vect0r-ld.html'),
         epitaphLd: resolve(__dirname, 'projects/epitaph-1997-ld.html'),
         zhuangZhou: resolve(__dirname, 'projects/zhuang-zhou-ld.html'),
-        portal2: resolve(__dirname, 'projects/portal2-light-bridge-ld.html')
+        portal2: resolve(__dirname, 'projects/portal2-light-bridge-ld.html'),
+        flashlightLd: resolve(__dirname, 'projects/flashlight-ld.html'),
+        myHeroAcademia: resolve(__dirname, 'projects/my-hero-academia.html')
       }
     }
   },
