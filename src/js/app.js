@@ -6,6 +6,7 @@ import { initCursor } from './cursor.js';
 import { initReveal } from './reveal.js';
 import { initIndexPreview } from './indexPreview.js';
 import { initReel } from './reel.js';
+import { initCodeBlocks } from './codeblock.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initIndexPreview();
   initReel();
+  initCodeBlocks();
 });
 
 export { lenis };

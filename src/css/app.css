@@ -1535,6 +1535,191 @@ video {
 }
 
 /* ============================================
+   Code block — editorial "code specimen"
+   Dark inset panel against the cream page; syntax in
+   the redesign accent palette. Used inside .spread__media.
+   ============================================ */
+.code-block {
+  --code-bg: #15140e;
+  --code-bar: #201e16;
+  --code-line: #2d2a20;
+  --code-text: #d8d3c3;
+  --code-dim: #6f6a57;
+  font-family: var(--font-mono);
+  background: var(--code-bg);
+  color: var(--code-text);
+  border: 1px solid var(--color-ink);
+  overflow: hidden;
+  width: 100%;
+  align-self: start;
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--code-bar);
+  border-bottom: 1px solid var(--code-line);
+}
+
+.code-block-header .dots {
+  display: flex;
+  gap: 0.34rem;
+}
+
+.code-block-header .dots span {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 50%;
+  background: var(--code-dim);
+}
+
+.code-block-header .dots span:nth-child(1) {
+  background: var(--color-accent-2);
+}
+.code-block-header .dots span:nth-child(2) {
+  background: #e0a82e;
+}
+.code-block-header .dots span:nth-child(3) {
+  background: var(--color-accent);
+}
+
+.code-block-header .filename {
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
+  color: var(--code-dim);
+}
+
+.code-block-body {
+  overflow-x: auto;
+}
+
+.code-block-body::-webkit-scrollbar {
+  height: 5px;
+}
+.code-block-body::-webkit-scrollbar-thumb {
+  background: var(--code-line);
+}
+
+.code-block-body table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  font-family: var(--font-mono);
+}
+
+.code-block-body td {
+  padding: 0;
+  vertical-align: top;
+  white-space: pre;
+}
+
+.code-block-body .line-num {
+  width: 2.7rem;
+  min-width: 2.7rem;
+  padding: 0 0.7rem 0 0.85rem;
+  text-align: right;
+  color: var(--code-dim);
+  opacity: 0.55;
+  user-select: none;
+  border-right: 1px solid var(--code-line);
+}
+
+.code-block-body .line-code {
+  padding: 0 1rem;
+  color: var(--code-text);
+}
+
+.code-block-body tr:first-child td {
+  padding-top: 0.85rem;
+}
+.code-block-body tr:last-child td {
+  padding-bottom: 0.85rem;
+}
+
+/* Syntax highlighting — redesign accent palette */
+.code-block-body .kw {
+  color: var(--color-accent);
+}
+.code-block-body .typ {
+  color: #6cc6bf;
+}
+.code-block-body .str {
+  color: #e8a06a;
+}
+.code-block-body .cmt {
+  color: var(--code-dim);
+  font-style: italic;
+}
+.code-block-body .num {
+  color: #c9a8ee;
+}
+.code-block-body .fn {
+  color: #e6e0cf;
+}
+
+.code-block-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.9rem;
+  background: var(--code-bar);
+  border-top: 1px solid var(--code-line);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--code-dim);
+}
+
+/* Collapsed state — fade out the overflow, expand on click */
+.code-block.collapsed .code-block-body {
+  max-height: 19rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.code-block.collapsed .code-block-body::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4.5rem;
+  background: linear-gradient(to bottom, rgba(21, 20, 14, 0), var(--code-bg));
+  pointer-events: none;
+}
+
+.code-expand-btn {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--code-bar);
+  border: 0;
+  border-top: 1px solid var(--code-line);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.3s var(--ease-out-expo),
+    color 0.3s var(--ease-out-expo);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .code-expand-btn {
+    cursor: none;
+  }
+}
+
+.code-expand-btn:hover {
+  background: #2d2a20;
+  color: #d8f57e;
+}
+
+/* ============================================
    Scroll-reveal primitives
    ============================================ */
 [data-reveal] {
@@ -1543,13 +1728,15 @@ video {
 }
 
 .split-line {
-  display: block;
+  display: inline-block;
   overflow: hidden;
 }
 
 .split-line__inner {
-  display: block;
-  transform: translateY(110%);
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  will-change: transform, opacity;
 }
 
 /* ============================================
