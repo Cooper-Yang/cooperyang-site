@@ -1222,6 +1222,13 @@ video {
   grid-column: auto;
 }
 
+/* Square specimens (e.g. Pico-8 1:1 gifs): keep the side-by-side pair but
+   render at native 1:1 so the game screen isn't cropped to 16:10 */
+.spread__media--sq > img,
+.spread__media--sq > video {
+  aspect-ratio: 1 / 1;
+}
+
 /* Audio specimens — several players per row, tight spacing */
 .audio-grid {
   display: grid;
