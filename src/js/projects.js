@@ -7,7 +7,7 @@ export const projects = [
     href: '/projects/synced.html',
     thumb: '/assets/images/synced-thumb.gif',
     title: 'SYNCED',
-    meta: '2022 — 24'
+    meta: '2022–24'
   },
   {
     href: '/projects/vect0r.html',

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Doom E1M1 Clone — Recreation of Doom's first level in Unity by Cooper Yang. FPS case study."
+      content="A seven-week recreation of Doom's first level in Unity by Cooper Yang, covering head-bob, player movement, and a pixelization shader."
     />
-    <title>Doom E1M1 Clone — Cooper Yang</title>
+    <title>Doom E1M1 Clone · Cooper Yang</title>
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
     <link rel="alternate icon" href="/assets/images/favicon.ico" />
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -40,7 +40,7 @@
       <section class="project-head">
         <div class="project-head__top">
           <span>Archive · 09 / 15</span>
-          <span>Oct 2019 — Dec 2019</span>
+          <span>Oct 2019 – Dec 2019</span>
         </div>
         <h1 class="project-head__title">Doom E1M1 <em>Clone</em></h1>
         <dl class="project-head__meta">
@@ -88,7 +88,7 @@
             A seven-week recreation of the <em>first level</em> of id Software's 1993
             <em>Doom</em>. Our team built original assets mirroring the initial textures,
             sounds, and code while preserving the <strong>spirit</strong> and atmosphere of
-            the original level — down to its hidden secrets.
+            the original level, down to its hidden secrets.
           </p>
           <p>
             My responsibilities covered the <em>head-bob</em> and player movement systems,
@@ -100,19 +100,19 @@
           <ol class="project-contribs">
             <li>
               <span
-                ><strong>Head-bob</strong> system — sine-wave camera motion tied to player
+                ><strong>Head-bob</strong> system: sine-wave camera motion tied to player
                 input, tuned per-camera.</span
               >
             </li>
             <li>
               <span
-                ><strong>Player movement</strong> — keyboard-only feel faithful to the 1993
-                original.</span
+                ><strong>Player movement</strong> tuned to the keyboard-only feel of the
+                1993 original.</span
               >
             </li>
             <li>
               <span
-                ><strong>Pixelization</strong> shader — a camera post-process that mimics
+                ><strong>Pixelization</strong> shader: a camera post-process that mimics
                 Doom's low-res period look.</span
               >
             </li>
@@ -140,14 +140,14 @@
               <p>
                 A "head-bob" feature enhances <strong>immersion</strong> by simulating
                 natural up-and-down motion in the viewpoint during movement. The effect
-                revolves around three core variables — <em>bobbingSpeed</em> (pace),
+                revolves around three core variables: <em>bobbingSpeed</em> (pace),
                 <em>bobbingHeight</em> (intensity), and <em>midpoint</em> (base position).
                 An <em>isHeadBobbing</em> flag triggers a rhythmic bobbing synchronized with
                 player input, drawing a sine wave.
               </p>
               <p>
-                Our version runs two <strong>cameras</strong> — one for the viewpoint, one
-                for the weapon — both driven by the same script with different settings,
+                Our version runs two <strong>cameras</strong>, one for the viewpoint and one
+                for the weapon. Both run the same script with different settings,
                 keeping the <em>keyboard-only</em> feel of the original.
               </p>
             </div>
@@ -227,7 +227,7 @@
                 The update loop collects horizontal and vertical input, advances a
                 <em>timer</em> when the player is moving, and draws a sine wave whose
                 amplitude scales with total axis input. The vertical offset writes to
-                <em>localPosition.y</em> around <strong>midpoint</strong> — zero allocation,
+                <em>localPosition.y</em> around <strong>midpoint</strong>. Zero allocation,
                 no state beyond a single float.
               </p>
             </div>
@@ -248,7 +248,7 @@
                 alt="Pixelization post-processing"
                 loading="lazy"
               />
-              <p class="cap">Pixelization — camera shader</p>
+              <p class="cap">Pixelization · camera shader</p>
             </div>
             <div class="spread__text">
               <h3>Cheap period look</h3>
@@ -260,7 +260,7 @@
               </p>
               <p>
                 Using Unity and custom assets, we applied a <em>camera shader</em> to
-                replicate that look — a <strong>cost-effective</strong> approach that
+                replicate that look. It's a <strong>cost-effective</strong> approach that
                 mirrors the period feel without reconstructing the renderer.
               </p>
             </div>
