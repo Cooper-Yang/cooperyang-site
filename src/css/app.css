@@ -1222,6 +1222,29 @@ video {
   grid-column: auto;
 }
 
+/* Audio specimens — several players per row, tight spacing */
+.audio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.audio-single {
+  margin-top: 0.5rem;
+}
+
+.audio-grid audio,
+.audio-single audio {
+  width: 100%;
+  height: 36px;
+}
+
+.audio-grid .cap,
+.audio-single .cap {
+  margin-top: 0.25rem;
+}
+
 .spread__media .v {
   position: relative;
   padding-bottom: 56.25%;
