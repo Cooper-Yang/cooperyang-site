@@ -4,6 +4,12 @@
 
 export const projects = [
   {
+    href: '/projects/masterworks-of-horror.html',
+    thumb: '/assets/images/moh-thumb.jpg',
+    title: 'Masterworks of Horror',
+    meta: '2025'
+  },
+  {
     href: '/projects/synced.html',
     thumb: '/assets/images/synced-thumb.gif',
     title: 'SYNCED',
@@ -85,4 +91,4 @@ export const projects = [
 
 // The front-page reel and numbered index only show the five main projects.
 // Archive uses the rest of `projects`.
-export const selectedProjects = projects.slice(0, 5);
+export const selectedProjects = projects.slice(0, 6);

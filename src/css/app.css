@@ -688,8 +688,8 @@ video {
 /* Bento grid */
 .bento {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1.5fr 1fr 0.55fr;
   gap: 0.75rem;
   min-height: 0;
   min-width: 0;
@@ -708,6 +708,12 @@ video {
     gap: 0.75rem;
     overflow-y: auto;
   }
+  .tile--moh,
+  .tile--synced,
+  .tile--archive {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
 .tile {
@@ -723,8 +729,17 @@ video {
 }
 
 .tile--feature {
-  grid-column: 1;
-  grid-row: 1 / 3;
+  grid-row: 1;
+}
+.tile--moh {
+  grid-column: 1 / 3;
+}
+.tile--synced {
+  grid-column: 3 / 5;
+}
+.tile--archive {
+  grid-column: 1 / -1;
+  grid-row: 3;
 }
 
 .tile:hover {
@@ -1810,4 +1825,243 @@ video {
   border: 1px solid currentColor;
   border-radius: 3px;
   letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Masterworks of Horror — case-study components
+   ============================================ */
+.moh-heat__graph {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  background: #faf8f2;
+  padding: 1rem 1.1rem 0.6rem;
+}
+.moh-heat__graph svg,
+.moh-heat__graph img {
+  display: block;
+  min-width: 660px;
+  width: 100%;
+  height: auto;
+}
+
+/* stat strip (reused: effort band + producer numbers) */
+.moh-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 1px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+  margin-top: 1.5rem;
+}
+.moh-stat {
+  background: var(--color-paper);
+  padding: 1.05rem 1.2rem;
+}
+.moh-stat .n {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1;
+  font-feature-settings: 'tnum';
+}
+.moh-stat .n em {
+  font-style: italic;
+  color: var(--color-accent-strong);
+}
+.moh-stat .l {
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  line-height: 1.4;
+}
+
+/* friction -> mechanism cards */
+.moh-friction {
+  display: grid;
+  gap: 1px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+  margin-top: 1.5rem;
+}
+.moh-fric {
+  background: var(--color-paper);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.moh-fric > div {
+  padding: 1.05rem 1.3rem;
+}
+.moh-fric__p {
+  border-right: 1px solid var(--color-line);
+}
+.moh-fric__f {
+  background: #faf8f2;
+}
+.moh-fric .k {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+.moh-fric__f .k {
+  color: var(--color-accent-strong);
+}
+.moh-fric p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+@media (max-width: 720px) {
+  .moh-fric {
+    grid-template-columns: 1fr;
+  }
+  .moh-fric__p {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+}
+
+/* FROST pipeline — vertical timeline (human / agent / loop) */
+.moh-pipe {
+  --h: #c98a2a;
+  --a: #4d84c4;
+  --q: #b0473d;
+  margin-top: 1.5rem;
+  border: 1px solid var(--color-line);
+}
+.moh-pipe__step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--color-line);
+}
+.moh-pipe__step:last-child {
+  border-bottom: 0;
+}
+.moh-pipe__dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  margin-top: 0.25rem;
+  background: var(--color-ink);
+}
+.moh-pipe__step[data-actor='human'] .moh-pipe__dot {
+  background: var(--h);
+}
+.moh-pipe__step[data-actor='agent'] .moh-pipe__dot {
+  background: var(--a);
+}
+.moh-pipe__step[data-actor='loop'] .moh-pipe__dot {
+  background: var(--q);
+  box-shadow: 0 0 0 3px rgba(176, 71, 61, 0.16);
+}
+.moh-pipe__t {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.moh-pipe__t b {
+  font-weight: 500;
+}
+.moh-pipe__s {
+  color: var(--color-ink-soft);
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+.moh-legend {
+  display: flex;
+  gap: 1.3rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+.moh-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.moh-legend i {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* war-story cards */
+.moh-wars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 1px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+  margin-top: 1.5rem;
+}
+.moh-war {
+  background: var(--color-paper);
+  padding: 1.2rem 1.3rem;
+}
+.moh-war h4 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+.moh-war p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.moh-war .ev {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-soft);
+}
+.moh-war .ev b {
+  color: var(--color-accent-strong);
+  font-weight: 500;
+}
+
+/* proof / terminal callout */
+.moh-proof {
+  margin-top: 1.5rem;
+  background: #15140e;
+  color: #d8d3c3;
+  border: 1px solid var(--color-ink);
+  padding: 1.1rem 1.3rem;
+}
+.moh-proof .cmd {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #cfe79a;
+  word-break: break-word;
+}
+.moh-proof .cmd::before {
+  content: '$ git show ';
+  color: #6f6a57;
+}
+.moh-proof .by {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: #6f6a57;
+  margin-top: 0.45rem;
+}
+.moh-proof .cap {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: #d8d3c3;
+  margin-top: 0.8rem;
+  line-height: 1.55;
 }

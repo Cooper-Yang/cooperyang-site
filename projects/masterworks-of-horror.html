@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Masterworks of Horror: The Prologue — technical producer and network/gameplay engineering case study by Cooper Yang. A real-time, server-authoritative PvP card game in Unity, and the AI-agent production pipeline behind it."
+    />
+    <title>Masterworks of Horror · Cooper Yang</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="alternate icon" href="/assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script type="module" src="/src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="top-bar">
+      <a href="/" class="brand brand--mark">C·<em>Y</em></a>
+      <nav>
+        <a href="/about.html">About</a>
+        <a href="/">Work</a>
+        <a href="/archive.html">Archive</a>
+        <a href="mailto:cooperyang@usc.edu">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page page--project">
+      <section class="project-head">
+        <div class="project-head__top">
+          <span>Case Study · 01 / 06</span>
+          <span>Jun 2025 – Present</span>
+        </div>
+        <h1 class="project-head__title">Masterworks of <em>Horror</em></h1>
+        <dl class="project-head__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Technical Producer · Network <em>/ Gameplay Engineer</em></dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>Masterworks Studios <em>(The Prologue)</em></dd>
+          </div>
+          <div>
+            <dt>Engine · Stack</dt>
+            <dd>Unity 6 · <em>NGO · PlayFab</em></dd>
+          </div>
+          <div>
+            <dt>Link</dt>
+            <dd>
+              <a
+                href="https://store.steampowered.com/app/4436720/Masterworks_of_Horror_The_Prologue/"
+                target="_blank"
+                rel="noopener"
+                data-cursor="Visit"
+                >Steam Page ↗</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="project-trailer">
+        <div class="project-trailer__frame">
+          <iframe
+            src="https://www.youtube.com/embed/LtyPOjkhrtY"
+            allowfullscreen
+            loading="lazy"
+            title="Masterworks of Horror trailer"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="project-summary">
+        <div class="project-summary__col">
+          <p class="label">Overview</p>
+          <p>
+            Masterworks of Horror is a <em>real-time PvP card battler</em> set in the
+            public-domain horror canon of Lovecraft, Poe, and others. It runs
+            server-authoritative on dedicated servers, so a competitive match is decided by
+            the server, never the client.
+          </p>
+          <p>
+            I joined as <strong>technical producer</strong> and engineer. I own the online
+            layer and the build and release pipeline, and I built the studio's tooling for
+            running a team of human engineers alongside AI coding agents.
+          </p>
+        </div>
+        <div class="project-summary__col">
+          <p class="label">Contributions</p>
+          <ol class="project-contribs">
+            <li>
+              <span
+                >Server-authoritative <em>netcode</em> and the dedicated-server fleet on
+                PlayFab.</span
+              >
+            </li>
+            <li>
+              <span
+                >Client-side <em>prediction</em> so a server-authoritative game still feels
+                instant.</span
+              >
+            </li>
+            <li>
+              <span
+                >The multi-platform <em>build and deploy</em> pipeline across five
+                targets.</span
+              >
+            </li>
+            <li>
+              <span
+                >Production tooling for the <em>AI-agent era</em>: Reveries, FROST, and
+                Necronomicon.</span
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Effort band: contribution heat graph -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">The effort</span>
+          <h2>A year, in <em>commits</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="moh-heat">
+            <div class="moh-heat__graph">
+              <img
+                src="/assets/images/moh-heatmap.svg"
+                alt="Calendar heatmap of Cooper Yang's Masterworks of Horror commits, June 2025 to May 2026, ramping to a dense crunch through February to April 2026"
+                loading="lazy"
+              />
+            </div>
+            <div class="moh-stats">
+              <div class="moh-stat">
+                <p class="n"><em>1,392</em></p>
+                <p class="l">authored commits (+575 merges)</p>
+              </div>
+              <div class="moh-stat">
+                <p class="n"><em>~40%</em></p>
+                <p class="l">of the whole project · #1 of 25+</p>
+              </div>
+              <div class="moh-stat">
+                <p class="n"><em>55%</em></p>
+                <p class="l">of all days active · 189 / 342</p>
+              </div>
+              <div class="moh-stat">
+                <p class="n"><em>14</em></p>
+                <p class="l">day streak · peak 47 in one day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PART I — Engineering a real-time, server-authoritative game ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Part I · Chapter 01</span>
+          <h2>Competitive integrity, in <em>real time</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/moh-hero.jpg"
+                alt="Masterworks of Horror in-game board"
+                loading="lazy"
+              />
+              <p class="cap">The board · a real-time literary duel</p>
+            </div>
+            <div class="spread__text">
+              <h3>The tension that shapes everything</h3>
+              <p>
+                A competitive card game has to be cheat-proof, which points straight at
+                dedicated servers and a server that owns the truth. The client is never
+                trusted. But this game is real-time, not turn-based, so it also has to feel
+                instant under a player's hands.
+              </p>
+              <p>
+                Those two goals pull against each other. Everything below is how that
+                tension got resolved: authority on the server, responsiveness on the client,
+                and a deploy pipeline that keeps a live fleet honest.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 02</span>
+          <h2>Server-authoritative <em>netcode</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread spread--reverse">
+            <div class="spread__media">
+              <video
+                src="/assets/images/moh-gameplay.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <p class="cap">A turn resolving · server-driven, client-rendered</p>
+            </div>
+            <div class="spread__text">
+              <h3>The server owns the truth</h3>
+              <p>
+                Built on Unity Netcode for GameObjects with a dedicated-server build, talking
+                plain UDP over UnityTransport. There is no peer-to-peer and no relay.
+              </p>
+              <p>
+                Every player intent is a <strong>server RPC</strong>: ready a deck, mulligan,
+                play, concede, rematch. The server is the only thing that mutates game state,
+                then broadcasts the result. It validates and rejects, so a client trying to
+                pause a ranked match simply gets refused. I am the top author of the player
+                command surface and the replicated match model, and I wrapped the whole
+                dedicated-server lifecycle behind one interface so the backend could move
+                from Unity hosting to PlayFab without touching gameplay.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>Making it feel <em>instant</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <img
+                src="/assets/images/moh-expo-1.jpg"
+                alt="A card being played at speed"
+                loading="lazy"
+              />
+              <p class="cap">Optimistic play · the card moves before the server answers</p>
+            </div>
+            <div class="spread__text">
+              <h3>Prediction, then reconcile</h3>
+              <p>
+                A server-authoritative game can feel laggy if the player waits for a round
+                trip on every action. So I built a <strong>client-side prediction</strong>
+                system: drag a card and it plays locally right away, with the cost subtracted
+                from your hand instantly. When the server confirms, the prediction swaps in
+                the authoritative card and skips the redundant animation. When the server
+                rejects, the card rolls back to your hand. It only ever touches visuals,
+                never the authoritative model.
+              </p>
+              <p>
+                The piece that makes prediction free: I removed the old habit of pausing the
+                server to wait for client animations. The simulation now ticks continuously
+                at 50&nbsp;Hz and animations are purely cosmetic, so they can never block or
+                desync the real game state.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 04</span>
+          <h2>The dedicated-server <em>fleet</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread spread--reverse">
+            <div class="spread__media">
+              <img
+                src="/assets/images/moh-expo-4.jpg"
+                alt="Two players at an expo build"
+                loading="lazy"
+              />
+              <p class="cap">Live matches, allocated on demand</p>
+            </div>
+            <div class="spread__text">
+              <h3>Hosting, matchmaking, and a one-button deploy</h3>
+              <p>
+                I own the entire online-services layer. A server build registers with the
+                PlayFab game-server SDK, signals that it is standing by, waits for an
+                allocation, and resolves its own UDP port so several servers can share a
+                machine. Matchmaking runs through PlayFab queues for ranked, private, and
+                solo-versus-bot, with the wait time estimated from a rolling average. Sign-in
+                is anonymous, so there is no signup wall in front of a match.
+              </p>
+              <p>
+                Releasing all of that is a single 910-line Python tool I wrote. It packages
+                the Linux server, uploads it, creates the build, and flips the live
+                matchmaking queues over, with subcommands to scale capacity, SSH into a hot
+                VM, and pull post-mortem logs from a terminated session. The fleet also
+                defends itself: reconnects outlast the engine's async shutdown, the
+                matchmaker retries transient failures with backoff, and idle servers shut
+                themselves down after thirty seconds.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PART II — Shipping it on real devices ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Part II · Chapter 05</span>
+          <h2>War stories from <em>shipping</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <p class="type-body" style="max-width: 60ch; margin-bottom: 0.5rem">
+            The impressive part of a game is not the gameplay. It is that it ships to three
+            stores at all. A sample of the fixes that got it there, in the commit messages
+            they were written with.
+          </p>
+          <div class="moh-wars">
+            <div class="moh-war">
+              <h4>The Android heap cap</h4>
+              <p>
+                Unity 6 hardcodes a 4&nbsp;GB heap on the Gradle launcher. Our 7&nbsp;GB app
+                bundle ran it out of memory at the signing step. I made Gradle emit an
+                unsigned bundle and signed it afterward under a 12&nbsp;GB heap, keeping the
+                keystore password in editor session state so it never touches disk.
+              </p>
+              <span class="ev"><b>69fabd1e6</b> · launcherTemplate.gradle</span>
+            </div>
+            <div class="moh-war">
+              <h4>One wrong character</h4>
+              <p>
+                Cold-start deeplinks on iOS silently never fired. The injected scene-delegate
+                method used <code>willConnectTo:</code> instead of the real
+                <code>willConnectToSession:</code>. iOS never called it, so every deeplink
+                that launched the app from cold was dropped.
+              </p>
+              <span class="ev"><b>0cdc5380f</b> · iOS UISceneDelegate</span>
+            </div>
+            <div class="moh-war">
+              <h4>A NaN that never left</h4>
+              <p>
+                A divide by a zero-sized screen rect produced a NaN before layout settled.
+                Because the gyro offset is smoothed with a lerp, and a lerp of a NaN stays a
+                NaN, one bad frame poisoned the parallax on every card forever. Fixed at the
+                source, with a self-heal so a poisoned session recovers.
+              </p>
+              <span class="ev"><b>dd7f9467d</b> · CardParallaxService</span>
+            </div>
+            <div class="moh-war">
+              <h4>640&nbsp;MB back</h4>
+              <p>
+                The tutorial ran iOS out of memory. I traced it to the texture cache and made
+                it platform-aware: load on demand, clear the cache on entering a match (which
+                needs about fourteen textures), and cap it. Recovered roughly 640&nbsp;MB.
+              </p>
+              <span class="ev"><b>652f293ff</b> · Card3D texture cache</span>
+            </div>
+            <div class="moh-war">
+              <h4>The ProjectSettings trap</h4>
+              <p>
+                A teammate bumped the Android version code, built, and the store rejected the
+                bundle: version already used. The post-build git restore was quietly reverting
+                <code>ProjectSettings/</code>, including the version bump. I traced it, proved
+                the entry was redundant, and removed it.
+              </p>
+              <span class="ev"><b>4c39060cd</b> · BuildProcessor</span>
+            </div>
+            <div class="moh-war">
+              <h4>The build pipeline itself</h4>
+              <p>
+                Five targets from one Build Console: iOS, Android, Windows, Mac, and a Linux
+                dedicated server. Dev and Prod swap config at build time, and a precompressed
+                texture-sidecar pass strips about 1.5&nbsp;GB of card art from every device
+                build.
+              </p>
+              <span class="ev"><b>780e18ae8</b> · BC7 / ASTC pipeline</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 06</span>
+          <h2>Game AI &amp; in-engine <em>tooling</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="code-block collapsed">
+                <div class="code-block-header">
+                  <div class="dots"><span></span><span></span><span></span></div>
+                  <span class="filename">BotBehaviorProfile.cs</span>
+                </div>
+                <div class="code-block-body">
+                  <table><tr><td class="line-num">1</td><td class="line-code"><span class="cmt">// Not minimax — a hand-tuned heuristic engine.</span></td></tr>
+<tr><td class="line-num">2</td><td class="line-code"><span class="cmt">// Each candidate play is scored; the bot picks the best.</span></td></tr>
+<tr><td class="line-num">3</td><td class="line-code"><span class="kw">float</span> <span class="fn">ValueCalc</span>(<span class="typ">CardData</span> card, <span class="typ">BoardState</span> board)</td></tr>
+<tr><td class="line-num">4</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">5</td><td class="line-code">    <span class="kw">float</span> value = card.type <span class="kw">switch</span></td></tr>
+<tr><td class="line-num">6</td><td class="line-code">    {</td></tr>
+<tr><td class="line-num">7</td><td class="line-code">        <span class="typ">CardType</span>.Character =&gt; <span class="fn">GenericCharacterCalc</span>(card, board),</td></tr>
+<tr><td class="line-num">8</td><td class="line-code">        <span class="typ">CardType</span>.Setting   =&gt; <span class="fn">GenericSettingCalc</span>(card, board),</td></tr>
+<tr><td class="line-num">9</td><td class="line-code">        _ =&gt; <span class="num">0f</span>,</td></tr>
+<tr><td class="line-num">10</td><td class="line-code">    };</td></tr>
+<tr><td class="line-num">11</td><td class="line-code"></td></tr>
+<tr><td class="line-num">12</td><td class="line-code">    <span class="cmt">// ~40 named cards get a hand-written branch.</span></td></tr>
+<tr><td class="line-num">13</td><td class="line-code">    value += <span class="fn">SpecificCalc</span>(card.cardId, board);</td></tr>
+<tr><td class="line-num">14</td><td class="line-code">    <span class="kw">return</span> value;</td></tr>
+<tr><td class="line-num">15</td><td class="line-code">}</td></tr>
+<tr><td class="line-num">16</td><td class="line-code"></td></tr>
+<tr><td class="line-num">17</td><td class="line-code"><span class="kw">float</span> <span class="fn">SpecificCalc</span>(<span class="typ">string</span> cardId, <span class="typ">BoardState</span> board) =&gt; cardId <span class="kw">switch</span></td></tr>
+<tr><td class="line-num">18</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">19</td><td class="line-code">    <span class="cmt">// Fortunato's Final Plea — weak without Regret in the graveyard.</span></td></tr>
+<tr><td class="line-num">20</td><td class="line-code">    <span class="str">"MOH1-16"</span> =&gt; board.<span class="fn">GraveyardHas</span>(<span class="str">"Regret"</span>) ? <span class="num">800f</span> : <span class="num">-1000f</span>,</td></tr>
+<tr><td class="line-num">21</td><td class="line-code">    <span class="str">"MOH1-22"</span> =&gt; <span class="fn">EvalAwakenEffect</span>(board),   <span class="cmt">// Red Death</span></td></tr>
+<tr><td class="line-num">22</td><td class="line-code">    <span class="str">"MOH1-31"</span> =&gt; board.enemyMasterwork.hp &lt; <span class="num">8</span> ? <span class="num">1200f</span> : <span class="num">200f</span>,</td></tr>
+<tr><td class="line-num">23</td><td class="line-code">    _ =&gt; <span class="num">0f</span>,</td></tr>
+<tr><td class="line-num">24</td><td class="line-code">};</td></tr>
+<tr><td class="line-num">25</td><td class="line-code"></td></tr>
+<tr><td class="line-num">26</td><td class="line-code"><span class="cmt">// Difficulty maps to how often the bot acts: 10s -&gt; 2s.</span></td></tr>
+<tr><td class="line-num">27</td><td class="line-code"><span class="kw">float</span> actionInterval = difficulty <span class="kw">switch</span> {</td></tr>
+<tr><td class="line-num">28</td><td class="line-code">    <span class="typ">Difficulty</span>.Easy =&gt; <span class="num">10f</span>, <span class="typ">Difficulty</span>.Hard =&gt; <span class="num">4f</span>, <span class="typ">Difficulty</span>.Extreme =&gt; <span class="num">2f</span>, _ =&gt; <span class="num">8f</span> };</td></tr>
+                  </table>
+                </div>
+                <button class="code-expand-btn">// expand full source</button>
+                <div class="code-block-footer">
+                  <span>BotBehaviorProfile.cs · ~2,700 lines</span>
+                  <span>C#</span>
+                </div>
+              </div>
+            </div>
+            <div class="spread__text">
+              <h3>A bot with opinions about 40 cards</h3>
+              <p>
+                The opponent bot is not a generic search. It is a hand-tuned scoring engine,
+                about 4,300 lines, that routes ordinary cards through generic value
+                functions and gives roughly forty named cards their own branch. Four
+                difficulty tiers map to how fast it acts, from a ten-second beat down to two.
+              </p>
+              <p>
+                It also produced my favorite debugging story. A single typo,
+                <code>value -= -5000</code>, made the bot value drawing at +5000 when its
+                hand was full, so it would draw over its own cap and then refuse to play
+                anything. The infamous frozen bot, fixed by one sign and a live hand count.
+              </p>
+              <h3>A hidden observation tool</h3>
+              <p>
+                I also built an in-game spectator and free-cam suite, invisible in shipped
+                builds, flipped on by a build flag and a backquote key so it never shows in a
+                screenshot. One feature mirrors your own board to render exactly what your
+                opponent sees, which is how we debugged a real-time duel from both sides at
+                once.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PART III — Producing for a hybrid team ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Part III · Chapter 07</span>
+          <h2>Producing humans <em>and</em> agents</h2>
+        </header>
+        <div class="project-chapter__body">
+          <p class="type-pullquote" style="max-width: 30ch">
+            I treated every AI failure mode as a producer problem, not a model problem.
+          </p>
+          <p class="type-body" style="max-width: 62ch; margin-top: 1.25rem">
+            As AI coding agents arrived, the new friction was not the code they wrote. It
+            was the seams: where an agent hands off to a human and the handoff breaks. As
+            technical producer I built the tooling that closes those seams. It runs entirely
+            on a Mac mini behind a tunnel, with a local database and zero cloud cost.
+          </p>
+
+          <h3 style="margin-top: 2rem">The pipeline I built and proved on the real game</h3>
+          <div class="moh-pipe" aria-label="The FROST pipeline, from idea to merge">
+            <div class="moh-pipe__step" data-actor="human">
+              <span class="moh-pipe__dot"></span>
+              <div>
+                <p class="moh-pipe__t"><b>Idea</b> — raw text, no AI</p>
+                <p class="moh-pipe__s">Capture is free. Nothing runs until you choose it.</p>
+              </div>
+            </div>
+            <div class="moh-pipe__step" data-actor="human">
+              <span class="moh-pipe__dot"></span>
+              <div>
+                <p class="moh-pipe__t"><b>Diagnose</b> — opt-in Opus pass</p>
+                <p class="moh-pipe__s">One click enriches the task. Then queue it to FROST.</p>
+              </div>
+            </div>
+            <div class="moh-pipe__step" data-actor="agent">
+              <span class="moh-pipe__dot"></span>
+              <div>
+                <p class="moh-pipe__t"><b>FROST</b> — isolated worktree branch</p>
+                <p class="moh-pipe__s">Opus implements, committing after each step.</p>
+              </div>
+            </div>
+            <div class="moh-pipe__step" data-actor="agent">
+              <span class="moh-pipe__dot"></span>
+              <div>
+                <p class="moh-pipe__t"><b>Review</b> — a second Opus pass</p>
+                <p class="moh-pipe__s">Merge, fix, or redo. One auto-fix, then re-review.</p>
+              </div>
+            </div>
+            <div class="moh-pipe__step" data-actor="loop">
+              <span class="moh-pipe__dot"></span>
+              <div>
+                <p class="moh-pipe__t"><b>Stuck?</b> — one focused question</p>
+                <p class="moh-pipe__s">
+                  Instead of failing silently, FROST asks a single under-180-character
+                  question and the task re-enters the queue with your answer.
+                </p>
+              </div>
+            </div>
+            <div class="moh-pipe__step" data-actor="human">
+              <span class="moh-pipe__dot"></span>
+              <div>
+                <p class="moh-pipe__t"><b>Pull request</b> — opened with review inline</p>
+                <p class="moh-pipe__s">A human's first contact is a clean, already-reviewed PR.</p>
+              </div>
+            </div>
+          </div>
+          <div class="moh-legend">
+            <span><i style="background: #c98a2a"></i> Human</span>
+            <span><i style="background: #4d84c4"></i> Agent</span>
+            <span><i style="background: #b0473d"></i> Question loop</span>
+          </div>
+
+          <h3 style="margin-top: 2.5rem">Five seams, five fixes</h3>
+          <div class="moh-friction">
+            <div class="moh-fric">
+              <div class="moh-fric__p">
+                <span class="k">Friction</span>
+                <p>Agents fail silently and dump noise on the human.</p>
+              </div>
+              <div class="moh-fric__f">
+                <span class="k">Mechanism</span>
+                <p>
+                  FROST writes one focused question and re-opens the loop. In its own words:
+                  <em>turn attention from a dead end into a conversation.</em>
+                </p>
+              </div>
+            </div>
+            <div class="moh-fric">
+              <div class="moh-fric__p">
+                <span class="k">Friction</span>
+                <p>Parallel agents collide on the git index and ref locks.</p>
+              </div>
+              <div class="moh-fric__f">
+                <span class="k">Mechanism</span>
+                <p>A worktree per task plus a serialized git mutex, born from a real three-worker collision.</p>
+              </div>
+            </div>
+            <div class="moh-fric">
+              <div class="moh-fric__p">
+                <span class="k">Friction</span>
+                <p>An autonomous agent can burn unbounded tokens.</p>
+              </div>
+              <div class="moh-fric__f">
+                <span class="k">Mechanism</span>
+                <p>A hard ceiling of two to four Opus calls per task: one work, one review, an optional fix and re-review.</p>
+              </div>
+            </div>
+            <div class="moh-fric">
+              <div class="moh-fric__p">
+                <span class="k">Friction</span>
+                <p>An AI call on every captured idea taxes capture itself.</p>
+              </div>
+              <div class="moh-fric__f">
+                <span class="k">Mechanism</span>
+                <p>Raw text saves with zero AI. Enrichment is a separate, opt-in click.</p>
+              </div>
+            </div>
+            <div class="moh-fric">
+              <div class="moh-fric__p">
+                <span class="k">Friction</span>
+                <p>Reviewing AI-generated code is the biggest human cost.</p>
+              </div>
+              <div class="moh-fric__f">
+                <span class="k">Mechanism</span>
+                <p>FROST runs its own review and one auto-fix before a human ever opens the PR.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="moh-stats">
+            <div class="moh-stat"><p class="n"><em>2–4</em></p><p class="l">Opus calls per task</p></div>
+            <div class="moh-stat"><p class="n"><em>406</em></p><p class="l">pull requests merged</p></div>
+            <div class="moh-stat"><p class="n"><em>362</em></p><p class="l">branches integrated</p></div>
+            <div class="moh-stat"><p class="n"><em>921</em></p><p class="l">AI co-authored commits gated</p></div>
+            <div class="moh-stat"><p class="n"><em>$0</em></p><p class="l">per month · self-hosted</p></div>
+          </div>
+
+          <div class="moh-proof">
+            <p class="cmd">FROST: fix review issues — prevent orphaned popup coroutines on disable/match-end</p>
+            <p class="by">author Mordel · Co-Authored-By: Claude Opus · CardEffectNotificationController.cs</p>
+            <p class="cap">
+              Not a demo. The agent's own review caught and fixed a coroutine leak on live
+              game code, before a human ever opened the pull request.
+            </p>
+          </div>
+
+          <div class="spread" style="margin-top: 2.5rem">
+            <div class="spread__media">
+              <img
+                src="/assets/images/moh-necronomicon.jpg"
+                alt="The Necronomicon team production tool"
+                loading="lazy"
+              />
+              <p class="cap">Necronomicon · the human team's board</p>
+            </div>
+            <div class="spread__text">
+              <h3>Two surfaces, one site</h3>
+              <p>
+                FROST lives inside <strong>Reveries</strong>, a low-friction surface for
+                capturing an idea and shipping it through the agent. Alongside it I built
+                <strong>Necronomicon</strong>, the human team's production tool: sprints, a
+                kanban board, epics, and metrics computed in SQL, with velocity and a daily
+                burndown.
+              </p>
+              <p>
+                A solo idea captured in Reveries can be promoted straight onto the team's
+                sprint board. One path, from a lone thought to a shipped pull request to the
+                team's plan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Shown in the wild ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 08</span>
+          <h2>Shown in the <em>wild</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img src="/assets/images/moh-gdc-1.jpg" alt="At GDC" loading="lazy" />
+              <img src="/assets/images/moh-gdc-2.jpg" alt="At GDC, the booth" loading="lazy" />
+              <p class="cap">GDC · on the show floor</p>
+            </div>
+            <div class="spread__text">
+              <h3>Played by real people</h3>
+              <p>
+                Masterworks of Horror has been on the floor at GDC and an expo, with a
+                playable build in front of strangers. The PC build is up for wishlist on
+                Steam as The Prologue, and a mobile beta is signing up players now.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img src="/assets/images/moh-trailer-1.jpg" alt="Trailer still" loading="lazy" />
+              <img src="/assets/images/moh-trailer-2.jpg" alt="Trailer still" loading="lazy" />
+              <p class="cap">From the trailer</p>
+            </div>
+            <div class="spread__text">
+              <h3>The pitch</h3>
+              <p>
+                A fast, real-time card battler built on the public-domain horror canon. Build
+                a deck from history's authors, blend their works, and duel for the win.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread">
+            <div class="spread__media spread__media--2">
+              <img src="/assets/images/moh-expo-2.jpg" alt="Gameplay" loading="lazy" />
+              <img src="/assets/images/moh-expo-5.jpg" alt="Gameplay" loading="lazy" />
+              <p class="cap">In-game · the literary battle</p>
+            </div>
+            <div class="spread__text">
+              <h3>What I take from it</h3>
+              <p>
+                The interesting work here was not one feature. It was holding competitive
+                integrity and real-time feel together, shipping the result to three stores,
+                and building the production pipeline that let a small team move at the speed
+                AI agents promised without losing the thread.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-next">
+        <span class="label">Next · 02 / 06</span>
+        <a href="/projects/synced.html" data-cursor="Next">SYNCED: Off Planet →</a>
+      </section>
+    </main>
+  </body>
+</html>

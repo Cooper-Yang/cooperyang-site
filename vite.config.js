@@ -13,6 +13,7 @@ export default defineConfig({
         index: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
         archive: resolve(__dirname, 'archive.html'),
+        masterworksOfHorror: resolve(__dirname, 'projects/masterworks-of-horror.html'),
         synced: resolve(__dirname, 'projects/synced.html'),
         vect0r: resolve(__dirname, 'projects/vect0r.html'),
         epitaph: resolve(__dirname, 'projects/epitaph-1997.html'),
