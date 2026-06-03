@@ -27,11 +27,18 @@ Reviewed every archive entry (06–15) for copy, layout, and image sizing.
   autoplay mp4 for weight (the prior pattern). Pico-8 gifs intentionally
   left as gifs._
 
-## 3. Add "Masterworks of Horror" to the portfolio
-New project — not on the old cargo.site, so it needs source material.
-- Need from Cooper: title/role/dates/engine, write-up, and images/clips.
-- Then author the page in the editorial style, add to archive.html (becomes
-  16 pieces / renumber `/15` → `/16`), wire the next-project chain + vite.config.js.
+## 3. Add "Masterworks of Horror" ✅ DONE (2026-06-02)
+Authored `projects/masterworks-of-horror.html` (flagship case study: technical
+producer + network/gameplay engineering on a real-time server-authoritative PvP
+card game). Researched from the real Unity repo + tooling, evidence-grounded.
+Went to the **front page** (not archive) as a 2nd large feature tile beside SYNCED;
+portfolio is now 16 pieces, whole next-chain + archive renumbered, projects.js +
+vite.config wired. Includes a custom git heat-graph, the FROST/agent-friction
+producer centerpiece, war-story cards, and a bot-AI code specimen. Shipped commit `8bf8595`.
+- _Remaining: the **UI Lead** half is its own future page (deck editor, gacha/store,
+  UI Toolkit data-binding). Optional asset swaps: Build Console screenshot, a free-cam
+  GIF, a FROST/Reveries screenshot; the MoH front-page tile is currently a static crop
+  (could be a gif/mp4 for motion)._
 
 ---
 _Deploy reminder: changes auto commit + push to `redesign`, then `vercel --prod`
