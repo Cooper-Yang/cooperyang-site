@@ -332,33 +332,53 @@
         <div class="project-chapter__body">
           <div class="spread">
             <figure class="spread__media moh-figure">
-              <svg viewBox="0 0 440 320" role="img" aria-label="Diagram: a player's intent goes to the dedicated server as a ServerRpc, the server validates and owns the game state, then replicates the result to both clients">
+              <svg viewBox="0 0 440 452" role="img" aria-label="Diagram of the server-authoritative flow: a player's ServerRpc reaches the server, which validates and performs the action immediately; it then sends a per-recipient redacted payload and replicates the 50Hz tick via a NetworkVariable; clients queue the action by tick and replay it in a catch-up loop">
                 <defs>
                   <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                     <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
                   </marker>
                 </defs>
                 <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
-                  <rect x="95" y="12" width="250" height="52" fill="#fbfaf5" stroke="#0e0e0e" />
-                  <text x="220" y="38" font-size="14" fill="#0e0e0e">You play a card</text>
-                  <text x="220" y="54" font-size="9" fill="#6b6b6b">client · optimistic</text>
+                  <rect x="110" y="10" width="220" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="31" font-size="12.5" fill="#0e0e0e">You play a card</text>
+                  <text x="220" y="46" font-size="8.5" fill="#6b6b6b">ServerRpc · a bot calls the server directly</text>
 
-                  <line x1="220" y1="66" x2="220" y2="108" stroke="#0e0e0e" marker-end="url(#ah)" />
-                  <text x="230" y="92" font-size="9" fill="#6b6b6b" text-anchor="start">ServerRpc · intent</text>
+                  <line x1="220" y1="54" x2="220" y2="80" stroke="#0e0e0e" marker-end="url(#ah)" />
 
-                  <rect x="45" y="118" width="350" height="66" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
-                  <text x="220" y="146" font-size="14" fill="#0e0e0e">Dedicated server</text>
-                  <text x="220" y="166" font-size="9.5" fill="#5a7a14">owns the game state · validates · rejects cheats</text>
+                  <rect x="30" y="84" width="380" height="50" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="220" y="106" font-size="12.5" fill="#0e0e0e">Server validates + performs NOW</text>
+                  <text x="220" y="122" font-size="9" fill="#5a7a14">authoritative · never waits for clients</text>
 
-                  <line x1="220" y1="186" x2="220" y2="228" stroke="#0e0e0e" marker-end="url(#ah)" />
-                  <text x="230" y="212" font-size="9" fill="#6b6b6b" text-anchor="start">ClientRpc · NetworkVariable</text>
+                  <line x1="150" y1="134" x2="120" y2="164" stroke="#0e0e0e" marker-end="url(#ah)" />
+                  <line x1="290" y1="134" x2="320" y2="164" stroke="#0e0e0e" marker-end="url(#ah)" />
 
-                  <rect x="70" y="238" width="300" height="54" fill="#fbfaf5" stroke="#0e0e0e" />
-                  <text x="220" y="265" font-size="14" fill="#0e0e0e">Both clients render the result</text>
-                  <text x="220" y="281" font-size="9" fill="#6b6b6b">no client is ever trusted</text>
+                  <rect x="18" y="166" width="200" height="52" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="118" y="188" font-size="11" fill="#0e0e0e">50Hz tick</text>
+                  <text x="118" y="205" font-size="8" fill="#6b6b6b">NetworkVariable&lt;GameTicks&gt;</text>
+
+                  <rect x="222" y="166" width="200" height="52" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="322" y="188" font-size="11" fill="#0e0e0e">action, per recipient</text>
+                  <text x="322" y="205" font-size="8" fill="#6b6b6b">you: full · foe: hidden</text>
+
+                  <line x1="118" y1="218" x2="200" y2="250" stroke="#0e0e0e" marker-end="url(#ah)" />
+                  <line x1="322" y1="218" x2="240" y2="250" stroke="#0e0e0e" marker-end="url(#ah)" />
+
+                  <rect x="90" y="252" width="260" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="279" font-size="11.5" fill="#0e0e0e">Client queues actions by tick</text>
+
+                  <line x1="220" y1="296" x2="220" y2="322" stroke="#0e0e0e" marker-end="url(#ah)" />
+
+                  <rect x="30" y="326" width="380" height="52" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="220" y="348" font-size="12" fill="#0e0e0e">Catch-up loop: replay tick-by-tick</text>
+                  <text x="220" y="364" font-size="9" fill="#5a7a14">&#8804; 200 ticks/frame · warns if &gt; 50 behind</text>
+
+                  <line x1="220" y1="378" x2="220" y2="404" stroke="#0e0e0e" marker-end="url(#ah)" />
+
+                  <rect x="66" y="408" width="308" height="40" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="433" font-size="10.5" fill="#0e0e0e">Same logic both sides · visuals client-only</text>
                 </g>
               </svg>
-              <figcaption>Server authority · every action round-trips</figcaption>
+              <figcaption>Server authority · perform now, replay by tick</figcaption>
             </figure>
             <div class="spread__text">
               <h3>The tension that shapes everything</h3>
@@ -390,41 +410,56 @@
         <div class="project-chapter__body">
           <div class="spread spread--reverse">
             <figure class="spread__media moh-figure">
-              <svg viewBox="0 0 440 350" role="img" aria-label="Diagram: a played card animates locally and instantly while the server validates in parallel; on confirm the client swaps in the authoritative card, on reject it rolls the card back to hand">
+              <svg viewBox="0 0 440 430" role="img" aria-label="Diagram of client prediction: a card is checked against displayed resources, then the local animation and the server RPC fork in parallel; the result reconciles through the tick queue, branching to confirm (refresh the card, no re-animate) or reject (roll back to hand), with a 5 second timeout">
                 <defs>
                   <marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                     <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
                   </marker>
                 </defs>
                 <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
-                  <rect x="120" y="10" width="200" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
-                  <text x="220" y="37" font-size="13" fill="#0e0e0e">You play a card</text>
+                  <rect x="110" y="8" width="220" height="40" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="33" font-size="12" fill="#0e0e0e">Drag a card onto a zone</text>
 
-                  <line x1="220" y1="54" x2="220" y2="86" stroke="#0e0e0e" marker-end="url(#ah2)" />
+                  <line x1="220" y1="48" x2="220" y2="70" stroke="#0e0e0e" marker-end="url(#ah2)" />
 
-                  <rect x="70" y="94" width="300" height="50" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
-                  <text x="220" y="118" font-size="13" fill="#0e0e0e">Animate it locally — instant</text>
-                  <text x="220" y="134" font-size="9" fill="#5a7a14">visual only · never the real state</text>
+                  <rect x="50" y="74" width="340" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="95" font-size="11.5" fill="#0e0e0e">Affordable?</text>
+                  <text x="220" y="110" font-size="8.5" fill="#6b6b6b">displayed = model &#8722; pending reservations</text>
 
-                  <line x1="220" y1="146" x2="220" y2="180" stroke="#0e0e0e" marker-end="url(#ah2)" />
-                  <text x="230" y="167" font-size="9" fill="#6b6b6b" text-anchor="start">meanwhile, ask the server</text>
+                  <line x1="220" y1="118" x2="120" y2="150" stroke="#0e0e0e" marker-end="url(#ah2)" />
+                  <line x1="220" y1="118" x2="320" y2="150" stroke="#0e0e0e" marker-end="url(#ah2)" />
 
-                  <rect x="120" y="188" width="200" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
-                  <text x="220" y="215" font-size="13" fill="#0e0e0e">Server validates</text>
+                  <rect x="18" y="152" width="200" height="52" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="118" y="175" font-size="11" fill="#0e0e0e">Predict: animate now</text>
+                  <text x="118" y="192" font-size="8.5" fill="#5a7a14">Pending · visual only</text>
 
-                  <line x1="220" y1="232" x2="120" y2="268" stroke="#0e0e0e" marker-end="url(#ah2)" />
-                  <line x1="220" y1="232" x2="330" y2="268" stroke="#0e0e0e" marker-end="url(#ah2)" />
+                  <rect x="222" y="152" width="200" height="52" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="322" y="175" font-size="11" fill="#0e0e0e">Server: validate</text>
+                  <text x="322" y="192" font-size="11" fill="#0e0e0e">+ perform</text>
 
-                  <rect x="18" y="272" width="200" height="60" fill="#fbfaf5" stroke="#5a7a14" stroke-width="2" />
-                  <text x="118" y="298" font-size="12" fill="#0e0e0e">✓ confirm</text>
-                  <text x="118" y="316" font-size="9" fill="#6b6b6b">swap in the real card</text>
+                  <line x1="118" y1="204" x2="200" y2="234" stroke="#0e0e0e" marker-end="url(#ah2)" />
+                  <line x1="322" y1="204" x2="240" y2="234" stroke="#0e0e0e" marker-end="url(#ah2)" />
 
-                  <rect x="240" y="272" width="184" height="60" fill="#fbfaf5" stroke="#b0473d" stroke-width="2" />
-                  <text x="332" y="298" font-size="12" fill="#0e0e0e">✗ reject</text>
-                  <text x="332" y="316" font-size="9" fill="#6b6b6b">roll back to hand</text>
+                  <rect x="90" y="236" width="260" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="257" font-size="11" fill="#0e0e0e">Reconcile via the tick queue</text>
+                  <text x="220" y="272" font-size="8.5" fill="#6b6b6b">not a callback</text>
+
+                  <line x1="220" y1="280" x2="120" y2="310" stroke="#0e0e0e" marker-end="url(#ah2)" />
+                  <line x1="220" y1="280" x2="320" y2="310" stroke="#0e0e0e" marker-end="url(#ah2)" />
+
+                  <rect x="16" y="312" width="200" height="56" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="116" y="336" font-size="11.5" fill="#0e0e0e">✓ Confirm</text>
+                  <text x="116" y="354" font-size="8.5" fill="#6b6b6b">refresh card · no re-animate</text>
+
+                  <rect x="224" y="312" width="200" height="56" fill="#fbfaf5" stroke="#b0473d" stroke-width="2" />
+                  <text x="324" y="336" font-size="11.5" fill="#0e0e0e">✗ Reject</text>
+                  <text x="324" y="354" font-size="8.5" fill="#6b6b6b">roll back to hand</text>
+
+                  <text x="220" y="392" font-size="8.5" fill="#6b6b6b">5s unconfirmed &#8594; timed out, kept to reconcile late</text>
+                  <text x="220" y="406" font-size="8.5" fill="#6b6b6b">Character / Setting cards only</text>
                 </g>
               </svg>
-              <figcaption>Client prediction · predict, then reconcile</figcaption>
+              <figcaption>Client prediction · predict in parallel, reconcile by tick</figcaption>
             </figure>
             <div class="spread__text">
               <h3>Prediction, then reconcile</h3>
@@ -505,36 +540,45 @@
 
           <div class="spread spread--reverse">
             <figure class="spread__media moh-figure">
-              <svg viewBox="0 0 440 250" role="img" aria-label="Diagram: a player request goes to PlayFab matchmaking, which allocates a dedicated server and hands the client the server address to connect to">
+              <svg viewBox="0 0 440 300" role="img" aria-label="Diagram of the fleet: the client ladder (anonymous login, create ticket, poll every six seconds, matched to an IP and port, start client) runs in parallel with the server ladder (boot as server, GSDK callbacks and heartbeat, ready for players standing by, await allocation, bind transport and start server); the two meet at a UDP connect that starts the match">
                 <defs>
                   <marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                     <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
                   </marker>
                 </defs>
                 <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
-                  <rect x="20" y="100" width="110" height="48" fill="#fbfaf5" stroke="#0e0e0e" />
-                  <text x="75" y="122" font-size="11" fill="#0e0e0e">Player</text>
-                  <text x="75" y="138" font-size="8.5" fill="#6b6b6b">ticket</text>
+                  <text x="110" y="16" font-size="9" fill="#5a7a14" letter-spacing="1.5">CLIENT</text>
+                  <text x="330" y="16" font-size="9" fill="#5a7a14" letter-spacing="1.5">SERVER</text>
 
-                  <line x1="130" y1="124" x2="166" y2="124" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <rect x="14" y="26" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="110" y="46" font-size="9.5" fill="#0e0e0e">Anon login · EntityToken</text>
+                  <rect x="14" y="64" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="110" y="84" font-size="9.5" fill="#0e0e0e">Create ticket</text>
+                  <rect x="14" y="102" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="110" y="122" font-size="9.5" fill="#0e0e0e">Poll status · every 6s</text>
+                  <rect x="14" y="140" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="110" y="160" font-size="9.5" fill="#0e0e0e">Matched &#8594; IP : port</text>
+                  <rect x="14" y="178" width="192" height="32" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" /><text x="110" y="198" font-size="9.5" fill="#0e0e0e">StartClient</text>
 
-                  <rect x="168" y="92" width="120" height="64" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
-                  <text x="228" y="116" font-size="11" fill="#0e0e0e">PlayFab</text>
-                  <text x="228" y="132" font-size="8.5" fill="#5a7a14">matchmaking +</text>
-                  <text x="228" y="145" font-size="8.5" fill="#5a7a14">allocation</text>
+                  <rect x="234" y="26" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="330" y="46" font-size="9.5" fill="#0e0e0e">Boot · role = Server</text>
+                  <rect x="234" y="64" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="330" y="84" font-size="9.5" fill="#0e0e0e">GSDK callbacks + heartbeat</text>
+                  <rect x="234" y="102" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="330" y="122" font-size="9.5" fill="#0e0e0e">ReadyForPlayers · StandingBy</text>
+                  <rect x="234" y="140" width="192" height="32" fill="#fbfaf5" stroke="#0e0e0e" /><text x="330" y="160" font-size="9.5" fill="#0e0e0e">Await allocation</text>
+                  <rect x="234" y="178" width="192" height="32" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" /><text x="330" y="198" font-size="9.5" fill="#0e0e0e">Bind UTP · StartServer</text>
 
-                  <line x1="288" y1="124" x2="324" y2="124" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="110" y1="58" x2="110" y2="64" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="110" y1="96" x2="110" y2="102" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="110" y1="134" x2="110" y2="140" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="110" y1="172" x2="110" y2="178" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="330" y1="58" x2="330" y2="64" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="330" y1="96" x2="330" y2="102" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="330" y1="134" x2="330" y2="140" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="330" y1="172" x2="330" y2="178" stroke="#0e0e0e" marker-end="url(#ah3)" />
 
-                  <rect x="326" y="92" width="98" height="64" fill="#fbfaf5" stroke="#0e0e0e" />
-                  <text x="375" y="116" font-size="10.5" fill="#0e0e0e">Dedicated</text>
-                  <text x="375" y="131" font-size="10.5" fill="#0e0e0e">server</text>
-                  <text x="375" y="146" font-size="8.5" fill="#6b6b6b">GSDK · UDP</text>
-
-                  <path d="M375,156 L375,196 L75,196 L75,150" fill="none" stroke="#0e0e0e" stroke-dasharray="4 3" marker-end="url(#ah3)" />
-                  <text x="225" y="212" font-size="8.5" fill="#6b6b6b">direct connect · server IP + port</text>
+                  <line x1="110" y1="210" x2="110" y2="236" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <line x1="330" y1="210" x2="330" y2="236" stroke="#0e0e0e" marker-end="url(#ah3)" />
+                  <rect x="50" y="238" width="340" height="44" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="220" y="259" font-size="11" fill="#0e0e0e">UDP connect &#8594; match starts</text>
+                  <text x="220" y="274" font-size="8.5" fill="#5a7a14">30s idle-timeout if no client joins</text>
                 </g>
               </svg>
-              <figcaption>The fleet · matchmaking allocates, client connects</figcaption>
+              <figcaption>The fleet · two ladders meet at the connect</figcaption>
             </figure>
             <div class="spread__text">
               <h3>Hosting, matchmaking, and a one-button deploy</h3>
@@ -621,17 +665,80 @@
               </p>
               <span class="ev"><b>4c39060cd</b> · BuildProcessor</span>
             </div>
-            <div class="moh-war">
-              <h4>The build pipeline itself</h4>
-              <p>
-                Five targets from one Build Console: iOS, Android, Windows, Mac, and a Linux
-                dedicated server. Dev and Prod swap config at build time, and a precompressed
-                texture-sidecar pass strips about 1.5&nbsp;GB of card art from every device
-                build.
-              </p>
-              <span class="ev"><b>780e18ae8</b> · BC7 / ASTC pipeline</span>
-            </div>
           </div>
+
+          <h3 style="margin-top: 2.5rem">Two systems, up close</h3>
+
+          <p class="label" style="margin-top: 1.5rem">How it stays in sync · the 50 Hz tick</p>
+          <figure class="moh-figure" style="margin-top: 0.8rem">
+            <svg viewBox="0 0 880 224" role="img" aria-label="Diagram of the 50Hz tick: the server clock ticks continuously and never blocks, replicating the server tick via a NetworkVariable; the client runs a few ticks behind and a catch-up loop replays the queued ticks until it reaches the server tick">
+              <defs>
+                <marker id="ahd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
+                </marker>
+              </defs>
+              <g font-family="'JetBrains Mono', ui-monospace, monospace">
+                <text x="20" y="28" font-size="11" fill="#5a7a14" letter-spacing="0.5">SERVER CLOCK — ticks at 50Hz, never blocks</text>
+                <rect x="20" y="40" width="700" height="28" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                <line x1="120" y1="40" x2="120" y2="68" stroke="#5a7a14" /><line x1="220" y1="40" x2="220" y2="68" stroke="#5a7a14" /><line x1="320" y1="40" x2="320" y2="68" stroke="#5a7a14" /><line x1="420" y1="40" x2="420" y2="68" stroke="#5a7a14" /><line x1="520" y1="40" x2="520" y2="68" stroke="#5a7a14" /><line x1="620" y1="40" x2="620" y2="68" stroke="#5a7a14" />
+                <text x="728" y="59" font-size="10" fill="#6b6b6b">now</text>
+
+                <line x1="380" y1="70" x2="380" y2="126" stroke="#0e0e0e" marker-end="url(#ahd)" />
+                <text x="392" y="102" font-size="9.5" fill="#6b6b6b">NetworkVariable&lt;GameTicks&gt; replicates serverTick</text>
+
+                <text x="20" y="124" font-size="11" fill="#0e0e0e" letter-spacing="0.5">CLIENT — a few ticks behind</text>
+                <rect x="20" y="136" width="470" height="28" fill="#0e0e0e" />
+                <rect x="490" y="136" width="230" height="28" fill="#fbfaf5" stroke="#0e0e0e" />
+                <line x1="120" y1="136" x2="120" y2="164" stroke="#f2efe8" /><line x1="220" y1="136" x2="220" y2="164" stroke="#f2efe8" /><line x1="320" y1="136" x2="320" y2="164" stroke="#f2efe8" /><line x1="420" y1="136" x2="420" y2="164" stroke="#f2efe8" />
+                <text x="605" y="154" font-size="9" fill="#6b6b6b" text-anchor="middle">queued ticks</text>
+
+                <line x1="490" y1="176" x2="720" y2="176" stroke="#6b6b6b" />
+                <text x="605" y="190" font-size="9" fill="#6b6b6b" text-anchor="middle">catch-up loop replays these &#8594; serverTick</text>
+                <text x="20" y="214" font-size="9" fill="#6b6b6b">&#8804; 200 ticks/frame · warns if &gt; 50 behind · FastLane drains before VisualSynchronized</text>
+              </g>
+            </svg>
+            <figcaption>The 50 Hz tick · the server never waits, clients replay to catch up</figcaption>
+          </figure>
+          <p class="type-body" style="max-width: 64ch; margin-top: 1rem">
+            The server runs a clock and never blocks. It ticks at 50&nbsp;Hz and performs every
+            action immediately. Under latency a client falls a few ticks behind, then a
+            catch-up loop replays the queued actions tick-by-tick until it reaches the server's
+            tick. Deterministic, and capped so a network hitch can never spiral.
+          </p>
+
+          <p class="label" style="margin-top: 2.25rem">One window to a live fleet · the build pipeline</p>
+          <figure class="moh-figure" style="margin-top: 0.8rem">
+            <svg viewBox="0 0 880 210" role="img" aria-label="Diagram of the build pipeline: Build Console, config swap, preprocess, build five targets, postprocess, package, deploy to PlayFab; FROST can run it headless">
+              <defs>
+                <marker id="ahe" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
+                </marker>
+              </defs>
+              <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
+                <rect x="8" y="70" width="112" height="54" fill="#fbfaf5" stroke="#0e0e0e" /><text x="64" y="95" font-size="9.5" fill="#0e0e0e">Build Console</text><text x="64" y="110" font-size="7.5" fill="#6b6b6b">env · flags</text>
+                <rect x="132" y="70" width="112" height="54" fill="#fbfaf5" stroke="#0e0e0e" /><text x="188" y="95" font-size="9.5" fill="#0e0e0e">Config swap</text><text x="188" y="110" font-size="7.5" fill="#6b6b6b">Dev / Prod</text>
+                <rect x="256" y="70" width="112" height="54" fill="#fbfaf5" stroke="#0e0e0e" /><text x="312" y="95" font-size="9.5" fill="#0e0e0e">Preprocess</text><text x="312" y="110" font-size="7.5" fill="#6b6b6b">strip · stamp</text>
+                <rect x="380" y="70" width="112" height="54" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" /><text x="436" y="95" font-size="9.5" fill="#0e0e0e">Build</text><text x="436" y="110" font-size="7.5" fill="#5a7a14">5 targets</text>
+                <rect x="504" y="70" width="112" height="54" fill="#fbfaf5" stroke="#0e0e0e" /><text x="560" y="95" font-size="9.5" fill="#0e0e0e">Postprocess</text><text x="560" y="110" font-size="7.5" fill="#6b6b6b">sign · notarize</text>
+                <rect x="628" y="70" width="112" height="54" fill="#fbfaf5" stroke="#0e0e0e" /><text x="684" y="95" font-size="9.5" fill="#0e0e0e">Package</text><text x="684" y="110" font-size="7.5" fill="#6b6b6b">.tar.gz</text>
+                <rect x="752" y="70" width="112" height="54" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" /><text x="808" y="95" font-size="9.5" fill="#0e0e0e">Deploy</text><text x="808" y="110" font-size="7.5" fill="#5a7a14">PlayFab MPS</text>
+
+                <line x1="120" y1="97" x2="132" y2="97" stroke="#0e0e0e" marker-end="url(#ahe)" /><line x1="244" y1="97" x2="256" y2="97" stroke="#0e0e0e" marker-end="url(#ahe)" /><line x1="368" y1="97" x2="380" y2="97" stroke="#0e0e0e" marker-end="url(#ahe)" /><line x1="492" y1="97" x2="504" y2="97" stroke="#0e0e0e" marker-end="url(#ahe)" /><line x1="616" y1="97" x2="628" y2="97" stroke="#0e0e0e" marker-end="url(#ahe)" /><line x1="740" y1="97" x2="752" y2="97" stroke="#0e0e0e" marker-end="url(#ahe)" />
+
+                <text x="436" y="146" font-size="7.5" fill="#6b6b6b">iOS · Android · Win · Mac · Linux srv</text>
+                <text x="808" y="146" font-size="7.5" fill="#6b6b6b">upload → build → flip queues</text>
+                <text x="8" y="196" font-size="9" fill="#6b6b6b" text-anchor="start">FROST can run the whole pipeline headless via BatchBuildMenu</text>
+              </g>
+            </svg>
+            <figcaption>The pipeline · config swap to five targets to a live deploy</figcaption>
+          </figure>
+          <p class="type-body" style="max-width: 64ch; margin-top: 1rem">
+            Shipping to five platforms is one window. The Build Console swaps Dev or Prod
+            config, strips about 1.5&nbsp;GB of card art per device build, builds each target
+            (the server strips its own client assets), then packages and deploys the Linux
+            server to the live PlayFab fleet, flipping the matchmaking queues over. FROST can
+            run the whole thing headless.
+          </p>
         </div>
       </section>
 
