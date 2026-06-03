@@ -102,8 +102,14 @@
           <ol class="project-contribs">
             <li>
               <span
-                >Server-authoritative <em>netcode</em> and the dedicated-server fleet on
-                PlayFab.</span
+                >Production tooling for the <em>AI-agent era</em>: Reveries, FROST, and
+                Necronomicon.</span
+              >
+            </li>
+            <li>
+              <span
+                >Server-authoritative <em>netcode</em>, and the live server migration to
+                <em>Microsoft Azure PlayFab</em>.</span
               >
             </li>
             <li>
@@ -116,12 +122,6 @@
               <span
                 >The multi-platform <em>build and deploy</em> pipeline across five
                 targets.</span
-              >
-            </li>
-            <li>
-              <span
-                >Production tooling for the <em>AI-agent era</em>: Reveries, FROST, and
-                Necronomicon.</span
               >
             </li>
           </ol>
@@ -165,311 +165,10 @@
         </div>
       </section>
 
-      <!-- ===== PART I — Engineering a real-time, server-authoritative game ===== -->
+      <!-- ===== Chapter 01 — Producing humans + AI agents (centerpiece) ===== -->
       <section class="project-chapter">
         <header class="project-chapter__head">
-          <span class="label">Part I · Chapter 01</span>
-          <h2>Competitive integrity, in <em>real time</em></h2>
-        </header>
-        <div class="project-chapter__body">
-          <div class="spread">
-            <div class="spread__media">
-              <img
-                src="/assets/images/moh-hero.jpg"
-                alt="Masterworks of Horror in-game board"
-                loading="lazy"
-              />
-              <p class="cap">The board · a real-time literary duel</p>
-            </div>
-            <div class="spread__text">
-              <h3>The tension that shapes everything</h3>
-              <p>
-                A competitive card game has to be cheat-proof, which points straight at
-                dedicated servers and a server that owns the truth. The client is never
-                trusted. But this game is real-time, not turn-based, so it also has to feel
-                instant under a player's hands.
-              </p>
-              <p>
-                Those two goals pull against each other. Everything below is how that
-                tension got resolved: authority on the server, responsiveness on the client,
-                and a deploy pipeline that keeps a live fleet honest.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="project-chapter">
-        <header class="project-chapter__head">
-          <span class="label">Chapter 02</span>
-          <h2>Server-authoritative <em>netcode</em></h2>
-        </header>
-        <div class="project-chapter__body">
-          <div class="spread spread--reverse">
-            <div class="spread__media">
-              <video
-                src="/assets/images/moh-gameplay.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-              ></video>
-              <p class="cap">A turn resolving · server-driven, client-rendered</p>
-            </div>
-            <div class="spread__text">
-              <h3>The server owns the truth</h3>
-              <p>
-                Built on Unity Netcode for GameObjects with a dedicated-server build, talking
-                plain UDP over UnityTransport. There is no peer-to-peer and no relay.
-              </p>
-              <p>
-                Every player intent is a <strong>server RPC</strong>: ready a deck, mulligan,
-                play, concede, rematch. The server is the only thing that mutates game state,
-                then broadcasts the result. It validates and rejects, so a client trying to
-                pause a ranked match simply gets refused. I am the top author of the player
-                command surface and the replicated match model, and I wrapped the whole
-                dedicated-server lifecycle behind one interface so the backend could move
-                from Unity hosting to PlayFab without touching gameplay.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="project-chapter">
-        <header class="project-chapter__head">
-          <span class="label">Chapter 03</span>
-          <h2>Making it feel <em>instant</em></h2>
-        </header>
-        <div class="project-chapter__body">
-          <div class="spread">
-            <div class="spread__media">
-              <img
-                src="/assets/images/moh-expo-1.jpg"
-                alt="A card being played at speed"
-                loading="lazy"
-              />
-              <p class="cap">Optimistic play · the card moves before the server answers</p>
-            </div>
-            <div class="spread__text">
-              <h3>Prediction, then reconcile</h3>
-              <p>
-                A server-authoritative game can feel laggy if the player waits for a round
-                trip on every action. So I built a <strong>client-side prediction</strong>
-                system: drag a card and it plays locally right away, with the cost subtracted
-                from your hand instantly. When the server confirms, the prediction swaps in
-                the authoritative card and skips the redundant animation. When the server
-                rejects, the card rolls back to your hand. It only ever touches visuals,
-                never the authoritative model.
-              </p>
-              <p>
-                The piece that makes prediction free: I removed the old habit of pausing the
-                server to wait for client animations. The simulation now ticks continuously
-                at 50&nbsp;Hz and animations are purely cosmetic, so they can never block or
-                desync the real game state.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="project-chapter">
-        <header class="project-chapter__head">
-          <span class="label">Chapter 04</span>
-          <h2>The dedicated-server <em>fleet</em></h2>
-        </header>
-        <div class="project-chapter__body">
-          <div class="spread spread--reverse">
-            <div class="spread__media">
-              <img
-                src="/assets/images/moh-expo-4.jpg"
-                alt="Two players at an expo build"
-                loading="lazy"
-              />
-              <p class="cap">Live matches, allocated on demand</p>
-            </div>
-            <div class="spread__text">
-              <h3>Hosting, matchmaking, and a one-button deploy</h3>
-              <p>
-                I own the entire online-services layer. A server build registers with the
-                PlayFab game-server SDK, signals that it is standing by, waits for an
-                allocation, and resolves its own UDP port so several servers can share a
-                machine. Matchmaking runs through PlayFab queues for ranked, private, and
-                solo-versus-bot, with the wait time estimated from a rolling average. Sign-in
-                is anonymous, so there is no signup wall in front of a match.
-              </p>
-              <p>
-                Releasing all of that is a single 910-line Python tool I wrote. It packages
-                the Linux server, uploads it, creates the build, and flips the live
-                matchmaking queues over, with subcommands to scale capacity, SSH into a hot
-                VM, and pull post-mortem logs from a terminated session. The fleet also
-                defends itself: reconnects outlast the engine's async shutdown, the
-                matchmaker retries transient failures with backoff, and idle servers shut
-                themselves down after thirty seconds.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== PART II — Shipping it on real devices ===== -->
-      <section class="project-chapter">
-        <header class="project-chapter__head">
-          <span class="label">Part II · Chapter 05</span>
-          <h2>War stories from <em>shipping</em></h2>
-        </header>
-        <div class="project-chapter__body">
-          <p class="type-body" style="max-width: 60ch; margin-bottom: 0.5rem">
-            The impressive part of a game is not the gameplay. It is that it ships to three
-            stores at all. A sample of the fixes that got it there, in the commit messages
-            they were written with.
-          </p>
-          <div class="moh-wars">
-            <div class="moh-war">
-              <h4>The Android heap cap</h4>
-              <p>
-                Unity 6 hardcodes a 4&nbsp;GB heap on the Gradle launcher. Our 7&nbsp;GB app
-                bundle ran it out of memory at the signing step. I made Gradle emit an
-                unsigned bundle and signed it afterward under a 12&nbsp;GB heap, keeping the
-                keystore password in editor session state so it never touches disk.
-              </p>
-              <span class="ev"><b>69fabd1e6</b> · launcherTemplate.gradle</span>
-            </div>
-            <div class="moh-war">
-              <h4>One wrong character</h4>
-              <p>
-                Cold-start deeplinks on iOS silently never fired. The injected scene-delegate
-                method used <code>willConnectTo:</code> instead of the real
-                <code>willConnectToSession:</code>. iOS never called it, so every deeplink
-                that launched the app from cold was dropped.
-              </p>
-              <span class="ev"><b>0cdc5380f</b> · iOS UISceneDelegate</span>
-            </div>
-            <div class="moh-war">
-              <h4>A NaN that never left</h4>
-              <p>
-                A divide by a zero-sized screen rect produced a NaN before layout settled.
-                Because the gyro offset is smoothed with a lerp, and a lerp of a NaN stays a
-                NaN, one bad frame poisoned the parallax on every card forever. Fixed at the
-                source, with a self-heal so a poisoned session recovers.
-              </p>
-              <span class="ev"><b>dd7f9467d</b> · CardParallaxService</span>
-            </div>
-            <div class="moh-war">
-              <h4>640&nbsp;MB back</h4>
-              <p>
-                The tutorial ran iOS out of memory. I traced it to the texture cache and made
-                it platform-aware: load on demand, clear the cache on entering a match (which
-                needs about fourteen textures), and cap it. Recovered roughly 640&nbsp;MB.
-              </p>
-              <span class="ev"><b>652f293ff</b> · Card3D texture cache</span>
-            </div>
-            <div class="moh-war">
-              <h4>The ProjectSettings trap</h4>
-              <p>
-                A teammate bumped the Android version code, built, and the store rejected the
-                bundle: version already used. The post-build git restore was quietly reverting
-                <code>ProjectSettings/</code>, including the version bump. I traced it, proved
-                the entry was redundant, and removed it.
-              </p>
-              <span class="ev"><b>4c39060cd</b> · BuildProcessor</span>
-            </div>
-            <div class="moh-war">
-              <h4>The build pipeline itself</h4>
-              <p>
-                Five targets from one Build Console: iOS, Android, Windows, Mac, and a Linux
-                dedicated server. Dev and Prod swap config at build time, and a precompressed
-                texture-sidecar pass strips about 1.5&nbsp;GB of card art from every device
-                build.
-              </p>
-              <span class="ev"><b>780e18ae8</b> · BC7 / ASTC pipeline</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="project-chapter">
-        <header class="project-chapter__head">
-          <span class="label">Chapter 06</span>
-          <h2>Game AI &amp; in-engine <em>tooling</em></h2>
-        </header>
-        <div class="project-chapter__body">
-          <div class="spread">
-            <div class="spread__media">
-              <div class="code-block collapsed">
-                <div class="code-block-header">
-                  <div class="dots"><span></span><span></span><span></span></div>
-                  <span class="filename">BotBehaviorProfile.cs</span>
-                </div>
-                <div class="code-block-body">
-                  <table><tr><td class="line-num">1</td><td class="line-code"><span class="cmt">// Not minimax — a hand-tuned heuristic engine.</span></td></tr>
-<tr><td class="line-num">2</td><td class="line-code"><span class="cmt">// Each candidate play is scored; the bot picks the best.</span></td></tr>
-<tr><td class="line-num">3</td><td class="line-code"><span class="kw">float</span> <span class="fn">ValueCalc</span>(<span class="typ">CardData</span> card, <span class="typ">BoardState</span> board)</td></tr>
-<tr><td class="line-num">4</td><td class="line-code">{</td></tr>
-<tr><td class="line-num">5</td><td class="line-code">    <span class="kw">float</span> value = card.type <span class="kw">switch</span></td></tr>
-<tr><td class="line-num">6</td><td class="line-code">    {</td></tr>
-<tr><td class="line-num">7</td><td class="line-code">        <span class="typ">CardType</span>.Character =&gt; <span class="fn">GenericCharacterCalc</span>(card, board),</td></tr>
-<tr><td class="line-num">8</td><td class="line-code">        <span class="typ">CardType</span>.Setting   =&gt; <span class="fn">GenericSettingCalc</span>(card, board),</td></tr>
-<tr><td class="line-num">9</td><td class="line-code">        _ =&gt; <span class="num">0f</span>,</td></tr>
-<tr><td class="line-num">10</td><td class="line-code">    };</td></tr>
-<tr><td class="line-num">11</td><td class="line-code"></td></tr>
-<tr><td class="line-num">12</td><td class="line-code">    <span class="cmt">// ~40 named cards get a hand-written branch.</span></td></tr>
-<tr><td class="line-num">13</td><td class="line-code">    value += <span class="fn">SpecificCalc</span>(card.cardId, board);</td></tr>
-<tr><td class="line-num">14</td><td class="line-code">    <span class="kw">return</span> value;</td></tr>
-<tr><td class="line-num">15</td><td class="line-code">}</td></tr>
-<tr><td class="line-num">16</td><td class="line-code"></td></tr>
-<tr><td class="line-num">17</td><td class="line-code"><span class="kw">float</span> <span class="fn">SpecificCalc</span>(<span class="typ">string</span> cardId, <span class="typ">BoardState</span> board) =&gt; cardId <span class="kw">switch</span></td></tr>
-<tr><td class="line-num">18</td><td class="line-code">{</td></tr>
-<tr><td class="line-num">19</td><td class="line-code">    <span class="cmt">// Fortunato's Final Plea — weak without Regret in the graveyard.</span></td></tr>
-<tr><td class="line-num">20</td><td class="line-code">    <span class="str">"MOH1-16"</span> =&gt; board.<span class="fn">GraveyardHas</span>(<span class="str">"Regret"</span>) ? <span class="num">800f</span> : <span class="num">-1000f</span>,</td></tr>
-<tr><td class="line-num">21</td><td class="line-code">    <span class="str">"MOH1-22"</span> =&gt; <span class="fn">EvalAwakenEffect</span>(board),   <span class="cmt">// Red Death</span></td></tr>
-<tr><td class="line-num">22</td><td class="line-code">    <span class="str">"MOH1-31"</span> =&gt; board.enemyMasterwork.hp &lt; <span class="num">8</span> ? <span class="num">1200f</span> : <span class="num">200f</span>,</td></tr>
-<tr><td class="line-num">23</td><td class="line-code">    _ =&gt; <span class="num">0f</span>,</td></tr>
-<tr><td class="line-num">24</td><td class="line-code">};</td></tr>
-<tr><td class="line-num">25</td><td class="line-code"></td></tr>
-<tr><td class="line-num">26</td><td class="line-code"><span class="cmt">// Difficulty maps to how often the bot acts: 10s -&gt; 2s.</span></td></tr>
-<tr><td class="line-num">27</td><td class="line-code"><span class="kw">float</span> actionInterval = difficulty <span class="kw">switch</span> {</td></tr>
-<tr><td class="line-num">28</td><td class="line-code">    <span class="typ">Difficulty</span>.Easy =&gt; <span class="num">10f</span>, <span class="typ">Difficulty</span>.Hard =&gt; <span class="num">4f</span>, <span class="typ">Difficulty</span>.Extreme =&gt; <span class="num">2f</span>, _ =&gt; <span class="num">8f</span> };</td></tr>
-                  </table>
-                </div>
-                <button class="code-expand-btn">// expand full source</button>
-                <div class="code-block-footer">
-                  <span>BotBehaviorProfile.cs · ~2,700 lines</span>
-                  <span>C#</span>
-                </div>
-              </div>
-            </div>
-            <div class="spread__text">
-              <h3>A bot with opinions about 40 cards</h3>
-              <p>
-                The opponent bot is not a generic search. It is a hand-tuned scoring engine,
-                about 4,300 lines, that routes ordinary cards through generic value
-                functions and gives roughly forty named cards their own branch. Four
-                difficulty tiers map to how fast it acts, from a ten-second beat down to two.
-              </p>
-              <p>
-                It also produced my favorite debugging story. A single typo,
-                <code>value -= -5000</code>, made the bot value drawing at +5000 when its
-                hand was full, so it would draw over its own cap and then refuse to play
-                anything. The infamous frozen bot, fixed by one sign and a live hand count.
-              </p>
-              <h3>A hidden observation tool</h3>
-              <p>
-                I also built an in-game spectator and free-cam suite, invisible in shipped
-                builds, flipped on by a build flag and a backquote key so it never shows in a
-                screenshot. One feature mirrors your own board to render exactly what your
-                opponent sees, which is how we debugged a real-time duel from both sides at
-                once.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== PART III — Producing for a hybrid team ===== -->
-      <section class="project-chapter">
-        <header class="project-chapter__head">
-          <span class="label">Part III · Chapter 07</span>
+          <span class="label">Chapter 01</span>
           <h2>Producing humans <em>and</em> agents</h2>
         </header>
         <div class="project-chapter__body">
@@ -486,49 +185,34 @@
           <h3 style="margin-top: 2rem">The pipeline I built and proved on the real game</h3>
           <div class="moh-pipe" aria-label="The FROST pipeline, from idea to merge">
             <div class="moh-pipe__step" data-actor="human">
-              <span class="moh-pipe__dot"></span>
-              <div>
-                <p class="moh-pipe__t"><b>Idea</b> — raw text, no AI</p>
-                <p class="moh-pipe__s">Capture is free. Nothing runs until you choose it.</p>
-              </div>
+              <p class="moh-pipe__n">01 · human</p>
+              <p class="moh-pipe__t">Idea</p>
+              <p class="moh-pipe__s">Raw text. No AI runs.</p>
             </div>
             <div class="moh-pipe__step" data-actor="human">
-              <span class="moh-pipe__dot"></span>
-              <div>
-                <p class="moh-pipe__t"><b>Diagnose</b> — opt-in Opus pass</p>
-                <p class="moh-pipe__s">One click enriches the task. Then queue it to FROST.</p>
-              </div>
+              <p class="moh-pipe__n">02 · human</p>
+              <p class="moh-pipe__t">Diagnose</p>
+              <p class="moh-pipe__s">Opt-in Opus enrich, then queue.</p>
             </div>
             <div class="moh-pipe__step" data-actor="agent">
-              <span class="moh-pipe__dot"></span>
-              <div>
-                <p class="moh-pipe__t"><b>FROST</b> — isolated worktree branch</p>
-                <p class="moh-pipe__s">Opus implements, committing after each step.</p>
-              </div>
+              <p class="moh-pipe__n">03 · FROST</p>
+              <p class="moh-pipe__t">Implement</p>
+              <p class="moh-pipe__s">Isolated branch, commit per step.</p>
             </div>
             <div class="moh-pipe__step" data-actor="agent">
-              <span class="moh-pipe__dot"></span>
-              <div>
-                <p class="moh-pipe__t"><b>Review</b> — a second Opus pass</p>
-                <p class="moh-pipe__s">Merge, fix, or redo. One auto-fix, then re-review.</p>
-              </div>
+              <p class="moh-pipe__n">04 · FROST</p>
+              <p class="moh-pipe__t">Review + fix</p>
+              <p class="moh-pipe__s">Second Opus pass, one auto-fix.</p>
             </div>
             <div class="moh-pipe__step" data-actor="loop">
-              <span class="moh-pipe__dot"></span>
-              <div>
-                <p class="moh-pipe__t"><b>Stuck?</b> — one focused question</p>
-                <p class="moh-pipe__s">
-                  Instead of failing silently, FROST asks a single under-180-character
-                  question and the task re-enters the queue with your answer.
-                </p>
-              </div>
+              <p class="moh-pipe__n">05 · stuck?</p>
+              <p class="moh-pipe__t">One question</p>
+              <p class="moh-pipe__s">Asks, then re-enters the queue.</p>
             </div>
             <div class="moh-pipe__step" data-actor="human">
-              <span class="moh-pipe__dot"></span>
-              <div>
-                <p class="moh-pipe__t"><b>Pull request</b> — opened with review inline</p>
-                <p class="moh-pipe__s">A human's first contact is a clean, already-reviewed PR.</p>
-              </div>
+              <p class="moh-pipe__n">06 · human</p>
+              <p class="moh-pipe__t">Clean PR</p>
+              <p class="moh-pipe__s">First human contact is a reviewed PR.</p>
             </div>
           </div>
           <div class="moh-legend">
@@ -537,7 +221,7 @@
             <span><i style="background: #b0473d"></i> Question loop</span>
           </div>
 
-          <h3 style="margin-top: 2.5rem">Five seams, five fixes</h3>
+          <h3 style="margin-top: 2.25rem">Five seams, five fixes</h3>
           <div class="moh-friction">
             <div class="moh-fric">
               <div class="moh-fric__p">
@@ -639,14 +323,412 @@
         </div>
       </section>
 
-      <!-- ===== Shown in the wild ===== -->
+      <!-- ===== Chapter 02 — Competitive integrity / server authority ===== -->
       <section class="project-chapter">
         <header class="project-chapter__head">
-          <span class="label">Chapter 08</span>
+          <span class="label">Chapter 02</span>
+          <h2>Competitive integrity, in <em>real time</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <figure class="spread__media moh-figure">
+              <svg viewBox="0 0 440 320" role="img" aria-label="Diagram: a player's intent goes to the dedicated server as a ServerRpc, the server validates and owns the game state, then replicates the result to both clients">
+                <defs>
+                  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
+                  </marker>
+                </defs>
+                <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
+                  <rect x="95" y="12" width="250" height="52" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="38" font-size="14" fill="#0e0e0e">You play a card</text>
+                  <text x="220" y="54" font-size="9" fill="#6b6b6b">client · optimistic</text>
+
+                  <line x1="220" y1="66" x2="220" y2="108" stroke="#0e0e0e" marker-end="url(#ah)" />
+                  <text x="230" y="92" font-size="9" fill="#6b6b6b" text-anchor="start">ServerRpc · intent</text>
+
+                  <rect x="45" y="118" width="350" height="66" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="220" y="146" font-size="14" fill="#0e0e0e">Dedicated server</text>
+                  <text x="220" y="166" font-size="9.5" fill="#5a7a14">owns the game state · validates · rejects cheats</text>
+
+                  <line x1="220" y1="186" x2="220" y2="228" stroke="#0e0e0e" marker-end="url(#ah)" />
+                  <text x="230" y="212" font-size="9" fill="#6b6b6b" text-anchor="start">ClientRpc · NetworkVariable</text>
+
+                  <rect x="70" y="238" width="300" height="54" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="265" font-size="14" fill="#0e0e0e">Both clients render the result</text>
+                  <text x="220" y="281" font-size="9" fill="#6b6b6b">no client is ever trusted</text>
+                </g>
+              </svg>
+              <figcaption>Server authority · every action round-trips</figcaption>
+            </figure>
+            <div class="spread__text">
+              <h3>The tension that shapes everything</h3>
+              <p>
+                A competitive card game has to be cheat-proof, which points straight at
+                dedicated servers and a server that owns the truth. But this game is
+                real-time, not turn-based, so it also has to feel instant under a player's
+                hands. Those two goals pull against each other.
+              </p>
+              <p>
+                Built on Unity Netcode for GameObjects with a dedicated-server build, over
+                plain UDP. Every player intent is a <strong>server RPC</strong>: ready a
+                deck, mulligan, play, concede, rematch. The server is the only thing that
+                mutates state, validates it, and rejects bad requests, then broadcasts the
+                result. I am the top author of the player command surface and the replicated
+                match model.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Chapter 03 — Client prediction ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 03</span>
+          <h2>Making it feel <em>instant</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread spread--reverse">
+            <figure class="spread__media moh-figure">
+              <svg viewBox="0 0 440 350" role="img" aria-label="Diagram: a played card animates locally and instantly while the server validates in parallel; on confirm the client swaps in the authoritative card, on reject it rolls the card back to hand">
+                <defs>
+                  <marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
+                  </marker>
+                </defs>
+                <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
+                  <rect x="120" y="10" width="200" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="37" font-size="13" fill="#0e0e0e">You play a card</text>
+
+                  <line x1="220" y1="54" x2="220" y2="86" stroke="#0e0e0e" marker-end="url(#ah2)" />
+
+                  <rect x="70" y="94" width="300" height="50" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="220" y="118" font-size="13" fill="#0e0e0e">Animate it locally — instant</text>
+                  <text x="220" y="134" font-size="9" fill="#5a7a14">visual only · never the real state</text>
+
+                  <line x1="220" y1="146" x2="220" y2="180" stroke="#0e0e0e" marker-end="url(#ah2)" />
+                  <text x="230" y="167" font-size="9" fill="#6b6b6b" text-anchor="start">meanwhile, ask the server</text>
+
+                  <rect x="120" y="188" width="200" height="44" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="215" font-size="13" fill="#0e0e0e">Server validates</text>
+
+                  <line x1="220" y1="232" x2="120" y2="268" stroke="#0e0e0e" marker-end="url(#ah2)" />
+                  <line x1="220" y1="232" x2="330" y2="268" stroke="#0e0e0e" marker-end="url(#ah2)" />
+
+                  <rect x="18" y="272" width="200" height="60" fill="#fbfaf5" stroke="#5a7a14" stroke-width="2" />
+                  <text x="118" y="298" font-size="12" fill="#0e0e0e">✓ confirm</text>
+                  <text x="118" y="316" font-size="9" fill="#6b6b6b">swap in the real card</text>
+
+                  <rect x="240" y="272" width="184" height="60" fill="#fbfaf5" stroke="#b0473d" stroke-width="2" />
+                  <text x="332" y="298" font-size="12" fill="#0e0e0e">✗ reject</text>
+                  <text x="332" y="316" font-size="9" fill="#6b6b6b">roll back to hand</text>
+                </g>
+              </svg>
+              <figcaption>Client prediction · predict, then reconcile</figcaption>
+            </figure>
+            <div class="spread__text">
+              <h3>Prediction, then reconcile</h3>
+              <p>
+                A server-authoritative game can feel laggy if the player waits for a round
+                trip on every action. So I built a <strong>client-side prediction</strong>
+                system: drag a card and it plays locally right away, with the cost
+                subtracted from your hand instantly. When the server confirms, the prediction
+                swaps in the authoritative card and skips the redundant animation. When the
+                server rejects, the card rolls back to your hand. It only ever touches
+                visuals, never the authoritative model.
+              </p>
+              <p>
+                The piece that makes prediction free: I removed the old habit of pausing the
+                server to wait for client animations. The simulation now ticks continuously
+                at 50&nbsp;Hz and animations are purely cosmetic, so they can never block or
+                desync the real game state.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Chapter 04 — Server migration + fleet ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 04</span>
+          <h2>From Unity GS to <em>Azure PlayFab</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="dots"><span></span><span></span><span></span></div>
+                  <span class="filename">OnlineServices.cs</span>
+                </div>
+                <div class="code-block-body">
+                  <table><tr><td class="line-num">1</td><td class="line-code"><span class="cmt">// The whole dedicated-server lifecycle behind one interface.</span></td></tr>
+<tr><td class="line-num">2</td><td class="line-code"><span class="kw">public interface</span> <span class="typ">IServerHostHandler</span></td></tr>
+<tr><td class="line-num">3</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">4</td><td class="line-code">    <span class="typ">Task</span>&lt;<span class="typ">ServerAllocation</span>&gt; <span class="fn">WaitForAllocationAsync</span>();</td></tr>
+<tr><td class="line-num">5</td><td class="line-code">    <span class="kw">void</span> <span class="fn">ReadyForPlayers</span>();</td></tr>
+<tr><td class="line-num">6</td><td class="line-code">    <span class="typ">Task</span> <span class="fn">OnShutdownAsync</span>();</td></tr>
+<tr><td class="line-num">7</td><td class="line-code">}</td></tr>
+<tr><td class="line-num">8</td><td class="line-code"></td></tr>
+<tr><td class="line-num">9</td><td class="line-code"><span class="cmt">// Gameplay never learns which backend it is on.</span></td></tr>
+<tr><td class="line-num">10</td><td class="line-code"><span class="typ">IServerHostHandler</span> host = <span class="typ">OnlineServices</span>.ActiveBackend <span class="kw">switch</span></td></tr>
+<tr><td class="line-num">11</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">12</td><td class="line-code">    <span class="typ">Backend</span>.PlayFab =&gt; <span class="kw">new</span> <span class="typ">PlayFabServerHostHandler</span>(),</td></tr>
+<tr><td class="line-num">13</td><td class="line-code">    <span class="typ">Backend</span>.Ugs     =&gt; <span class="kw">new</span> <span class="typ">UgsServerHostHandler</span>(),</td></tr>
+<tr><td class="line-num">14</td><td class="line-code">};</td></tr>
+                  </table>
+                </div>
+                <div class="code-block-footer">
+                  <span>One interface · two backends</span>
+                  <span>C#</span>
+                </div>
+              </div>
+            </div>
+            <div class="spread__text">
+              <h3>Swapping the backend under a live game</h3>
+              <p>
+                Partway through development the entire multiplayer backend changed hosts. We
+                moved hosting and matchmaking off Unity Gaming Services and onto
+                <strong>Microsoft Azure PlayFab</strong>, on a game that already had players
+                in it.
+              </p>
+              <p>
+                I made the swap safe by hiding both backends behind one interface. The whole
+                dedicated-server lifecycle, auth, heartbeat, allocation, and shutdown, sits
+                behind <em>IServerHostHandler</em>, with the matchmaker behind its own. The
+                game calls the interface and never knows the backend. We ran both in
+                parallel, cut traffic over to PlayFab, then deleted the Unity path.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread spread--reverse">
+            <figure class="spread__media moh-figure">
+              <svg viewBox="0 0 440 250" role="img" aria-label="Diagram: a player request goes to PlayFab matchmaking, which allocates a dedicated server and hands the client the server address to connect to">
+                <defs>
+                  <marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
+                  </marker>
+                </defs>
+                <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
+                  <rect x="20" y="100" width="110" height="48" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="75" y="122" font-size="11" fill="#0e0e0e">Player</text>
+                  <text x="75" y="138" font-size="8.5" fill="#6b6b6b">ticket</text>
+
+                  <line x1="130" y1="124" x2="166" y2="124" stroke="#0e0e0e" marker-end="url(#ah3)" />
+
+                  <rect x="168" y="92" width="120" height="64" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="228" y="116" font-size="11" fill="#0e0e0e">PlayFab</text>
+                  <text x="228" y="132" font-size="8.5" fill="#5a7a14">matchmaking +</text>
+                  <text x="228" y="145" font-size="8.5" fill="#5a7a14">allocation</text>
+
+                  <line x1="288" y1="124" x2="324" y2="124" stroke="#0e0e0e" marker-end="url(#ah3)" />
+
+                  <rect x="326" y="92" width="98" height="64" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="375" y="116" font-size="10.5" fill="#0e0e0e">Dedicated</text>
+                  <text x="375" y="131" font-size="10.5" fill="#0e0e0e">server</text>
+                  <text x="375" y="146" font-size="8.5" fill="#6b6b6b">GSDK · UDP</text>
+
+                  <path d="M375,156 L375,196 L75,196 L75,150" fill="none" stroke="#0e0e0e" stroke-dasharray="4 3" marker-end="url(#ah3)" />
+                  <text x="225" y="212" font-size="8.5" fill="#6b6b6b">direct connect · server IP + port</text>
+                </g>
+              </svg>
+              <figcaption>The fleet · matchmaking allocates, client connects</figcaption>
+            </figure>
+            <div class="spread__text">
+              <h3>Hosting, matchmaking, and a one-button deploy</h3>
+              <p>
+                I own the entire online-services layer. A server build registers with the
+                PlayFab game-server SDK, signals that it is standing by, waits for an
+                allocation, and resolves its own UDP port so several servers can share a
+                machine. Matchmaking runs through PlayFab queues for ranked, private, and
+                solo-versus-bot.
+              </p>
+              <p>
+                Releasing all of that is a single 910-line Python tool I wrote. It packages
+                the Linux server, uploads it, creates the build, and flips the live
+                matchmaking queues over, with subcommands to scale capacity, SSH into a hot
+                VM, and pull post-mortem logs. The fleet also defends itself: reconnects
+                outlast the engine's async shutdown, the matchmaker retries transient
+                failures with backoff, and idle servers shut themselves down after thirty
+                seconds.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Chapter 05 — War stories ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 05</span>
+          <h2>War stories from <em>shipping</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <p class="type-body" style="max-width: 60ch; margin-bottom: 0.5rem">
+            The impressive part of a game is not the gameplay. It is that it ships to three
+            stores at all. A sample of the fixes that got it there, in the commit messages
+            they were written with.
+          </p>
+          <div class="moh-wars">
+            <div class="moh-war">
+              <h4>The Android heap cap</h4>
+              <p>
+                Unity 6 hardcodes a 4&nbsp;GB heap on the Gradle launcher. Our 7&nbsp;GB app
+                bundle ran it out of memory at the signing step. I made Gradle emit an
+                unsigned bundle and signed it afterward under a 12&nbsp;GB heap, keeping the
+                keystore password in editor session state so it never touches disk.
+              </p>
+              <span class="ev"><b>69fabd1e6</b> · launcherTemplate.gradle</span>
+            </div>
+            <div class="moh-war">
+              <h4>One wrong character</h4>
+              <p>
+                Cold-start deeplinks on iOS silently never fired. The injected scene-delegate
+                method used <code>willConnectTo:</code> instead of the real
+                <code>willConnectToSession:</code>. iOS never called it, so every deeplink
+                that launched the app from cold was dropped.
+              </p>
+              <span class="ev"><b>0cdc5380f</b> · iOS UISceneDelegate</span>
+            </div>
+            <div class="moh-war">
+              <h4>A NaN that never left</h4>
+              <p>
+                A divide by a zero-sized screen rect produced a NaN before layout settled.
+                Because the gyro offset is smoothed with a lerp, and a lerp of a NaN stays a
+                NaN, one bad frame poisoned the parallax on every card forever. Fixed at the
+                source, with a self-heal so a poisoned session recovers.
+              </p>
+              <span class="ev"><b>dd7f9467d</b> · CardParallaxService</span>
+            </div>
+            <div class="moh-war">
+              <h4>640&nbsp;MB back</h4>
+              <p>
+                The tutorial ran iOS out of memory. I traced it to the texture cache and made
+                it platform-aware: load on demand, clear the cache on entering a match (which
+                needs about fourteen textures), and cap it. Recovered roughly 640&nbsp;MB.
+              </p>
+              <span class="ev"><b>652f293ff</b> · Card3D texture cache</span>
+            </div>
+            <div class="moh-war">
+              <h4>The ProjectSettings trap</h4>
+              <p>
+                A teammate bumped the Android version code, built, and the store rejected the
+                bundle: version already used. The post-build git restore was quietly reverting
+                <code>ProjectSettings/</code>, including the version bump. I traced it, proved
+                the entry was redundant, and removed it.
+              </p>
+              <span class="ev"><b>4c39060cd</b> · BuildProcessor</span>
+            </div>
+            <div class="moh-war">
+              <h4>The build pipeline itself</h4>
+              <p>
+                Five targets from one Build Console: iOS, Android, Windows, Mac, and a Linux
+                dedicated server. Dev and Prod swap config at build time, and a precompressed
+                texture-sidecar pass strips about 1.5&nbsp;GB of card art from every device
+                build.
+              </p>
+              <span class="ev"><b>780e18ae8</b> · BC7 / ASTC pipeline</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Chapter 06 — Debugging the bot + tooling ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 06</span>
+          <h2>Debugging the <em>bot</em></h2>
+        </header>
+        <div class="project-chapter__body">
+          <div class="spread">
+            <div class="spread__media">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="dots"><span></span><span></span><span></span></div>
+                  <span class="filename">BotBehaviorProfile.cs · the bug I traced</span>
+                </div>
+                <div class="code-block-body">
+                  <table><tr><td class="line-num">1</td><td class="line-code"><span class="cmt">// The "frozen bot": at a full hand, drawing</span></td></tr>
+<tr><td class="line-num">2</td><td class="line-code"><span class="cmt">// should be worthless. A one-character typo</span></td></tr>
+<tr><td class="line-num">3</td><td class="line-code"><span class="cmt">// made it the bot's favorite move.</span></td></tr>
+<tr><td class="line-num">4</td><td class="line-code"></td></tr>
+<tr><td class="line-num">5</td><td class="line-code"><span class="kw">float</span> <span class="fn">DrawScore</span>(<span class="typ">BoardState</span> board)</td></tr>
+<tr><td class="line-num">6</td><td class="line-code">{</td></tr>
+<tr><td class="line-num">7</td><td class="line-code">    <span class="kw">float</span> value = <span class="num">0f</span>;</td></tr>
+<tr><td class="line-num">8</td><td class="line-code">    <span class="kw">if</span> (board.HandSize &gt;= board.HandCap)</td></tr>
+<tr><td class="line-num">9</td><td class="line-code">        value -= <span class="num">-5000</span>;   <span class="cmt">// BUG: -= -5000 ADDS 5000.</span></td></tr>
+<tr><td class="line-num">10</td><td class="line-code">    <span class="kw">return</span> value;         <span class="cmt">// Bot draws to lock-up, then freezes.</span></td></tr>
+<tr><td class="line-num">11</td><td class="line-code">}</td></tr>
+<tr><td class="line-num">12</td><td class="line-code"></td></tr>
+<tr><td class="line-num">13</td><td class="line-code"><span class="cmt">// FIX: value -= 5000;  and read board.Hand.Count</span></td></tr>
+<tr><td class="line-num">14</td><td class="line-code"><span class="cmt">// live, not a HandSize cache draw never refreshed.</span></td></tr>
+                  </table>
+                </div>
+                <div class="code-block-footer">
+                  <span>The one-character fix</span>
+                  <span>C#</span>
+                </div>
+              </div>
+            </div>
+            <div class="spread__text">
+              <h3>Hunting a frozen bot</h3>
+              <p>
+                The opponent bot is a hand-tuned scoring engine the team built, around 4,300
+                lines across two files. My job was to keep it from breaking in a real-time
+                match, which meant living in its edge cases.
+              </p>
+              <p>
+                My favorite catch: a single typo, <code>value -= -5000</code>, made the bot
+                value drawing at +5000 when its hand was already full, so it drew over its
+                own cap and then refused to play. The infamous frozen bot, fixed by one sign
+                and a live hand count. I also untangled a stack-overflow in its graveyard
+                scoring and a stale cache that stalled its turn.
+              </p>
+              <h3>A hidden observation tool</h3>
+              <p>
+                I also built an in-game spectator and free-cam suite, invisible in shipped
+                builds, flipped on by a build flag and a backquote key so it never shows in a
+                screenshot. One feature mirrors your own board to render exactly what your
+                opponent sees, which is how we debugged a real-time duel from both sides at
+                once.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Chapter 07 — Shown in the wild ===== -->
+      <section class="project-chapter">
+        <header class="project-chapter__head">
+          <span class="label">Chapter 07</span>
           <h2>Shown in the <em>wild</em></h2>
         </header>
         <div class="project-chapter__body">
           <div class="spread">
+            <div class="spread__media">
+              <video
+                src="/assets/images/moh-gameplay.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <p class="cap">A turn, in motion</p>
+            </div>
+            <div class="spread__text">
+              <h3>The pitch</h3>
+              <p>
+                A fast, real-time card battler built on the public-domain horror canon. Build
+                a deck from history's authors, blend their works, and duel for the win. The
+                PC build is up for wishlist on Steam as The Prologue, with a mobile beta
+                signing up players now.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread spread--reverse">
             <div class="spread__media spread__media--2">
               <img src="/assets/images/moh-gdc-1.jpg" alt="At GDC" loading="lazy" />
               <img src="/assets/images/moh-gdc-2.jpg" alt="At GDC, the booth" loading="lazy" />
@@ -656,8 +738,8 @@
               <h3>Played by real people</h3>
               <p>
                 Masterworks of Horror has been on the floor at GDC and an expo, with a
-                playable build in front of strangers. The PC build is up for wishlist on
-                Steam as The Prologue, and a mobile beta is signing up players now.
+                playable build in front of strangers, which is the only test that really
+                counts.
               </p>
             </div>
           </div>
@@ -665,23 +747,8 @@
           <div class="spread">
             <div class="spread__media spread__media--2">
               <img src="/assets/images/moh-trailer-1.jpg" alt="Trailer still" loading="lazy" />
-              <img src="/assets/images/moh-trailer-2.jpg" alt="Trailer still" loading="lazy" />
-              <p class="cap">From the trailer</p>
-            </div>
-            <div class="spread__text">
-              <h3>The pitch</h3>
-              <p>
-                A fast, real-time card battler built on the public-domain horror canon. Build
-                a deck from history's authors, blend their works, and duel for the win.
-              </p>
-            </div>
-          </div>
-
-          <div class="spread">
-            <div class="spread__media spread__media--2">
-              <img src="/assets/images/moh-expo-2.jpg" alt="Gameplay" loading="lazy" />
-              <img src="/assets/images/moh-expo-5.jpg" alt="Gameplay" loading="lazy" />
-              <p class="cap">In-game · the literary battle</p>
+              <img src="/assets/images/moh-expo-2.jpg" alt="In-game" loading="lazy" />
+              <p class="cap">Trailer still · in-game</p>
             </div>
             <div class="spread__text">
               <h3>What I take from it</h3>
