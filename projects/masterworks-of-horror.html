@@ -612,8 +612,7 @@
         <div class="project-chapter__body">
           <p class="type-body" style="max-width: 60ch; margin-bottom: 0.5rem">
             Past the netcode, the work I am most proud of: rendering and memory wins, a real
-            save-encryption scheme, the economy behind the metagame, and the anti-cheat that
-            keeps a match honest.
+            save-encryption scheme, and the economy behind the metagame.
           </p>
           <div class="moh-wars">
             <div class="moh-war">
@@ -668,15 +667,6 @@
                 visual queue that iterated but never drained, so it leaked all match.
               </p>
               <span class="ev"><b>8e02ff8c7</b> · GameStateChangeAction</span>
-            </div>
-            <div class="moh-war">
-              <h4>Anti-cheat · deck-size only</h4>
-              <p>
-                The deck-sync RPC broadcast every player's full deck order to both clients, so an
-                opponent could read your whole deck. I replaced it with a per-recipient action:
-                the owner receives the full deck, the opponent learns only its <em>size</em>.
-              </p>
-              <span class="ev"><b>555e6142d</b> · CardSystemController</span>
             </div>
           </div>
 
