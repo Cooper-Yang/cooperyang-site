@@ -607,63 +607,76 @@
       <section class="project-chapter">
         <header class="project-chapter__head">
           <span class="label">Chapter 05</span>
-          <h2>War stories from <em>shipping</em></h2>
+          <h2>Optimization &amp; <em>systems</em></h2>
         </header>
         <div class="project-chapter__body">
           <p class="type-body" style="max-width: 60ch; margin-bottom: 0.5rem">
-            The impressive part of a game is not the gameplay. It is that it ships to three
-            stores at all. A sample of the fixes that got it there, in the commit messages
-            they were written with.
+            Past the netcode, the work I am most proud of: rendering and memory wins, a real
+            save-encryption scheme, the economy behind the metagame, and the anti-cheat that
+            keeps a match honest.
           </p>
           <div class="moh-wars">
             <div class="moh-war">
-              <h4>The Android heap cap</h4>
+              <h4>14,000 materials, then 9</h4>
               <p>
-                Unity 6 hardcodes a 4&nbsp;GB heap on the Gradle launcher. Our 7&nbsp;GB app
-                bundle ran it out of memory at the signing step. I made Gradle emit an
-                unsigned bundle and signed it afterward under a 12&nbsp;GB heap, keeping the
-                keystore password in editor session state so it never touches disk.
+                Every card cloned its own material to drive glow, corruption, and sweep, which
+                broke Unity's SRP Batcher and pinned a CPU core on the render path. I baked
+                seventeen shared per-rarity variants and routed every per-card property through
+                one <strong>MaterialPropertyBlock</strong>, so the shared material is never
+                mutated. Runtime material count fell from about fourteen thousand to nine.
               </p>
-              <span class="ev"><b>69fabd1e6</b> · launcherTemplate.gradle</span>
+              <span class="ev"><b>59a92dba7</b> · Card3D · PR #635</span>
             </div>
             <div class="moh-war">
-              <h4>One wrong character</h4>
+              <h4>A deck grid that doesn't grow</h4>
               <p>
-                Cold-start deeplinks on iOS silently never fired. The injected scene-delegate
-                method used <code>willConnectTo:</code> instead of the real
-                <code>willConnectToSession:</code>. iOS never called it, so every deeplink
-                that launched the app from cold was dropped.
+                The collection grid spawned a full Card3D for every card you own, and Card3D is
+                an 8,600-line object with meshes, VFX, and animation. I rebuilt it as a
+                <strong>virtual scroll</strong>: only the visible window plus a small buffer is
+                ever materialized, recycled through a pool with a proper reset. Its cost is now
+                constant in collection size.
               </p>
-              <span class="ev"><b>0cdc5380f</b> · iOS UISceneDelegate</span>
+              <span class="ev"><b>42e07fd87</b> · DeckEditorCardPoolManager · PR #462</span>
             </div>
             <div class="moh-war">
-              <h4>A NaN that never left</h4>
+              <h4>Saves you can't edit</h4>
               <p>
-                A divide by a zero-sized screen rect produced a NaN before layout settled.
-                Because the gyro offset is smoothed with a lerp, and a lerp of a NaN stays a
-                NaN, one bad frame poisoned the parallax on every card forever. Fixed at the
-                source, with a self-heal so a poisoned session recovers.
+                Account data was a plaintext JSON anyone could edit for free currency. I wrote a
+                proper <strong>Encrypt-then-MAC</strong> module: AES-256-CBC plus HMAC-SHA256,
+                keys derived with PBKDF2 at 200k iterations, a constant-time tag compare, atomic
+                writes, and zero-touch migration of existing saves, with an honest threat model
+                for what it does and doesn't stop.
               </p>
-              <span class="ev"><b>dd7f9467d</b> · CardParallaxService</span>
+              <span class="ev"><b>446c42037</b> · EncryptedJsonFile.cs</span>
             </div>
             <div class="moh-war">
-              <h4>640&nbsp;MB back</h4>
+              <h4>An economy from a spreadsheet</h4>
               <p>
-                The tutorial ran iOS out of memory. I traced it to the texture cache and made
-                it platform-aware: load on demand, clear the cache on entering a match (which
-                needs about fourteen textures), and cap it. Recovered roughly 640&nbsp;MB.
+                I built the metagame economy from scratch: a <strong>weighted-distribution</strong>
+                roll engine with pity and guarantee rules, duplicate-to-currency conversion so a
+                pull is never wasted, two currencies, and a soul exchange. All of it tuned from a
+                designer spreadsheet, with no code changes to rebalance.
               </p>
-              <span class="ev"><b>652f293ff</b> · Card3D texture cache</span>
+              <span class="ev"><b>433045f5b</b> · StoreManager.cs · ~2,400 lines</span>
             </div>
             <div class="moh-war">
-              <h4>The ProjectSettings trap</h4>
+              <h4>The hot path</h4>
               <p>
-                A teammate bumped the Android version code, built, and the store rejected the
-                bundle: version already used. The post-build git restore was quietly reverting
-                <code>ProjectSettings/</code>, including the version bump. I traced it, proved
-                the entry was redundant, and removed it.
+                Every action runs through a 50&nbsp;Hz server broadcast. I replaced reflective
+                instantiation with cached factory delegates, cut the per-recipient JSON from one
+                payload per player to two, removed a LINQ allocation in the loop, and fixed a
+                visual queue that iterated but never drained, so it leaked all match.
               </p>
-              <span class="ev"><b>4c39060cd</b> · BuildProcessor</span>
+              <span class="ev"><b>8e02ff8c7</b> · GameStateChangeAction</span>
+            </div>
+            <div class="moh-war">
+              <h4>Anti-cheat · deck-size only</h4>
+              <p>
+                The deck-sync RPC broadcast every player's full deck order to both clients, so an
+                opponent could read your whole deck. I replaced it with a per-recipient action:
+                the owner receives the full deck, the opponent learns only its <em>size</em>.
+              </p>
+              <span class="ev"><b>555e6142d</b> · CardSystemController</span>
             </div>
           </div>
 
