@@ -5,7 +5,7 @@
 export const projects = [
   {
     href: '/projects/masterworks-of-horror.html',
-    thumb: '/assets/images/moh-thumb.jpg',
+    thumb: '/assets/images/moh-thumb.gif',
     title: 'Masterworks of Horror',
     meta: '2025'
   },
