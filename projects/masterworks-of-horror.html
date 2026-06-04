@@ -302,16 +302,15 @@
                 alt="The team production board"
                 loading="lazy"
               />
-              <p class="cap">The team board · sprints, kanban, metrics</p>
+              <p class="cap">The team board · sprints, epics, metrics</p>
             </div>
             <div class="spread__text">
               <h3>Two sides, one site</h3>
               <p>
                 The tooling has two sides. On one, I capture a raw idea and hand it to the
                 <strong>coding agent</strong>, which branches, implements, reviews, and opens a
-                pull request. On the other, a <strong>team board</strong> with sprints, a
-                kanban, epics, and SQL-computed velocity and burndown holds the human
-                engineers' work.
+                pull request. On the other, a <strong>team board</strong> with sprints, epics,
+                and SQL-computed velocity and burndown holds the human engineers' work.
               </p>
               <p>
                 An idea captured on the agent side can be promoted straight onto the team
@@ -839,10 +838,48 @@
             </div>
           </div>
 
-          <div class="spread spread--full">
-            <div class="spread__media">
-              <img src="/assets/images/moh-expo-5.jpg" alt="A match in progress" loading="lazy" />
-              <p class="cap">The bot, holding its own mid-match</p>
+          <div class="spread">
+            <figure class="spread__media moh-figure">
+              <svg viewBox="0 0 440 310" role="img" aria-label="Diagram of the bot's decision loop: a game event triggers it to score every legal play (generic value by card type plus a hand-tuned branch for about forty named cards), it plays the highest score, and difficulty sets how fast it acts">
+                <defs>
+                  <marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#0e0e0e" />
+                  </marker>
+                </defs>
+                <g font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">
+                  <rect x="100" y="10" width="240" height="46" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="32" font-size="12.5" fill="#0e0e0e">Game event</text>
+                  <text x="220" y="46" font-size="8.5" fill="#6b6b6b">card moved · combat · inspiration</text>
+
+                  <line x1="220" y1="56" x2="220" y2="80" stroke="#0e0e0e" marker-end="url(#ahb)" />
+
+                  <rect x="40" y="84" width="360" height="62" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="220" y="106" font-size="12.5" fill="#0e0e0e">Score every legal play</text>
+                  <text x="220" y="122" font-size="8.5" fill="#5a7a14">generic value, by card type</text>
+                  <text x="220" y="135" font-size="8.5" fill="#5a7a14">+ a hand-tuned branch for ~40 cards</text>
+
+                  <line x1="220" y1="146" x2="220" y2="170" stroke="#0e0e0e" marker-end="url(#ahb)" />
+
+                  <rect x="100" y="174" width="240" height="44" fill="#f3f8e6" stroke="#5a7a14" stroke-width="2" />
+                  <text x="220" y="201" font-size="12.5" fill="#0e0e0e">Play the highest score</text>
+
+                  <line x1="220" y1="218" x2="220" y2="242" stroke="#0e0e0e" marker-end="url(#ahb)" />
+
+                  <rect x="60" y="246" width="320" height="54" fill="#fbfaf5" stroke="#0e0e0e" />
+                  <text x="220" y="268" font-size="11.5" fill="#0e0e0e">Difficulty sets how fast it acts</text>
+                  <text x="220" y="285" font-size="8.5" fill="#6b6b6b">Easy 10s · Hard 4s · Extreme 2s</text>
+                </g>
+              </svg>
+              <figcaption>The bot · score every play, take the best</figcaption>
+            </figure>
+            <div class="spread__text">
+              <h3>How the bot decides</h3>
+              <p>
+                The bot the team built is a hand-tuned scoring engine, not a search. On every
+                game event it scores each legal play, generic value by card type plus a specific
+                branch for about forty named cards, and plays the highest score. Difficulty only
+                changes how fast it acts. My job was finding where that scoring broke.
+              </p>
             </div>
           </div>
         </div>
