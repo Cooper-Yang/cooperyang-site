@@ -2180,3 +2180,19 @@ video {
     margin: 0 auto;
   }
 }
+
+/* Serif lead paragraph — larger Fraunces setting for short intro/standalone
+   paragraphs that would otherwise read as small body text marooned in white
+   space. The bigger type fills the column far more naturally. */
+.moh-lead,
+.spread__text p.moh-lead {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+  line-height: 1.42;
+  letter-spacing: -0.005em;
+  color: var(--color-ink);
+  max-width: 52ch;
+  margin: 0;
+}
