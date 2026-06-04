@@ -2119,39 +2119,37 @@ video {
   line-height: 1.55;
 }
 
-/* GDC photo gallery — two large stacked rows (portrait booth + landscape team) */
+/* GDC photos — one compact row, equal height, no cropping. Each item's
+   flex-grow is its image aspect ratio (w/h), so both render at the same
+   height while keeping their natural proportions. */
 .moh-gdc {
   display: flex;
-  flex-direction: column;
-  gap: clamp(1.4rem, 2.6vw, 2.2rem);
+  align-items: flex-start;
+  gap: clamp(0.6rem, 1.4vw, 1rem);
   margin-top: 0.5rem;
 }
-.moh-gdc__row {
+.moh-gdc__item {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-width: 0;
 }
-.moh-gdc__row img {
+.moh-gdc__item--portrait {
+  flex: 0.75 1 0; /* 1300 / 1734 */
+}
+.moh-gdc__item--landscape {
+  flex: 1.3333 1 0; /* 1800 / 1350 */
+}
+.moh-gdc__item img {
   display: block;
+  width: 100%;
   height: auto;
   border-radius: 2px;
   filter: saturate(0.94);
   transition: filter 0.4s var(--ease-out-expo);
 }
-.moh-gdc__row img:hover {
+.moh-gdc__item img:hover {
   filter: saturate(1.05);
 }
-.moh-gdc__row--wide img {
-  width: 100%;
-}
-.moh-gdc__row--tall img {
-  width: auto;
-  max-width: 100%;
-  max-height: 88vh;
-}
-.moh-gdc__row .cap {
-  align-self: stretch;
+.moh-gdc__item .cap {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
@@ -2160,8 +2158,25 @@ video {
   color: var(--color-ink-soft);
   margin: 0.5rem 0 0;
 }
-.moh-gdc__row .cap::before {
+.moh-gdc__item .cap::before {
   content: '— ';
   color: var(--color-ink);
   opacity: 0.5;
+}
+/* Stack on narrow screens so neither photo gets too small */
+@media (max-width: 880px) {
+  .moh-gdc {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .moh-gdc__item--portrait,
+  .moh-gdc__item--landscape {
+    flex: none;
+  }
+  .moh-gdc__item--portrait img {
+    width: auto;
+    max-width: 100%;
+    max-height: 78vh;
+    margin: 0 auto;
+  }
 }
