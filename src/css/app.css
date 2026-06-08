@@ -2301,7 +2301,9 @@ video {
 
 /* ============================================
    Emphasis (was serif-italic) — now Satoshi.
-   Display/heading <em> reads via accent colour; body <em> via weight.
+   Titles/headings read uniformly (no arbitrary accent tint on a single
+   word); body <em> carries a touch of weight. The old colour-the-last-word
+   device was dropped — see git note "Horror" had no meaning.
    ============================================ */
 .home-intro__name em,
 .project-head__title em,
@@ -2309,12 +2311,10 @@ video {
 .project-chapter__body > h3 em,
 .type-h2 em,
 .type-serif-display em,
-.index-row .title em {
-  color: var(--color-accent-strong);
-}
+.index-row .title em,
 .tile__title em,
 .site-footer .wordmark em {
-  color: var(--color-accent);
+  color: inherit;
 }
 .spread__text p em,
 .project-summary__col p em,
@@ -2326,13 +2326,16 @@ video {
   color: inherit;
 }
 
-/* Inline accent words (swept from old serif-italic spans) */
+/* Inline emphasis words (swept from old serif-italic spans). Carry a touch
+   of weight for key terms in prose; no arbitrary colour tint. */
 .txt-accent {
   font-family: var(--font-display);
   font-weight: 600;
   font-style: normal;
-  color: var(--color-accent-strong);
+  color: inherit;
 }
+/* The footer wordmark reads as one solid mark, no split-colour surname. */
 .site-footer .wordmark .txt-accent {
-  color: var(--color-accent);
+  font-weight: inherit;
+  color: inherit;
 }
