@@ -2360,3 +2360,99 @@ video {
   font-weight: inherit;
   color: inherit;
 }
+
+/* ============================================
+   Chapter nav — sticky table of contents on long project pages.
+   Built by chapterNav.js; desktop only. Below the breakpoint it stays
+   hidden and the page reads top-to-bottom as normal.
+   ============================================ */
+.chapter-nav {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .chapter-nav {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: clamp(1.25rem, 2.4vw, 2.5rem);
+    transform: translateY(-50%);
+    width: 198px;
+    max-height: 74vh;
+    overflow-y: auto;
+    z-index: 40;
+    scrollbar-width: none;
+  }
+  .chapter-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Shift the reading column right to clear the rail. max-width is bumped by
+     the gutter so the actual text measure is unchanged, just re-centred. */
+  .has-chapter-nav .page--project {
+    max-width: 1660px;
+    padding-left: 260px;
+  }
+
+  .chapter-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--color-line);
+  }
+
+  .chapter-nav__item {
+    margin: 0;
+  }
+
+  .chapter-nav__link {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr;
+    align-items: baseline;
+    gap: 0.55rem;
+    padding: 0.5rem 0 0.5rem 0.85rem;
+    margin-left: -1px;
+    border-left: 1px solid transparent;
+    color: var(--color-ink-soft);
+    transition:
+      color 0.3s var(--ease-out-expo),
+      border-color 0.3s var(--ease-out-expo);
+  }
+
+  .chapter-nav__num {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+  }
+
+  .chapter-nav__title {
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .chapter-nav__link:hover {
+    color: var(--color-ink);
+  }
+
+  .chapter-nav__item.is-active .chapter-nav__link {
+    color: var(--color-ink);
+    border-left-color: var(--color-ink);
+  }
+  .chapter-nav__item.is-active .chapter-nav__num {
+    color: var(--color-accent-strong);
+    opacity: 1;
+  }
+  .chapter-nav__item.is-active .chapter-nav__title {
+    font-weight: 500;
+  }
+}
+
+/* Don't reserve the gutter / show the rail when printing. */
+@media print {
+  .chapter-nav {
+    display: none;
+  }
+}
