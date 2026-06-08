@@ -19,14 +19,15 @@
   --color-accent-strong: #5a7a14;
 
   /* Fonts — simplified stack
-     - Display + serif accents share Fraunces (variable). Regular for headings, italic for
-       accents / pullquote-style moments.
-     - Body + UI uses Satoshi (sans).
-     - Mono reserved for small tech labels only. */
-  --font-display: 'Fraunces', 'Tiempos Headline', Georgia, serif;
+     - Two-typeface system: Satoshi for everything display + body, JetBrains Mono for
+       small tech labels / meta / numbers. No serif. Emphasis = weight + accent colour,
+       never italic (Satoshi italic isn't loaded, so italic would be synthesised/ugly).
+     - --font-display and --font-serif are kept as aliases (now Satoshi) so the many
+       existing references don't all need rewriting. */
+  --font-display: 'Satoshi', 'Inter', system-ui, sans-serif;
   --font-sans: 'Satoshi', 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
-  --font-serif: 'Fraunces', 'Tiempos Headline', Georgia, serif;
+  --font-serif: 'Satoshi', 'Inter', system-ui, sans-serif;
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -159,40 +160,40 @@ video {
 /* ============================================
    Serif accents — classy / Y2K texture
    ============================================ */
+/* Accent words — were serif-italic, now Satoshi distinguished by accent colour */
 .serif {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--color-accent-strong);
 }
 
 .serif-up {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  /* optically match display type sitting next to it */
-  font-size: 1.04em;
-  line-height: 0.9;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-accent-strong);
 }
 
 .type-serif-display {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
   font-size: clamp(2rem, 6vw, 5.5rem);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .type-pullquote {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
   font-size: clamp(1.75rem, 4.5vw, 4rem);
   line-height: 1.08;
-  letter-spacing: -0.015em;
-  max-width: 22ch;
+  letter-spacing: -0.025em;
+  max-width: 26ch;
 }
 
 .type-pullquote::before {
@@ -209,10 +210,10 @@ video {
   color: var(--color-accent-strong);
 }
 
-/* Newsprint-style caption under media */
+/* Caption under media */
 .caption-serif {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-style: normal;
   font-weight: 400;
   font-size: 0.85rem;
   line-height: 1.4;
@@ -220,14 +221,14 @@ video {
   max-width: 52ch;
 }
 
-/* small inline serif italic — for swap-in words inside mono meta */
+/* small accent mark inside mono meta (— · /) */
 .meta-accent {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.05em;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
+  color: var(--color-accent-strong);
 }
 
 /* ============================================
@@ -288,13 +289,33 @@ video {
   text-transform: none;
 }
 .top-bar .brand--mark em {
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
 .top-bar nav {
   display: flex;
   gap: 1.5rem;
+}
+
+/* Phone: tighten so brand + 4 links fit one row without crowding */
+@media (max-width: 600px) {
+  .top-bar {
+    padding: 0.8rem 1.05rem;
+    gap: 0.6rem;
+  }
+  .top-bar nav {
+    gap: 0.8rem;
+  }
+  .top-bar .brand,
+  .top-bar nav a {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+  .top-bar .brand--mark {
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+  }
 }
 
 .top-bar nav a {
@@ -476,6 +497,40 @@ video {
   }
 }
 
+/* Phone: two-line rows — title + year up top, role beneath, no squashing */
+@media (max-width: 620px) {
+  .index-row {
+    grid-template-columns: 1.6rem 1fr auto;
+    grid-template-areas:
+      'num title year'
+      'num role  role';
+    column-gap: 0.7rem;
+    row-gap: 0.15rem;
+    align-items: baseline;
+    padding-block: 0.95rem;
+  }
+  .index-row .num {
+    grid-area: num;
+    align-self: start;
+    padding-top: 0.2rem;
+  }
+  .index-row .title {
+    grid-area: title;
+    font-size: 1.3rem;
+    line-height: 1.12;
+  }
+  .index-row .year {
+    grid-area: year;
+    align-self: start;
+    padding-top: 0.3rem;
+  }
+  .index-row .role {
+    grid-area: role;
+    display: block;
+    opacity: 0.6;
+  }
+}
+
 /* ============================================
    Image preview following cursor (desktop)
    ============================================ */
@@ -646,7 +701,7 @@ video {
 }
 
 .home-intro__name em {
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -702,17 +757,43 @@ video {
 }
 
 @media (max-width: 720px) {
-  .bento {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 0.75rem;
+  /* Release the locked single-screen home so it scrolls naturally on phones */
+  body.home {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
     overflow-y: auto;
   }
-  .tile--moh,
-  .tile--synced,
-  .tile--archive {
+  .home-stage {
+    height: auto;
+    grid-template-rows: auto auto;
+    padding-bottom: 2.5rem;
+  }
+  .bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    gap: 0.6rem;
+    overflow: visible;
+  }
+  /* every tile becomes a real card with its own height.
+     .bento-scoped for specificity so these beat the desktop grid placements */
+  .bento .tile {
+    aspect-ratio: 3 / 2;
     grid-column: auto;
     grid-row: auto;
+  }
+  .bento .tile--moh,
+  .bento .tile--synced {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: 16 / 10;
+  }
+  .bento .tile--archive {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: auto;
+    min-height: 92px;
   }
 }
 
@@ -813,7 +894,7 @@ video {
 }
 
 .tile__title em {
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -949,7 +1030,7 @@ video {
 }
 
 .project-head__title em {
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -981,7 +1062,7 @@ video {
 }
 
 .project-head__meta dd em {
-  font-style: italic;
+  font-style: normal;
 }
 
 .project-head__meta dd a {
@@ -1053,7 +1134,7 @@ video {
 }
 
 .project-summary__col p em {
-  font-style: italic;
+  font-style: normal;
   font-family: var(--font-serif);
 }
 
@@ -1095,7 +1176,7 @@ video {
 }
 
 .project-contribs li em {
-  font-style: italic;
+  font-style: normal;
   font-family: var(--font-serif);
 }
 
@@ -1142,7 +1223,7 @@ video {
 }
 
 .project-chapter__head h2 em {
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -1293,7 +1374,7 @@ video {
 .spread__media .cap {
   grid-column: 1 / -1;
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   font-size: 0.82rem;
   line-height: 1.35;
@@ -1321,7 +1402,7 @@ video {
   margin-bottom: 1rem;
 }
 .project-chapter__body > h3 em {
-  font-style: italic;
+  font-style: normal;
 }
 
 .spread__text h3 {
@@ -1343,13 +1424,13 @@ video {
   content: '§';
   color: var(--color-accent-strong);
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.1em;
   line-height: 1;
 }
 
 .spread__text h3 em {
-  font-style: italic;
+  font-style: normal;
   font-family: var(--font-serif);
   text-transform: none;
   letter-spacing: 0;
@@ -1369,7 +1450,7 @@ video {
 }
 
 .spread__text p em {
-  font-style: italic;
+  font-style: normal;
   font-family: var(--font-serif);
 }
 
@@ -1424,7 +1505,7 @@ video {
 
 .project-next a {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: clamp(1.75rem, 3.2vw, 2.75rem);
   line-height: 1;
@@ -1441,17 +1522,19 @@ video {
   .project-summary,
   .spread,
   .spread--reverse {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
   .spread--reverse .spread__media {
     order: 1;
   }
   .project-head__title {
-    font-size: clamp(2.25rem, 9vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    overflow-wrap: break-word;
   }
   .project-chapter__head h2 {
     font-size: clamp(1.5rem, 7vw, 2rem);
+    overflow-wrap: break-word;
   }
   .project-next {
     flex-direction: column;
@@ -1480,6 +1563,16 @@ video {
   white-space: nowrap;
   overflow: hidden;
   margin-top: 3rem;
+}
+
+/* Phone: let the giant wordmark wrap to two lines instead of clipping mid-word */
+@media (max-width: 720px) {
+  .site-footer .wordmark {
+    white-space: normal;
+    word-break: break-word;
+    font-size: clamp(3.25rem, 19vw, 6rem);
+    line-height: 0.92;
+  }
 }
 
 .site-footer a {
@@ -1638,6 +1731,8 @@ video {
   border: 1px solid var(--color-ink);
   overflow: hidden;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   align-self: start;
 }
 
@@ -1738,7 +1833,7 @@ video {
 }
 .code-block-body .cmt {
   color: var(--code-dim);
-  font-style: italic;
+  font-style: normal;
 }
 .code-block-body .num {
   color: #c9a8ee;
@@ -1853,6 +1948,7 @@ video {
    ============================================ */
 .moh-heat__graph {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   border: 1px solid var(--color-line);
   background: #faf8f2;
@@ -1864,6 +1960,13 @@ video {
   min-width: 660px;
   width: 100%;
   height: auto;
+}
+/* Phone: let the calendar scale to fit rather than force a 660px scroll box */
+@media (max-width: 720px) {
+  .moh-heat__graph svg,
+  .moh-heat__graph img {
+    min-width: 0;
+  }
 }
 
 /* stat strip (reused: effort band + producer numbers) */
@@ -1887,7 +1990,7 @@ video {
   font-feature-settings: 'tnum';
 }
 .moh-stat .n em {
-  font-style: italic;
+  font-style: normal;
   color: var(--color-accent-strong);
 }
 .moh-stat .l {
@@ -2065,7 +2168,7 @@ video {
 }
 .moh-war h4 {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
@@ -2151,7 +2254,7 @@ video {
 }
 .moh-gdc__item .cap {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   font-size: 0.82rem;
   line-height: 1.35;
@@ -2181,18 +2284,55 @@ video {
   }
 }
 
-/* Serif lead paragraph — larger Fraunces setting for short intro/standalone
-   paragraphs that would otherwise read as small body text marooned in white
-   space. The bigger type fills the column far more naturally. */
+/* Lead paragraph — larger Satoshi setting for short intro/standalone paragraphs
+   that would otherwise read as small body text marooned in white space. */
 .moh-lead,
 .spread__text p.moh-lead {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-weight: 450;
   font-style: normal;
-  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
-  line-height: 1.42;
+  font-size: clamp(1.18rem, 1.6vw, 1.5rem);
+  line-height: 1.5;
   letter-spacing: -0.005em;
   color: var(--color-ink);
-  max-width: 52ch;
+  max-width: 58ch;
   margin: 0;
+}
+
+/* ============================================
+   Emphasis (was serif-italic) — now Satoshi.
+   Display/heading <em> reads via accent colour; body <em> via weight.
+   ============================================ */
+.home-intro__name em,
+.project-head__title em,
+.project-chapter__head h2 em,
+.project-chapter__body > h3 em,
+.type-h2 em,
+.type-serif-display em,
+.index-row .title em {
+  color: var(--color-accent-strong);
+}
+.tile__title em,
+.site-footer .wordmark em {
+  color: var(--color-accent);
+}
+.spread__text p em,
+.project-summary__col p em,
+.project-contribs li em,
+.project-head__meta dd em,
+.type-body em {
+  font-weight: 600;
+  font-style: normal;
+  color: inherit;
+}
+
+/* Inline accent words (swept from old serif-italic spans) */
+.txt-accent {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-accent-strong);
+}
+.site-footer .wordmark .txt-accent {
+  color: var(--color-accent);
 }
