@@ -166,7 +166,7 @@ video {
   font-style: normal;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--color-accent-strong);
+  color: inherit;
 }
 
 .serif-up {
@@ -174,7 +174,7 @@ video {
   font-style: normal;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--color-accent-strong);
+  color: inherit;
 }
 
 .type-serif-display {
@@ -298,26 +298,6 @@ video {
   gap: 1.5rem;
 }
 
-/* Phone: tighten so brand + 4 links fit one row without crowding */
-@media (max-width: 600px) {
-  .top-bar {
-    padding: 0.8rem 1.05rem;
-    gap: 0.6rem;
-  }
-  .top-bar nav {
-    gap: 0.8rem;
-  }
-  .top-bar .brand,
-  .top-bar nav a {
-    font-size: 0.58rem;
-    letter-spacing: 0.08em;
-  }
-  .top-bar .brand--mark {
-    font-size: 1rem;
-    letter-spacing: -0.01em;
-  }
-}
-
 .top-bar nav a {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -345,6 +325,27 @@ video {
   transform-origin: left center;
 }
 
+/* Phone: tighten so brand + 4 links fit one row without crowding.
+   Declared AFTER the base rules above so it actually wins the cascade. */
+@media (max-width: 600px) {
+  .top-bar {
+    padding: 0.8rem 1.05rem;
+    gap: 0.6rem;
+  }
+  .top-bar nav {
+    gap: 0.8rem;
+  }
+  .top-bar .brand,
+  .top-bar nav a {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+  .top-bar .brand--mark {
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+  }
+}
+
 .home .top-bar {
   height: var(--home-top-bar-height);
   padding-block: 0;
@@ -366,6 +367,26 @@ video {
 .container {
   max-width: 1600px;
   margin: 0 auto;
+}
+
+/* About bio: portrait + text. Two columns on wider screens, stacked
+   (portrait on top, full-width text) on phones so the copy isn't squeezed
+   into a ~200px column. */
+.about-bio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .about-bio {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .about-bio > div:first-child {
+    max-width: 320px;
+  }
 }
 
 .edge {
