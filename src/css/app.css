@@ -164,7 +164,7 @@ video {
 .serif {
   font-family: var(--font-display);
   font-style: normal;
-  font-weight: 600;
+  font-weight: inherit;
   letter-spacing: -0.01em;
   color: inherit;
 }
@@ -172,7 +172,7 @@ video {
 .serif-up {
   font-family: var(--font-display);
   font-style: normal;
-  font-weight: 600;
+  font-weight: inherit;
   letter-spacing: -0.02em;
   color: inherit;
 }
@@ -1578,11 +1578,10 @@ video {
 .site-footer .wordmark {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(4rem, 20vw, 22rem);
-  line-height: 0.88;
+  font-size: clamp(3.5rem, 17vw, 16rem);
+  line-height: 0.9;
   letter-spacing: -0.04em;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
   margin-top: 3rem;
 }
 
@@ -2342,18 +2341,25 @@ video {
 .project-contribs li em,
 .project-head__meta dd em,
 .type-body em {
-  font-weight: 600;
+  font-weight: inherit;
   font-style: normal;
   color: inherit;
 }
 
-/* Inline emphasis words (swept from old serif-italic spans). Carry a touch
-   of weight for key terms in prose; no arbitrary colour tint. */
+/* Inline emphasis words (swept from old serif-italic spans). Now read at the
+   surrounding weight — no heavy bold in body copy; emphasis lives in titles
+   and pullquotes instead. */
 .txt-accent {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: inherit;
   font-style: normal;
   color: inherit;
+}
+
+/* Body <strong> stays a gentle medium for genuinely important terms, never
+   the browser-default heavy bold. */
+strong {
+  font-weight: 500;
 }
 /* The footer wordmark reads as one solid mark, no split-colour surname. */
 .site-footer .wordmark .txt-accent {
